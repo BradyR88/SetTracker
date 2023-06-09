@@ -22,7 +22,7 @@ struct Grade: Comparable {
     }
     
     static func < (lhs: Grade, rhs: Grade) -> Bool {
-        guard let lhsGrade = lhs.grade else { return false }
+        guard let lhsGrade = lhs.grade else { return true }
         guard let rhsGrade = rhs.grade else { return true }
         
         return lhsGrade < rhsGrade
