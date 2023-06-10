@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-//@Model
-//final class Gym {
-//    var zones: [Zone]
-//}
+@Model
+final class Gym {
+    var zones: [Zone]
+}

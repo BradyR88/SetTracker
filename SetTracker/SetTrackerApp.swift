@@ -13,8 +13,8 @@ struct SetTrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
-        .modelContainer(for: Item.self)
+//        .modelContainer(for: Gym.self)
     }
 }

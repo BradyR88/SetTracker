@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Grade: Comparable {
+struct Grade: Codable, Comparable {
     var planded: Int?
     var actual: Int?
     
@@ -26,12 +26,5 @@ struct Grade: Comparable {
         guard let rhsGrade = rhs.grade else { return true }
         
         return lhsGrade < rhsGrade
-    }
-}
-
-extension Grade {
-    init(planded: Int?) {
-        self.planded = planded
-        self.actual = nil
     }
 }

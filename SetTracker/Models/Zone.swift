@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Zone: Identifiable {
-    let id: UUID = UUID()
+struct Zone: Codable {
+    let id: String
     
-    var names: String
+    var name: String
     var climb: [Climb]
 }

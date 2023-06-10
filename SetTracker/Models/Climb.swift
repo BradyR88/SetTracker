@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Climb: Identifiable {
-    let id: UUID = UUID()
+
+struct Climb: Codable, Identifiable {
+    let id: UUID
     
     var seter: String?
     var dateUp: Date?
@@ -34,7 +35,7 @@ struct Climb: Identifiable {
 
 
 extension Climb {
-    enum Style: String {
+    enum Style: String, Codable {
         case crimp, sloper, power, dino, endurance, technical, morpho, bored
     }
 }
