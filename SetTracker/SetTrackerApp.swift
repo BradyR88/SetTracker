@@ -15,6 +15,6 @@ struct SetTrackerApp: App {
         WindowGroup {
             HomeView()
         }
-//        .modelContainer(for: Gym.self)
+        .modelContainer(for: Gym.self)
     }
 }
