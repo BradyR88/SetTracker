@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddGymView: View {
     @State private var gymName: String = ""
-    @State private var zoneCount: Int = 0
+    @State private var zoneCount: Int = 3 // need to add 1 because of how the pickerworks
     
     var body: some View {
         Form {
@@ -17,10 +17,11 @@ struct AddGymView: View {
                 Text("Gym Name")
             }
             Picker("Number of Zones", selection: $zoneCount) {
-                ForEach(1..<100) { 
-                    Text("\($0) Zones").tag($0)
+                ForEach(1..<100) { num in
+                    Text("\(num) Zones")
                 }
             }
+            Text("\(zoneCount)")
         }
         .navigationTitle("Add Gym")
     }

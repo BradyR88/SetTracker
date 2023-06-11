@@ -12,6 +12,9 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var gyms: [Gym]
     
+    @State private var gymIndex: Int = 0
+    @State private var showingSheet = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -20,22 +23,35 @@ struct HomeView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
                 ToolbarItem {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
+                
+                
+                ToolbarItem(placement: .principal) {
+                    Text("asdf")
+                }
             }
+            .toolbarTitleMenu {
+                ForEach(gyms.indices) { index in
+                    Button(gyms[index].name) {
+                        gymIndex = index
+                    }
+                }
+            }
+            .sheet(isPresented: $showingSheet, content: {
+                AddGymView()
+            })
         }
     }
     
     private func addItem() {
         withAnimation {
-            let newItem = Gym.example
+            let newItem = Gym(name: "test", zones: [])
             modelContext.insert(newItem)
         }
     }

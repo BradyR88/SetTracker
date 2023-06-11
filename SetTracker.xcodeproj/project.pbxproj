@@ -110,9 +110,9 @@
 			children = (
 				73553BF32A33B375005974C8 /* SetTrackerApp.swift */,
 				738FA2662A33EA4700CAB9CA /* Views */,
-				73553BF72A33B377005974C8 /* Assets.xcassets */,
 				73553C1F2A33B38A005974C8 /* Models */,
 				73553BF92A33B377005974C8 /* Preview Content */,
+				73553BF72A33B377005974C8 /* Assets.xcassets */,
 			);
 			path = SetTracker;
 			sourceTree = "<group>";
