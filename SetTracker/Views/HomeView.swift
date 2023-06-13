@@ -12,16 +12,18 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var gyms: [Gym]
     
-    @State private var gymIndex: Int = 0
+    @State private var gymId: UUID? = nil
     @State private var showingSheet = false
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(gyms) { gym in
-                    Text("gym name: \(gym.name)")
+            Group {
+                if let gym = gyms.first(where: { $0.id == gymId}) {
+//                    GymSummaryView(gym: gym)
+                    EmptyView()
+                } else {
+                    ContentUnavailableView("No Gym", systemImage: "square.stack.3d.up.slash", description: nil)
                 }
-                .onDelete(perform: deleteItems)
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -31,16 +33,18 @@ struct HomeView: View {
                     }
                 }
                 
-                
                 ToolbarItem(placement: .principal) {
-                    Text("asdf")
+                    Text("Gym")
                 }
             }
             .toolbarTitleMenu {
-                ForEach(gyms.indices) { index in
-                    Button(gyms[index].name) {
-                        gymIndex = index
+                ForEach(gyms) { gym in
+                    Button(gym.name) {
+                        gymId = gym.id
                     }
+                }
+                Button("Add Gym") {
+                    showingSheet.toggle()
                 }
             }
             .sheet(isPresented: $showingSheet, content: {

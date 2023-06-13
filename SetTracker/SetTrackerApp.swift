@@ -13,7 +13,7 @@ struct SetTrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            GymPickerView()
         }
         .modelContainer(for: Gym.self)
     }

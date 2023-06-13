@@ -8,27 +8,47 @@
 import SwiftUI
 
 struct AddGymView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var gymName: String = ""
     @State private var zoneCount: Int = 3 // need to add 1 because of how the pickerworks
     
     var body: some View {
-        Form {
-            TextField(text: $gymName) {
-                Text("Gym Name")
+        NavigationStack {
+            Form {
+                TextField(text: $gymName) {
+                    Text("Gym Name")
+                }
+                Picker("Number of Zones", selection: $zoneCount) {
+                    ForEach(1..<100) { num in
+                        Text("\(num) Zones")
+                    }
+                }
+                Text("\(zoneCount)")
             }
-            Picker("Number of Zones", selection: $zoneCount) {
-                ForEach(1..<100) { num in
-                    Text("\(num) Zones")
+            .navigationTitle("Add Gym")
+            .toolbar {
+                Button("Dismiss") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                
+                Button("Save") {
+                    let idea = Gym(name: gymName, zones: [])
+                    modelContext.insert(idea)
+                    presentationMode.wrappedValue.dismiss()
                 }
             }
-            Text("\(zoneCount)")
+            .presentationDetents([.medium])
         }
-        .navigationTitle("Add Gym")
     }
 }
 
 #Preview {
-    NavigationView{
-        AddGymView()
-    }
+    Text("test")
+        .sheet(isPresented: .constant(true)) {
+            AddGymView()
+                .presentationDetents([.medium])
+        }
+    
 }

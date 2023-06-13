@@ -22,6 +22,6 @@ final class Gym: Identifiable {
 }
 
 // Provides example data to use in previews
-extension Gym {
-    static let example = Gym(name: "Alchemy", zones: [])
-}
+//extension Gym {
+//    static let example = Gym(name: "Alchemy", zones: [])
+//}
