@@ -26,8 +26,8 @@ struct Climb: Codable, Identifiable {
             }
         }
     }
-    var daysUp: Int {
-        guard let dateUp = dateUp else { return 0 }
+    var daysUp: Int? {
+        guard let dateUp = dateUp else { return nil }
         let to = dateDown ?? Date()
         return Calendar.current.dateComponents([.day], from: dateUp, to: to).day ?? 0
     }

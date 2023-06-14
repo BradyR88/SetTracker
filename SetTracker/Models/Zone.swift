@@ -11,12 +11,34 @@ struct Zone: Codable {
     let id: UUID
     
     var name: String
-    var climb: [Climb]
+    var climbs: [Climb]
+    
+    var daysSinceLastSet: (description: String, days: Int?) {
+        get {
+            var days: Int? = nil
+            
+            for climb in climbs {
+                if days == nil {
+                    days = climb.daysUp
+                } else if let daysUp = climb.daysUp {
+                    if daysUp > days! {
+                        days = daysUp
+                    }
+                }
+            }
+            
+            if days == nil {
+                return ("Unknown.",nil)
+            } else {
+                return ("Last set \(String(describing: days)) ago.", days)
+            }
+        }
+    }
     
     init(name: String, climb: [Climb]) {
         self.id = UUID()
         self.name = name
-        self.climb = climb
+        self.climbs = climb
     }
 }
 
