@@ -10,15 +10,17 @@ import Foundation
 struct Zone: Codable {
     let id: UUID
     
-    var name: String?
+    var name: String
     var climb: [Climb]
     
-    init(name: String? = nil, climb: [Climb]) {
+    init(name: String, climb: [Climb]) {
         self.id = UUID()
         self.name = name
         self.climb = climb
     }
 }
+
+extension Zone: Identifiable { }
 
 extension Zone {
     static let examples = [

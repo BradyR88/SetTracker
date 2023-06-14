@@ -9,10 +9,19 @@ import SwiftUI
 import SwiftData
 
 struct GymSummaryView: View {
-    @Bindable var gym: Gym
+    var gym: Gym
     
     var body: some View {
-        GradeChartView(climbs: gym.allClimbs)
+        VStack {
+            GradeChartView(climbs: gym.allClimbs)
+                .frame(height: 300)
+            
+            ScrollView {
+                ForEach(gym.zones) { zone in
+                    Text(zone.name)
+                }
+            }
+        }
     }
 }
 
