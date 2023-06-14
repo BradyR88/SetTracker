@@ -24,7 +24,7 @@ let previewContainer: ModelContainer = {
 
 struct SampleGyms {
     static var contents: [Gym] = [
-        Gym(name: "test 0", zones: []),
+        Gym(name: "test 0", zones: Zone.examples),
         Gym(name: "test 1", zones: []),
         Gym(name: "test 2", zones: []),
         Gym(name: "test 3", zones: []),

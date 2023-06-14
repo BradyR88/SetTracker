@@ -14,6 +14,12 @@ final class Gym {
     var name: String
     var zones: [Zone]
     
+    var allClimbs: [Climb] {
+        get {
+            zones.flatMap { $0.climb }
+        }
+    }
+    
     init(name: String, zones: [Zone]) {
         self.id = UUID()
         self.name = name
@@ -21,9 +27,9 @@ final class Gym {
     }
 }
 
-//extension Gym: Identifiable {}
+extension Gym: Identifiable {}
 
 // Provides example data to use in previews
 extension Gym {
-    static let example = Gym(name: "Alchemy", zones: [])
+    static let example = Gym(name: "Alchemy", zones: Zone.examples)
 }

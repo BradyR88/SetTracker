@@ -10,7 +10,7 @@ import SwiftData
 
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var gyms: [Gym]
+    @Query(sort: \.name) private var gyms: [Gym]
     
     @State private var gymId: UUID? = nil
     @State private var showingSheet = false
