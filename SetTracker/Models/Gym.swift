@@ -9,8 +9,8 @@ import Foundation
 import SwiftData
 
 @Model
-final class Gym: Identifiable {
-    let id: UUID
+final class Gym {
+    @Attribute(.unique) let id: UUID
     var name: String
     var zones: [Zone]
     
@@ -21,7 +21,9 @@ final class Gym: Identifiable {
     }
 }
 
+//extension Gym: Identifiable {}
+
 // Provides example data to use in previews
-//extension Gym {
-//    static let example = Gym(name: "Alchemy", zones: [])
-//}
+extension Gym {
+    static let example = Gym(name: "Alchemy", zones: [])
+}

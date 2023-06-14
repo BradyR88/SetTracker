@@ -22,6 +22,7 @@
 		735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB4B2A3634410098C791 /* GymSummaryView.swift */; };
 		738FA2652A33D94100CAB9CA /* ClimbTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2642A33D94100CAB9CA /* ClimbTest.swift */; };
 		738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2672A33EA6500CAB9CA /* HomeView.swift */; };
+		73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */; };
 		73F078392A38DCDA00BD6488 /* GymPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F078382A38DCDA00BD6488 /* GymPickerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		735FFB4B2A3634410098C791 /* GymSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSummaryView.swift; sourceTree = "<group>"; };
 		738FA2642A33D94100CAB9CA /* ClimbTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbTest.swift; sourceTree = "<group>"; };
 		738FA2672A33EA6500CAB9CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		73F078382A38DCDA00BD6488 /* GymPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				73553BFA2A33B377005974C8 /* Preview Assets.xcassets */,
+				73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -171,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				738FA2672A33EA6500CAB9CA /* HomeView.swift */,
-				73F078382A38DCDA00BD6488 /* GymPickerView.swift */,
 				735FFB4B2A3634410098C791 /* GymSummaryView.swift */,
+				73F078382A38DCDA00BD6488 /* GymPickerView.swift */,
 				735FFB482A35276D0098C791 /* AddGymView */,
 			);
 			path = Views;
@@ -314,6 +317,7 @@
 				73553C232A33B3C9005974C8 /* Gym.swift in Sources */,
 				738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */,
 				735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */,
+				73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */,
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
 				73F078392A38DCDA00BD6488 /* GymPickerView.swift in Sources */,

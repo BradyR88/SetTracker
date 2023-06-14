@@ -15,12 +15,26 @@ struct HomeView: View {
     @State private var gymId: UUID? = nil
     @State private var showingSheet = false
     
+    private var selectedGym: Gym? {
+        gyms.first { $0.id == gymId }
+    }
+    private var gymName: String {
+        if let gymId = gymId {
+            return gyms.first { $0.id == gymId }?.name ?? "Select Gym"
+        } else {
+            return "Select Gym"
+        }
+    }
+    
     var body: some View {
         NavigationView {
             Group {
-                if let gym = gyms.first(where: { $0.id == gymId}) {
-//                    GymSummaryView(gym: gym)
-                    EmptyView()
+                if !gyms.isEmpty {
+                    if let selectedGym = selectedGym {
+                        GymSummaryView(gym: selectedGym)
+                    } else {
+                        ContentUnavailableView("Select a Gym", systemImage: "square.stack.3d.up.slash", description: nil)
+                    }
                 } else {
                     ContentUnavailableView("No Gym", systemImage: "square.stack.3d.up.slash", description: nil)
                 }
@@ -34,7 +48,7 @@ struct HomeView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    Text("Gym")
+                    Text(gymName)
                 }
             }
             .toolbarTitleMenu {
@@ -70,6 +84,8 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
-        .modelContainer(for: Gym.self, inMemory: true)
+    MainActor.assumeIsolated {
+        HomeView()
+            .modelContainer(previewContainer)
+    }
 }
