@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Grade: Codable, Comparable {
+struct Grade: Codable {
     var planded: Int?
     var actual: Int?
     
@@ -20,7 +20,9 @@ struct Grade: Codable, Comparable {
             }
         }
     }
-    
+}
+
+extension Grade: Comparable {
     static func < (lhs: Grade, rhs: Grade) -> Bool {
         guard let lhsGrade = lhs.grade else { return true }
         guard let rhsGrade = rhs.grade else { return true }
@@ -28,3 +30,17 @@ struct Grade: Codable, Comparable {
         return lhsGrade < rhsGrade
     }
 }
+
+extension Grade: CustomStringConvertible {
+    var description: String {
+        get {
+            if let grade = grade {
+                return "V\(grade)"
+            } else {
+                return "No Grade"
+            }
+        }
+    }
+}
+
+extension Grade: Hashable { }
