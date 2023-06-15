@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
+    @Environment(\.modelContext) private var modelContext
     @Query(sort: \.name) private var gyms: [Gym]
     
     @State private var gymId: UUID? = nil
@@ -40,6 +41,29 @@ struct HomeView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Button("Add Gym") {
+                            showingSheet.toggle()
+                        }
+                        
+                        //Delete Gym
+                        if let selectedGym = selectedGym {
+                            Button("Delete Gym", role: .destructive) {
+                                withAnimation {
+                                    let toBeDeleted = selectedGym
+                                    gymId = nil
+                                    // apparently deleting might be bugged in this version, so I'm moving on without the feature
+                                    //modelContext.delete(toBeDeleted)
+                                }
+                                
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                    }
+                }
+                
                 ToolbarItem(placement: .principal) {
                     Text(gymName)
                 }
@@ -49,9 +73,6 @@ struct HomeView: View {
                     Button(gym.name) {
                         gymId = gym.id
                     }
-                }
-                Button("Add Gym") {
-                    showingSheet.toggle()
                 }
             }
             .sheet(isPresented: $showingSheet, content: {
