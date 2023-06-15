@@ -18,13 +18,21 @@ struct GymSummaryView: View {
             
             
             List(gym.zones) { zone in
-                HStack {
-                    Text(zone.name)
-                    Spacer()
-                    Text(zone.daysSinceLastSet.description)
+                NavigationLink(value: zone) {
+                    HStack {
+                        Text(zone.name)
+                        Spacer()
+                        Text(zone.daysSinceLastSet.description)
+                    }
+                }
+                .onSubmit {
+                    print("test")
                 }
             }
             
+        }
+        .navigationDestination(for: Zone.self) { zone in
+            ZoneSummaryView(zone: zone)
         }
     }
 }

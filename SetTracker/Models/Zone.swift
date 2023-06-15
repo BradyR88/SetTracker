@@ -44,6 +44,8 @@ struct Zone: Codable {
 
 extension Zone: Identifiable { }
 
+extension Zone: Hashable { }
+
 extension Zone {
     static let examples = [
         Zone(name: "Zone 1", climb: [Climb(grade: 1),Climb(grade: 3)]),

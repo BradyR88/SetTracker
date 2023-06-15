@@ -24,6 +24,7 @@
 		738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2672A33EA6500CAB9CA /* HomeView.swift */; };
 		73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */; };
 		73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */; };
+		73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */; };
 		73F078392A38DCDA00BD6488 /* GymPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F078382A38DCDA00BD6488 /* GymPickerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		738FA2672A33EA6500CAB9CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeChartView.swift; sourceTree = "<group>"; };
+		73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSummaryView.swift; sourceTree = "<group>"; };
 		73F078382A38DCDA00BD6488 /* GymPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 			children = (
 				738FA2672A33EA6500CAB9CA /* HomeView.swift */,
 				735FFB4B2A3634410098C791 /* GymSummaryView.swift */,
+				73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */,
 				73F078382A38DCDA00BD6488 /* GymPickerView.swift */,
 				73B6F9A52A3A29E5005AF153 /* Charts */,
 				735FFB482A35276D0098C791 /* AddGymView */,
@@ -323,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */,
+				73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */,
 				73553C292A33B3DA005974C8 /* Grade.swift in Sources */,
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
 				73553C232A33B3C9005974C8 /* Gym.swift in Sources */,
