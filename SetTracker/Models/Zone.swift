@@ -17,6 +17,8 @@ struct Zone: Codable {
         get {
             var days: Int? = nil
             
+            guard !climbs.isEmpty else { return ("Empty", nil) }
+            
             for climb in climbs {
                 if days == nil {
                     days = climb.daysUp
@@ -28,9 +30,9 @@ struct Zone: Codable {
             }
             
             if days == nil {
-                return ("Unknown.",nil)
+                return ("Unknown",nil)
             } else {
-                return ("Last set \(days!) days ago.", days)
+                return ("Last set \(days!) days ago", days)
             }
         }
     }
