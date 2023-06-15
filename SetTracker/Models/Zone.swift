@@ -30,7 +30,7 @@ struct Zone: Codable {
             if days == nil {
                 return ("Unknown.",nil)
             } else {
-                return ("Last set \(String(describing: days)) ago.", days)
+                return ("Last set \(days!) days ago.", days)
             }
         }
     }

@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    @Environment(\.modelContext) private var modelContext
     @Query(sort: \.name) private var gyms: [Gym]
     
     @State private var gymId: UUID? = nil
@@ -41,12 +40,6 @@ struct HomeView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-                
                 ToolbarItem(placement: .principal) {
                     Text(gymName)
                 }
@@ -64,21 +57,6 @@ struct HomeView: View {
             .sheet(isPresented: $showingSheet, content: {
                 AddGymView()
             })
-        }
-    }
-    
-    private func addItem() {
-        withAnimation {
-            let newItem = Gym(name: "test", zones: [])
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(gyms[index])
-            }
         }
     }
 }

@@ -16,15 +16,22 @@ struct GymSummaryView: View {
             GradeChartView(climbs: gym.allClimbs)
                 .frame(height: 300)
             
-            ScrollView {
-                ForEach(gym.zones) { zone in
+            
+            List(gym.zones) { zone in
+                HStack {
                     Text(zone.name)
+                    Spacer()
+                    Text(zone.daysSinceLastSet.description)
                 }
             }
+            
         }
     }
 }
 
-//#Preview {
-//        GymSummaryView(gym: Gym(name: "test", zones: []))
-//}
+#Preview {
+    MainActor.assumeIsolated {
+        HomeView()
+            .modelContainer(previewContainer)
+    }
+}
