@@ -35,7 +35,7 @@ struct Zone: Codable {
         }
     }
     
-    init(name: String, climb: [Climb]) {
+    init(name: String, climb: [Climb] = []) {
         self.id = UUID()
         self.name = name
         self.climbs = climb

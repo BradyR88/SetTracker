@@ -12,7 +12,7 @@ struct AddGymView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State private var gymName: String = ""
-    @State private var zoneCount: Int = 3 // need to add 1 because of how the pickerworks
+    @State private var zones: [Zone] = []
     
     var body: some View {
         NavigationStack {
@@ -20,12 +20,16 @@ struct AddGymView: View {
                 TextField(text: $gymName) {
                     Text("Gym Name")
                 }
-                Picker("Number of Zones", selection: $zoneCount) {
-                    ForEach(1..<100) { num in
-                        Text("\(num) Zones")
+                
+                Section("Zones") {
+                    ForEach($zones) { $zone in
+                        TextField("Zone Name", text: $zone.name)
+                    }
+                    
+                    Button("Add Zone") {
+                        addZone()
                     }
                 }
-                Text("\(zoneCount)")
             }
             .navigationTitle("Add Gym")
             .toolbar {
@@ -41,6 +45,18 @@ struct AddGymView: View {
             }
             .presentationDetents([.medium])
         }
+    }
+    
+    private func addZone() {
+        zones.append(Zone(name: "Zone \(zones.count + 1)"))
+    }
+    
+    private func save() {
+        withAnimation {
+            let newGym = Gym(name: gymName, zones: zones)
+            modelContext.insert(newGym)
+        }
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
