@@ -12,7 +12,8 @@ struct AddGymView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State private var gymName: String = ""
-    @State private var zones: [Zone] = []
+    @State private var zones: [Zone] = [Zone(name: "Zone 1")]
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationStack {
@@ -21,13 +22,20 @@ struct AddGymView: View {
                     Text("Gym Name")
                 }
                 
-                Section("Zones") {
+                Section {
                     ForEach($zones) { $zone in
                         TextField("Zone Name", text: $zone.name)
                     }
+                    .onDelete(perform: deleteZone)
                     
                     Button("Add Zone") {
                         addZone()
+                    }
+                } header: {
+                    Text("Zones")
+                } footer: {
+                    if zones.isEmpty {
+                        Text("Gym must have at least one zone.")
                     }
                 }
             }
@@ -38,11 +46,18 @@ struct AddGymView: View {
                 }
                 
                 Button("Save") {
-                    let idea = Gym(name: gymName, zones: [])
-                    modelContext.insert(idea)
-                    presentationMode.wrappedValue.dismiss()
+                    save()
                 }
             }
+            .alert("No Zones", isPresented: $showingAlert, actions: {
+                Button {
+                    addZone()
+                } label: {
+                    Text("OK")
+                }
+            }, message: {
+                Text("Gym must have at least one zone.")
+            })
             .presentationDetents([.medium])
         }
     }
@@ -52,11 +67,19 @@ struct AddGymView: View {
     }
     
     private func save() {
-        withAnimation {
-            let newGym = Gym(name: gymName, zones: zones)
-            modelContext.insert(newGym)
+        if zones.isEmpty {
+            showingAlert.toggle()
+        } else {
+            withAnimation {
+                let newGym = Gym(name: gymName, zones: zones)
+                modelContext.insert(newGym)
+            }
+            presentationMode.wrappedValue.dismiss()
         }
-        presentationMode.wrappedValue.dismiss()
+    }
+    
+    private func deleteZone(at offsets: IndexSet) {
+        zones.remove(atOffsets: offsets)
     }
 }
 
