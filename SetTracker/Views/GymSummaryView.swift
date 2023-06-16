@@ -25,9 +25,6 @@ struct GymSummaryView: View {
                         Text(zone.daysSinceLastSet.description)
                     }
                 }
-                .onSubmit {
-                    print("test")
-                }
             }
             
         }
