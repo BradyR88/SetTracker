@@ -6,15 +6,36 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ZoneSummaryView: View {
     var zone: Zone
     
+    @State private var showingSheat = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            GradeChartView(climbs: zone.climbs)
+            
+            List(zone.climbs) { climb in
+                HStack {
+                    Button(climb.grade.description) {
+                        showingSheat = true
+                    }
+                }
+            }
+            
+        }
+        .navigationTitle(zone.name)
+        .sheet(isPresented: $showingSheat, content: {
+            Text("test")
+        })
     }
 }
 
 #Preview {
-    ZoneSummaryView(zone: Zone.examples.first!)
+    NavigationStack {
+        ZoneSummaryView(zone: Zone.examples.first!)
+    }
+    
 }
