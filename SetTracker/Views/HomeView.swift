@@ -27,7 +27,7 @@ struct HomeView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Group {
                 if !gyms.isEmpty {
                     if let selectedGym = selectedGym {
