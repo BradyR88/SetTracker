@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734216512A43527200D248A2 /* ClimbEditSheet.swift */; };
 		73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553BF32A33B375005974C8 /* SetTrackerApp.swift */; };
 		73553BF82A33B377005974C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BF72A33B377005974C8 /* Assets.xcassets */; };
 		73553BFB2A33B377005974C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BFA2A33B377005974C8 /* Preview Assets.xcassets */; };
@@ -25,7 +26,6 @@
 		73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */; };
 		73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */; };
 		73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */; };
-		73F078392A38DCDA00BD6488 /* GymPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F078382A38DCDA00BD6488 /* GymPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		734216512A43527200D248A2 /* ClimbEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbEditSheet.swift; sourceTree = "<group>"; };
 		73553BF02A33B375005974C8 /* SetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73553BF32A33B375005974C8 /* SetTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackerApp.swift; sourceTree = "<group>"; };
 		73553BF72A33B377005974C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeChartView.swift; sourceTree = "<group>"; };
 		73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSummaryView.swift; sourceTree = "<group>"; };
-		73F078382A38DCDA00BD6488 /* GymPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +180,7 @@
 				738FA2672A33EA6500CAB9CA /* HomeView.swift */,
 				735FFB4B2A3634410098C791 /* GymSummaryView.swift */,
 				73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */,
-				73F078382A38DCDA00BD6488 /* GymPickerView.swift */,
+				734216512A43527200D248A2 /* ClimbEditSheet.swift */,
 				73B6F9A52A3A29E5005AF153 /* Charts */,
 				735FFB482A35276D0098C791 /* AddGymView */,
 			);
@@ -326,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */,
+				734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */,
 				73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */,
 				73553C292A33B3DA005974C8 /* Grade.swift in Sources */,
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
@@ -336,7 +337,6 @@
 				73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */,
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
-				73F078392A38DCDA00BD6488 /* GymPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

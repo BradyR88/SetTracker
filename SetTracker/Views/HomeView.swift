@@ -51,10 +51,10 @@ struct HomeView: View {
                         if let selectedGym = selectedGym {
                             Button("Delete Gym", role: .destructive) {
                                 withAnimation {
-                                    //let toBeDeleted = selectedGym
+                                    let toBeDeleted = selectedGym
                                     gymId = nil
                                     // apparently deleting might be bugged in this version, so I'm moving on without the feature
-                                    //modelContext.delete(toBeDeleted)
+                                    modelContext.delete(toBeDeleted)
                                 }
                                 
                             }

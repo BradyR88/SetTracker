@@ -82,6 +82,8 @@ extension Climb {
 }
 
 extension Climb {
+    static let example = Climb(seter: "Brady Roshaw", style: [.crimp,.morpho], grade: 6)
+    
     static let examples = [
         Climb(grade: 3),
         Climb(seter: "Brady", style: [.crimp,.technical], grade: 6),

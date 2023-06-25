@@ -30,6 +30,6 @@ struct ClimbEditSheet: View {
 //    
 //}
 
-#Preview {
-    ClimbEditSheet(climb: .constant(Climb.examples[0]))
-}
+//#Preview {
+//    ClimbEditSheet(climb: .constant(Climb.example))
+//}

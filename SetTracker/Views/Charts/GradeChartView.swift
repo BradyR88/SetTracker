@@ -27,6 +27,6 @@ struct GradeChartView: View {
     }
 }
 
-#Preview {
-    GradeChartView(climbs: Climb.examples)
-}
+//#Preview {
+//    GradeChartView(climbs: Climb.example)
+//}

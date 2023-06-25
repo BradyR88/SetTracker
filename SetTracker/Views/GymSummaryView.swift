@@ -29,7 +29,7 @@ struct GymSummaryView: View {
             
         }
         .navigationDestination(for: Zone.self) { zone in
-            ZoneSummaryView(zone: zone)
+            ZoneSummaryView(zone: .constant(Zone.examples[0]))
         }
     }
 }
