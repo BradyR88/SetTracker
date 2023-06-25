@@ -16,7 +16,7 @@ struct Climb: Codable, Identifiable {
     var dateDown: Date?
     var style: [Style]
     var grade: Grade
-    var color: holdColors?
+    var color: HoldColors?
     
     var isUp: Bool {
         get {
@@ -33,7 +33,7 @@ struct Climb: Codable, Identifiable {
         return Calendar.current.dateComponents([.day], from: dateUp, to: to).day ?? 0
     }
     
-    init(seter: String? = nil, style: [Style] = [], grade: Int, color: holdColors? = nil) {
+    init(seter: String? = nil, style: [Style] = [], grade: Int, color: HoldColors? = nil) {
         self.id = UUID()
         self.seter = seter
         self.dateUp = Date()
@@ -51,7 +51,7 @@ extension Climb {
         case crimp, sloper, power, dino, endurance, technical, morpho, bored
     }
     
-    enum holdColors: Codable {
+    enum HoldColors: Codable {
         case black, blue, purple, green, orange, white, yellow, brown, pink, red
         
         var uiColor: Color {
