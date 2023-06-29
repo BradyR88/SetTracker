@@ -13,7 +13,7 @@ final class Zone {
     let id: UUID
     
     var name: String
-    var climbs: [Climb]
+    @Relationship(.cascade) var climbs: [Climb]
     
     var daysSinceLastSet: (description: String, days: Int?) {
         get {

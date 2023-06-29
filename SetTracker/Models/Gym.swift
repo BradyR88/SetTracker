@@ -10,9 +10,9 @@ import SwiftData
 
 @Model
 final class Gym {
-    @Attribute(.unique) let id: UUID
+    let id: UUID
     var name: String
-    var zones: [Zone]
+    @Relationship(.cascade) var zones: [Zone]
     
     var allClimbs: [Climb] {
         get {
