@@ -5,19 +5,33 @@
 //  Created by Brady Robshaw on 6/9/23.
 //
 
+import SwiftData
 import Foundation
 import SwiftUI
 
-struct Climb: Codable, Identifiable {
+@Model
+final class Climb {
     let id: UUID
     
-    var seter: String?
+    private var seter: String?
     var dateUp: Date?
     var dateDown: Date?
     var style: [Style]
     var grade: Grade
     var color: HoldColors?
     
+    var safeSeterName: String {
+        get {
+            return seter ?? ""
+        }
+        set {
+            if newValue.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                self.seter = nil
+            } else {
+                self.seter = newValue
+            }
+        }
+    }
     var isUp: Bool {
         get {
             if dateDown == nil {
@@ -43,8 +57,6 @@ struct Climb: Codable, Identifiable {
         self.color = color
     }
 }
-
-extension Climb: Hashable { }
 
 extension Climb {
     enum Style: String, Codable {

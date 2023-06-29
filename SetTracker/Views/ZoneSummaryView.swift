@@ -11,34 +11,35 @@ import SwiftData
 struct ZoneSummaryView: View {
     @Binding var zone: Zone
     
-//    @State private var sheetClimb: Climb? = nil
+    @State private var selectedClimb: Climb? = nil
     
     var body: some View {
         VStack {
             GradeChartView(climbs: zone.climbs)
             
-            List {
-                ForEach($zone.climbs) { $climb in
-                    HStack {
-                        NavigationLink {
-                            ClimbEditSheet(climb: $climb)
-                        } label: {
-                            Text("\(climb.grade.description)")
+            if selectedClimb == nil {
+                List {
+                    ForEach(zone.climbs) { climb in
+                        HStack {
+                            Button {
+                                withAnimation {
+                                    selectedClimb = climb
+                                }
+                            } label: {
+                                Text("\(climb.grade.description)")
+                            }
                         }
                     }
+                    
+                    Button("Add Climb") {
+                        zone.climbs.append(Climb(grade: 1))
+                    }
                 }
-                
-                Button("Add Climb") {
-                    zone.climbs.append(Climb(grade: 1))
-                }
+            } else {
+                ClimbEditSheet(climb: selectedClimb!)
             }
-            
         }
         .navigationTitle(zone.name)
-//        .sheet(item: $sheetClimb) { _ in
-//            ClimbEditSheet(climb: $sheetClimb)
-//                .presentationDetents([.fraction(0.25)])
-//        }
     }
 }
 

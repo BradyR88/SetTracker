@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ClimbEditSheet: View {
-    @Binding var climb: Climb
+    //TODO: @State nead to be a @Bindable to work with SwiftData *I think*
+    @State var climb: Climb
     
     var body: some View {
         Form {
@@ -17,6 +18,8 @@ struct ClimbEditSheet: View {
                     Text("V\(vGrade)").tag(vGrade)
                 }
             }
+            
+            TextField("Seter", text: $climb.safeSeterName)
         }
         .navigationTitle("Zone 1 Climb")
     }

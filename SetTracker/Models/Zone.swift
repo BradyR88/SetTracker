@@ -5,9 +5,11 @@
 //  Created by Brady Robshaw on 6/9/23.
 //
 
+import SwiftData
 import Foundation
 
-struct Zone: Codable {
+@Model
+final class Zone {
     let id: UUID
     
     var name: String
