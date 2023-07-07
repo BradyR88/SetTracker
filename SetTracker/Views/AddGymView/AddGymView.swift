@@ -70,10 +70,8 @@ struct AddGymView: View {
         if zones.isEmpty {
             showingAlert.toggle()
         } else {
-            withAnimation {
-                let newGym = Gym(name: gymName, zones: zones)
-                modelContext.insert(newGym)
-            }
+            let newGym = Gym(name: gymName, zones: zones)
+            modelContext.insert(newGym)
             presentationMode.wrappedValue.dismiss()
         }
     }
@@ -83,11 +81,11 @@ struct AddGymView: View {
     }
 }
 
-#Preview {
-    Text("test")
-        .sheet(isPresented: .constant(true)) {
-            AddGymView()
-                .presentationDetents([.medium])
-        }
-    
-}
+//#Preview {
+//    Text("test")
+//        .sheet(isPresented: .constant(true)) {
+//            AddGymView()
+//                .presentationDetents([.medium])
+//        }
+//    
+//}

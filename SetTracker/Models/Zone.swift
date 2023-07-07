@@ -46,10 +46,6 @@ final class Zone {
     }
 }
 
-extension Zone: Identifiable { }
-
-extension Zone: Hashable { }
-
 extension Zone {
     static let example = Zone(name: "Zone 1", climb: [Climb(grade: 1),Climb(grade: 3)])
     

@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct GymSummaryView: View {
-    var gym: Gym
+    @Bindable var gym: Gym
     
     var body: some View {
         VStack {

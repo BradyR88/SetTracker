@@ -19,7 +19,7 @@ struct ClimbEditSheet: View {
                 }
             }
             
-            TextField("Seter", text: $climb.safeSeterName)
+            TextField("Seter", text: $climb.seter)
         }
         .navigationTitle("Zone 1 Climb")
     }

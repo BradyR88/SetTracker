@@ -13,22 +13,22 @@ import SwiftUI
 final class Climb {
     let id: UUID
     
-    private var seter: String?
+    private var _seter: String?
     var dateUp: Date?
     var dateDown: Date?
     var style: [Style]
     var grade: Grade
     var color: HoldColors?
     
-    var safeSeterName: String {
+    var seter: String {
         get {
-            return seter ?? ""
+            return _seter ?? ""
         }
         set {
             if newValue.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                self.seter = nil
+                self._seter = nil
             } else {
-                self.seter = newValue
+                self._seter = newValue
             }
         }
     }
@@ -49,47 +49,12 @@ final class Climb {
     
     init(seter: String? = nil, style: [Style] = [], grade: Int, color: HoldColors? = nil) {
         self.id = UUID()
-        self.seter = seter
+        self._seter = seter
         self.dateUp = Date()
         self.dateDown = nil
         self.style = style
         self.grade = Grade(actual: grade)
         self.color = color
-    }
-}
-
-extension Climb {
-    enum Style: String, Codable {
-        case crimp, sloper, power, dino, endurance, technical, morpho, bored
-    }
-    
-    enum HoldColors: Codable {
-        case black, blue, purple, green, orange, white, yellow, brown, pink, red
-        
-        var uiColor: Color {
-            switch self {
-            case .black:
-                Color.black
-            case .blue:
-                Color.blue
-            case .purple:
-                Color.purple
-            case .green:
-                Color.green
-            case .orange:
-                Color.orange
-            case .white:
-                Color.white
-            case .yellow:
-                Color.yellow
-            case .brown:
-                Color.brown
-            case .pink:
-                Color.pink
-            case .red:
-                Color.red
-            }
-        }
     }
 }
 
@@ -103,4 +68,37 @@ extension Climb {
         Climb(seter: "Alaxa", style: [.morpho,.technical], grade: 5),
         Climb(seter: "Brady", style: [.morpho,.power], grade: 5)
     ]
+}
+
+enum Style: String, Codable {
+    case crimp, sloper, power, dino, endurance, technical, morpho, bored
+}
+
+enum HoldColors: Codable {
+    case black, blue, purple, green, orange, white, yellow, brown, pink, red
+    
+    var uiColor: Color {
+        switch self {
+        case .black:
+            Color.black
+        case .blue:
+            Color.blue
+        case .purple:
+            Color.purple
+        case .green:
+            Color.green
+        case .orange:
+            Color.orange
+        case .white:
+            Color.white
+        case .yellow:
+            Color.yellow
+        case .brown:
+            Color.brown
+        case .pink:
+            Color.pink
+        case .red:
+            Color.red
+        }
+    }
 }
