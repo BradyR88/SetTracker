@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ClimbEditSheet: View {
     //TODO: @State nead to be a @Bindable to work with SwiftData *I think*
-    @State var climb: Climb
+    @Bindable var climb: Climb
     
     var body: some View {
         Form {

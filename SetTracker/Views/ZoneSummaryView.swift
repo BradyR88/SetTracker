@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ZoneSummaryView: View {
-    @Binding var zone: Zone
+    @Bindable var zone: Zone
     
     @State private var selectedClimb: Climb? = nil
     

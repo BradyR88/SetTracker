@@ -16,9 +16,9 @@ final class Climb {
     private var _seter: String?
     var dateUp: Date?
     var dateDown: Date?
-    var style: [Style]
+    //var style: [Style]
     var grade: Grade
-    var color: HoldColors?
+    //var color: HoldColors?
     
     var seter: String {
         get {
@@ -52,9 +52,9 @@ final class Climb {
         self._seter = seter
         self.dateUp = Date()
         self.dateDown = nil
-        self.style = style
-        self.grade = Grade(actual: grade)
-        self.color = color
+        //self.style = style
+        self.grade = Grade(planded: grade)
+        //self.color = color
     }
 }
 
