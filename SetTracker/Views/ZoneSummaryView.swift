@@ -26,13 +26,19 @@ struct ZoneSummaryView: View {
                                     selectedClimb = climb
                                 }
                             } label: {
-                                Text("\(climb.grade.description)")
+                                HStack {
+                                    Text(climb.description)
+                                    Spacer()
+                                    if let daysUp = climb.daysUp {
+                                        Text("\(daysUp)")
+                                    }
+                                }
                             }
                         }
                     }
                     
                     Button("Add Climb") {
-                        zone.climbs.append(Climb(grade: 1))
+                        zone.climbs.append(Climb(grade: 4))
                     }
                 }
             } else {

@@ -14,6 +14,7 @@ struct HomeView: View {
     
     @State private var gymId: UUID? = nil
     @State private var showingSheet = false
+    @State private var showingAlert = false
     
     private var selectedGym: Gym? {
         gyms.first { $0.id == gymId }
@@ -39,6 +40,17 @@ struct HomeView: View {
                     ContentUnavailableView("No Gym", systemImage: "square.stack.3d.up.slash", description: nil)
                 }
             }
+            .alert("Delete gym", isPresented: $showingAlert, actions: {
+                Button("Delete", role: .destructive) {
+                    withAnimation {
+                        let toBeDeleted = selectedGym
+                        gymId = nil
+                        modelContext.delete(toBeDeleted!)
+                    }
+                }
+            }, message: {
+                Text("This will permunuty delete this gym, as well as all corresponding zones and climbs!")
+            })
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -50,13 +62,7 @@ struct HomeView: View {
                         //Delete Gym
                         if let selectedGym = selectedGym {
                             Button("Delete Gym", role: .destructive) {
-                                withAnimation {
-                                    let toBeDeleted = selectedGym
-                                    gymId = nil
-                                    // apparently deleting might be bugged in this version, so I'm moving on without the feature
-                                    modelContext.delete(toBeDeleted)
-                                }
-                                
+                                showingAlert = true
                             }
                         }
                     } label: {

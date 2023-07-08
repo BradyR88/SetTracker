@@ -14,7 +14,7 @@ final class Climb {
     let id: UUID
     
     private var _seter: String?
-    var dateUp: Date?
+    var dateUp: Date
     var dateDown: Date?
     var grade: Int
     
@@ -43,9 +43,17 @@ final class Climb {
         }
     }
     var daysUp: Int? {
-        guard let dateUp = dateUp else { return nil }
         let to = dateDown ?? Date()
         return Calendar.current.dateComponents([.day], from: dateUp, to: to).day ?? 0
+    }
+    
+    var description: String {
+        let grade = "V\(grade)"
+        if let seter = _seter {
+            return "\(grade) - \(seter)"
+        } else {
+            return grade
+        }
     }
     
     init(seter: String? = nil, style: [Style] = [], grade: Int, color: HoldColors? = nil) {
