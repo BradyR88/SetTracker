@@ -67,7 +67,7 @@ struct HomeView: View {
                         }
                         
                         //Delete Gym
-                        if let selectedGym = selectedGym {
+                        if selectedGym != nil {
                             Button("Delete Gym", role: .destructive) {
                                 showingAlert = true
                             }
