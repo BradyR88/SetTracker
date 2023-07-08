@@ -8,31 +8,38 @@
 import SwiftUI
 
 struct ClimbEditSheet: View {
-    //TODO: @State nead to be a @Bindable to work with SwiftData *I think*
     @Bindable var climb: Climb
+    @Binding var selectedClimb: Climb?
     
     var body: some View {
-        Form {
-            Picker("Grade", selection: $climb.grade.planded) {
-                ForEach(0..<13) { vGrade in
-                    Text("V\(vGrade)").tag(vGrade)
+        VStack {
+            HStack {
+                Spacer()
+                Button("Done") {
+                    withAnimation {
+                        selectedClimb = nil
+                    }
                 }
+                .padding(.trailing)
+                .buttonStyle(.bordered)
             }
             
-            TextField("Seter", text: $climb.seter)
+            Form {
+                Picker("Grade", selection: $climb.grade) {
+                    ForEach(0..<13) { vGrade in
+                        Text("V\(vGrade)").tag(vGrade)
+                    }
+                }
+                
+                TextField("Seter", text: $climb.seter)
+            }
+            .navigationTitle("Zone 1 Climb")
         }
-        .navigationTitle("Zone 1 Climb")
+        
     }
 }
 
 //#Preview {
-//    Text("test")
-//        .sheet(isPresented: .constant(true), content: {
-//            ClimbEditSheet(climb: .constant(Climb.examples[0]))
-//        })
-//    
-//}
-
-//#Preview {
-//    ClimbEditSheet(climb: .constant(Climb.example))
+//    ClimbEditSheet(climb: Climb.example, selectedClimb: .constant(nil))
+//        .modelContainer(previewContainer)
 //}

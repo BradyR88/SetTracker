@@ -11,7 +11,7 @@ import SwiftData
 struct ZoneSummaryView: View {
     @Bindable var zone: Zone
     
-    @State private var selectedClimb: Climb? = nil
+    @State private var selectedClimb: Climb?
     
     var body: some View {
         VStack {
@@ -36,7 +36,7 @@ struct ZoneSummaryView: View {
                     }
                 }
             } else {
-                ClimbEditSheet(climb: selectedClimb!)
+                ClimbEditSheet(climb: selectedClimb!, selectedClimb: $selectedClimb)
             }
         }
         .navigationTitle(zone.name)
