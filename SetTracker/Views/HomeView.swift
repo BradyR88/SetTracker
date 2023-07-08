@@ -37,7 +37,14 @@ struct HomeView: View {
                         ContentUnavailableView("Select a Gym", systemImage: "square.stack.3d.up.slash", description: nil)
                     }
                 } else {
-                    ContentUnavailableView("No Gym", systemImage: "square.stack.3d.up.slash", description: nil)
+                    ContentUnavailableView {
+                        Label("No Gyms", systemImage: "square.stack.3d.up.slash")
+                    } actions: {
+                        Button("Add Gym") {
+                            showingSheet = true
+                        }
+                        .buttonStyle(.bordered)
+                    }
                 }
             }
             .alert("Delete gym", isPresented: $showingAlert, actions: {
