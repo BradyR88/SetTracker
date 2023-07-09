@@ -12,7 +12,7 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \.name) private var gyms: [Gym]
     
-    @State private var gymId: UUID? = nil
+    @AppStorage("gymId") var gymId: UUID?
     @State private var showingSheet = false
     @State private var showingAlert = false
     

@@ -35,9 +35,7 @@ struct ClimbEditSheet: View {
                 
                 DatePicker("Day Set", selection: $climb.dateUp, displayedComponents: .date)
             }
-            .navigationTitle("Zone 1 Climb")
         }
-        
     }
 }
 
