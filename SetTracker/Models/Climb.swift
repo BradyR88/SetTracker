@@ -79,6 +79,14 @@ extension Climb {
     ]
 }
 
+extension Climb: Comparable {
+    //TODO: sort by grage and thin the something somethig else if the grades are the same
+    //TODO: provide difrint sort methods so the view can pick how to sort the data
+    static func < (lhs: Climb, rhs: Climb) -> Bool {
+        lhs.grade < rhs.grade
+    }
+}
+
 enum Style: String, Codable {
     case crimp, sloper, power, dino, endurance, technical, morpho, bored
 }

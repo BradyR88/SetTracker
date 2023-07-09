@@ -19,23 +19,22 @@ struct ZoneSummaryView: View {
             
             if selectedClimb == nil {
                 List {
-                    ForEach(zone.climbs) { climb in
-                        HStack {
-                            Button {
-                                withAnimation {
-                                    selectedClimb = climb
-                                }
-                            } label: {
-                                HStack {
-                                    Text(climb.description)
-                                    Spacer()
-                                    if let daysUp = climb.daysUp {
-                                        Text("\(daysUp)")
-                                    }
+                    ForEach(zone.climbs.sorted()) { climb in
+                        Button {
+                            withAnimation {
+                                selectedClimb = climb
+                            }
+                        } label: {
+                            HStack {
+                                Text(climb.description)
+                                Spacer()
+                                if let daysUp = climb.daysUp {
+                                    Text("\(daysUp)")
                                 }
                             }
                         }
                     }
+                    .onDelete(perform: deleteItems)
                     
                     Button("Add Climb") {
                         zone.climbs.append(Climb(grade: 4))
@@ -46,6 +45,12 @@ struct ZoneSummaryView: View {
             }
         }
         .navigationTitle(zone.name)
+    }
+    
+    func deleteItems(at offsets: IndexSet) {
+        //TODO: look in to a way to efficiently do the delete without having to resort the entire list every single time
+        zone.climbs.sort()
+        zone.climbs.remove(atOffsets: offsets)
     }
 }
 

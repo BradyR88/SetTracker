@@ -20,11 +20,7 @@ struct HomeView: View {
         gyms.first { $0.id == gymId }
     }
     private var gymName: String {
-        if let gymId = gymId {
-            return gyms.first { $0.id == gymId }?.name ?? "Select Gym"
-        } else {
-            return "Select Gym"
-        }
+        selectedGym?.name ?? "Select Gym"
     }
     
     var body: some View {
@@ -32,6 +28,7 @@ struct HomeView: View {
             Group {
                 if !gyms.isEmpty {
                     if let selectedGym = selectedGym {
+                        // this is what's being shown everything else is just figuring out the correct unavailable view to show
                         GymSummaryView(gym: selectedGym)
                     } else {
                         ContentUnavailableView("Select a Gym", systemImage: "square.stack.3d.up.slash", description: nil)

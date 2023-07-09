@@ -39,10 +39,21 @@ final class Zone {
         }
     }
     
+    func reset() {
+        climbs.removeAll()
+    }
+    
     init(name: String, climb: [Climb] = []) {
         self.id = UUID()
         self.name = name
         self.climbs = climb
+    }
+}
+
+extension Zone: Comparable {
+    //TODO: provide multiple sort options, so the view can't decide what type of sort it wants
+    static func < (lhs: Zone, rhs: Zone) -> Bool {
+        lhs.name < rhs.name
     }
 }
 

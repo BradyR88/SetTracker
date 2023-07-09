@@ -17,7 +17,7 @@ struct GymSummaryView: View {
                 .frame(height: 300)
             
             
-            List(gym.zones) { zone in
+            List(gym.zones.sorted()) { zone in
                 NavigationLink(value: zone) {
                     HStack {
                         Text(zone.name)
@@ -25,8 +25,15 @@ struct GymSummaryView: View {
                         Text(zone.daysSinceLastSet.description)
                     }
                 }
+                .swipeActions {
+                    Button {
+                        zone.reset()
+                    } label: {
+                        Label("Reset", systemImage: "checkmark.gobackward")
+                    }
+
+                }
             }
-            
         }
         .navigationDestination(for: Zone.self) { zone in
             ZoneSummaryView(zone: zone)

@@ -16,7 +16,7 @@ struct GradeChartView: View {
             ContentUnavailableView("No Climbs", systemImage: "chart.bar", description: nil)
         } else {
             Chart {
-                ForEach(climbs, id: \.self) { climb in
+                ForEach(climbs.sorted()) { climb in
                     BarMark(x: .value("Grade", climb.grade.description),
                             y: .value("Count", 1))
                 }
