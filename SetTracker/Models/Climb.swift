@@ -18,7 +18,7 @@ final class Climb {
     var dateDown: Date?
     var grade: Int
     
-    //var style: [Style]
+    var style: [Style]
     //var color: HoldColors?
     
     var seter: String {

@@ -11,17 +11,19 @@ import Foundation
 @Model
 final class Zone {
     let id: UUID
-    
     var name: String
-    @Relationship(.cascade) var climbs: [Climb]
+    @Relationship(.cascade) var currentClimbs: [Climb]
+    @Relationship(.cascade) var oldClimbs: [Climb]
+    
+    @Transient var displaymode: DisplayMode = .currentClimbs
     
     var daysSinceLastSet: (description: String, days: Int?) {
         get {
             var days: Int? = nil
             
-            guard !climbs.isEmpty else { return ("Empty", nil) }
+            guard !currentClimbs.isEmpty else { return ("Empty", nil) }
             
-            for climb in climbs {
+            for climb in currentClimbs {
                 if days == nil {
                     days = climb.daysUp
                 } else if let daysUp = climb.daysUp {
@@ -39,14 +41,49 @@ final class Zone {
         }
     }
     
-    func reset() {
-        climbs.removeAll()
+    var climbs: [Climb] {
+        switch displaymode {
+        case .currentClimbs:
+            currentClimbs
+        case .oldClimbs:
+            oldClimbs
+        }
+    }
+    
+    func toggleDisplayMode() {
+        switch displaymode {
+        case .currentClimbs:
+            displaymode = .oldClimbs
+        case .oldClimbs:
+            displaymode = .currentClimbs
+        }
+    }
+    
+    func reset(on date: Date = Date()) {
+        currentClimbs.forEach { climb in
+            climb.dateDown = date
+        }
+        oldClimbs.append(contentsOf: currentClimbs)
+        currentClimbs.removeAll()
     }
     
     init(name: String, climb: [Climb] = []) {
         self.id = UUID()
         self.name = name
-        self.climbs = climb
+        self.currentClimbs = climb
+    }
+    
+    enum DisplayMode {
+        case currentClimbs, oldClimbs
+        
+        var toggleButtonText: String {
+            switch self {
+            case .currentClimbs:
+                "Old Climbs"
+            case .oldClimbs:
+                "Current Climbs"
+            }
+        }
     }
 }
 

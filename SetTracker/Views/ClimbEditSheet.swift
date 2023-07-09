@@ -9,16 +9,14 @@ import SwiftUI
 
 struct ClimbEditSheet: View {
     @Bindable var climb: Climb
-    @Binding var selectedClimb: Climb?
+    let onDone: () -> Void
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button("Done") {
-                    withAnimation {
-                        selectedClimb = nil
-                    }
+                    onDone()
                 }
                 .padding(.trailing)
                 .buttonStyle(.bordered)

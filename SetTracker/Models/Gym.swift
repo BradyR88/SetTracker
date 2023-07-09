@@ -16,7 +16,7 @@ final class Gym {
     
     var allClimbs: [Climb] {
         get {
-            zones.flatMap { $0.climbs }
+            zones.flatMap { $0.currentClimbs }
         }
     }
     

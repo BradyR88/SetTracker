@@ -41,9 +41,19 @@ struct GymSummaryView: View {
     }
 }
 
-#Preview {
-    MainActor.assumeIsolated {
-        HomeView()
-            .modelContainer(previewContainer)
-    }
-}
+//struct Preview_GymSummaryView: PreviewProvider {
+//    static var previews: some View {
+//        let comfig = ModelConfiguration(inMemory: true)
+//        let comtainer = try! ModelContainer(for: Gym.self, comfig)
+//        
+//        GymSummaryView(gym: Gym.example)
+//            .modelContainer(comtainer)
+//    }
+//}
+
+//#Preview {
+//    MainActor.assumeIsolated {
+//        HomeView()
+//            .modelContainer(previewContainer)
+//    }
+//}

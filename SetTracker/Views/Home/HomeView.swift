@@ -92,9 +92,15 @@ struct HomeView: View {
     }
 }
 
-#Preview {
-    MainActor.assumeIsolated {
-        HomeView()
-            .modelContainer(previewContainer)
-    }
-}
+//struct Preview_GymSummaryView: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//            .modelContainer(previewContainer)
+//    }
+//}
+
+//
+//#Preview {
+//    HomeView()
+//        .modelContainer(previewContainer)
+//}
