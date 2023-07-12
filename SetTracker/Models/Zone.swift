@@ -46,6 +46,13 @@ final class Zone {
         }
     }
     
+    /// Marks all climbs in a zone as up 
+    func settingFinished() {
+        climbs.forEach { climb in
+            climb.state = .up
+        }
+    }
+    
     /// Add soldClimb back into the Climb list and marks its state as .up
     func reinstate(_ climb: Climb) {
         for (index, oldClimb) in oldClimbs.enumerated() {

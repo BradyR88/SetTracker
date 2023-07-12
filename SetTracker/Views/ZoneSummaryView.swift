@@ -98,7 +98,7 @@ struct ZoneSummaryView: View {
                     }
                     
                     Button("Done Seting") {
-                        //TODO: lock the edit
+                        zone.settingFinished()
                     }
                 } label: {
                     Image(systemName: "ellipsis")
