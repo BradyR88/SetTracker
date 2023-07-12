@@ -36,11 +36,9 @@ struct ZoneSummaryView: View {
                     }
                     .onDelete(perform: deleteItems)
                     
-                    if zone.displaymode == .currentClimbs {
-                        Section {
-                            Button("Add Climb") {
-                                zone.currentClimbs.append(Climb(grade: 4))
-                            }
+                    Section {
+                        Button("Add Climb") {
+                            zone.climbs.append(Climb(grade: 4))
                         }
                     }
                 }
@@ -52,18 +50,12 @@ struct ZoneSummaryView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
-                    Button(zone.displaymode.toggleButtonText) {
-                        zone.toggleDisplayMode()
+                    Button("Reset") {
+                        zone.reset()
                     }
                     
-                    if zone.displaymode == .currentClimbs {
-                        Button("Reset") {
-                            zone.reset()
-                        }
-                        
-                        Button("Done Seting") {
-                            //TODO: lock the edit
-                        }
+                    Button("Done Seting") {
+                        //TODO: lock the edit
                     }
                 } label: {
                     Image(systemName: "ellipsis")
@@ -74,8 +66,8 @@ struct ZoneSummaryView: View {
     
     func deleteItems(at offsets: IndexSet) {
         //TODO: look in to a way to efficiently do the delete without having to resort the entire list every single time
-        zone.currentClimbs.sort()
-        zone.currentClimbs.remove(atOffsets: offsets)
+        zone.climbs.sort()
+        zone.climbs.remove(atOffsets: offsets)
     }
 }
 

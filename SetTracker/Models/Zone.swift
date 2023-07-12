@@ -12,18 +12,16 @@ import Foundation
 final class Zone {
     let id: UUID
     var name: String
-    @Relationship(.cascade) var currentClimbs: [Climb]
+    @Relationship(.cascade) var climbs: [Climb]
     @Relationship(.cascade) var oldClimbs: [Climb]
-    
-    @Transient var displaymode: DisplayMode = .currentClimbs
     
     var daysSinceLastSet: (description: String, days: Int?) {
         get {
             var days: Int? = nil
             
-            guard !currentClimbs.isEmpty else { return ("Empty", nil) }
+            guard !climbs.isEmpty else { return ("Empty", nil) }
             
-            for climb in currentClimbs {
+            for climb in climbs {
                 if days == nil {
                     days = climb.daysUp
                 } else if let daysUp = climb.daysUp {
@@ -41,36 +39,18 @@ final class Zone {
         }
     }
     
-    var climbs: [Climb] {
-        switch displaymode {
-        case .currentClimbs:
-            currentClimbs
-        case .oldClimbs:
-            oldClimbs
-        }
-    }
-    
-    func toggleDisplayMode() {
-        switch displaymode {
-        case .currentClimbs:
-            displaymode = .oldClimbs
-        case .oldClimbs:
-            displaymode = .currentClimbs
-        }
-    }
-    
     func reset(on date: Date = Date()) {
-        currentClimbs.forEach { climb in
+        climbs.forEach { climb in
             climb.dateDown = date
         }
-        oldClimbs.append(contentsOf: currentClimbs)
-        currentClimbs.removeAll()
+        oldClimbs.append(contentsOf: climbs)
+        climbs.removeAll()
     }
     
     init(name: String, climb: [Climb] = []) {
         self.id = UUID()
         self.name = name
-        self.currentClimbs = climb
+        self.climbs = climb
     }
     
     enum DisplayMode {
