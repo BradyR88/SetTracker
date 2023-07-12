@@ -19,7 +19,7 @@ final class Climb {
     var grade: Int
     
     var style: [Style]
-    //var color: HoldColors?
+    //var color: [HoldColors]
     
     var seter: String {
         get {
@@ -33,6 +33,7 @@ final class Climb {
             }
         }
     }
+    
     var isUp: Bool {
         get {
             if dateDown == nil {
@@ -91,7 +92,7 @@ enum Style: String, Codable {
     case crimp, sloper, power, dino, endurance, technical, morpho, bored
 }
 
-enum HoldColors: Codable {
+enum HoldColors: String, CaseIterable, Codable {
     case black, blue, purple, green, orange, white, yellow, brown, pink, red
     
     var uiColor: Color {
