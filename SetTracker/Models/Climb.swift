@@ -36,7 +36,7 @@ final class Climb {
     
     var state: State {
         get {
-            if dateDown == nil {
+            if dateUp == nil {
                 return .seting
             } else if dateUp != nil && dateDown == nil {
                 return .up

@@ -26,6 +26,17 @@ struct ZoneSummaryView: View {
                             }
                         } label: {
                             HStack {
+                                switch climb.state {
+                                case .seting:
+                                    Image(systemName: "seal.fill")
+                                        .tint(.orange)
+                                case .up:
+                                    Image(systemName: "checkmark.seal.fill")
+                                        .tint(.green)
+                                case .down:
+                                    Image(systemName: "delete.forward.fill")
+                                        .tint(.red)
+                                }
                                 Text(climb.description)
                                 Spacer()
                                 if let daysUp = climb.daysUp {
