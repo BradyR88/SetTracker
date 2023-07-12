@@ -14,7 +14,7 @@ final class Climb {
     let id: UUID
     
     private var _seter: String?
-    var dateUp: Date
+    var dateUp: Date?
     var dateDown: Date?
     var grade: Int
     
@@ -34,17 +34,36 @@ final class Climb {
         }
     }
     
-    var isUp: Bool {
+    var state: State {
         get {
             if dateDown == nil {
-                return true
+                return .seting
+            } else if dateUp != nil && dateDown == nil {
+                return .up
             } else {
-                return false
+                return .down
+            }
+        }
+        set {
+            switch newValue {
+            case .seting:
+                dateUp = nil
+                dateDown = nil
+            case .up:
+                dateUp = Date()
+                dateDown = nil
+            case .down:
+                if dateUp == nil {
+                    dateUp = Date()
+                }
+                dateDown = Date()
             }
         }
     }
-    var daysUp: Int? {
+    
+    var daysUp: Int {
         let to = dateDown ?? Date()
+        guard let dateUp = dateUp else { return 0 }
         return Calendar.current.dateComponents([.day], from: dateUp, to: to).day ?? 0
     }
     
@@ -62,7 +81,7 @@ final class Climb {
         self._seter = seter
         self.dateUp = Date()
         self.dateDown = nil
-        //self.style = style
+        self.style = style
         self.grade = grade
         //self.color = color
     }
@@ -85,6 +104,12 @@ extension Climb: Comparable {
     //TODO: provide difrint sort methods so the view can pick how to sort the data
     static func < (lhs: Climb, rhs: Climb) -> Bool {
         lhs.grade < rhs.grade
+    }
+}
+
+extension Climb {
+    enum State {
+        case seting, up, down
     }
 }
 
