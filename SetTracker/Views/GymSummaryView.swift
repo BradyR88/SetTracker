@@ -31,7 +31,6 @@ struct GymSummaryView: View {
                     } label: {
                         Label("Reset", systemImage: "checkmark.gobackward")
                     }
-
                 }
             }
         }

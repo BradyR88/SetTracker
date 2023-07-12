@@ -39,9 +39,28 @@ final class Zone {
         }
     }
     
+    /// Deletes relevant Climb from Climbs list. Does not go into oldClimbs.
+    func delete(_ climb: Climb) {
+        climbs.removeAll { _climb in
+            climb.id == _climb.id
+        }
+    }
+    
+    /// Add soldClimb back into the Climb list and marks its state as .up
+    func reinstate(_ climb: Climb) {
+        for (index, oldClimb) in oldClimbs.enumerated() {
+            if oldClimb.id == climb.id {
+                oldClimb.state = .up
+                climbs.append(oldClimb)
+                oldClimbs.remove(at: index)
+                break
+            }
+        }
+    }
+    
     func reset(on date: Date = Date()) {
         climbs.forEach { climb in
-            climb.dateDown = date
+            climb.state = .down
         }
         oldClimbs.append(contentsOf: climbs)
         climbs.removeAll()

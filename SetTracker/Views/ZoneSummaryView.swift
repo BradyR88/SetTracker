@@ -33,8 +33,40 @@ struct ZoneSummaryView: View {
                                 }
                             }
                         }
+                        .swipeActions {
+                            switch climb.state {
+                            case .seting:
+                                Button {
+                                    climb.state = .up
+                                } label: {
+                                    Label("Done Seting", systemImage: "checkmark")
+                                }
+                                .tint(.green)
+                            case .up:
+                                Button {
+                                    climb.state = .seting
+                                } label: {
+                                    Label("Done Seting", systemImage: "checkmark.gobackward")
+                                }
+                                .tint(.orange)
+                            case .down:
+                                Button {
+                                    zone.reinstate(climb)
+                                } label: {
+                                    Label("Done Seting", systemImage: "checkmark.gobackward")
+                                }
+                                .tint(.teal)
+                            }
+                            
+                            
+                            
+                            Button(role: .destructive) {
+                                zone.delete(climb)
+                            } label: {
+                                Label(" delete", systemImage: "trash")
+                            }
+                        }
                     }
-                    .onDelete(perform: deleteItems)
                     
                     Section {
                         Button("Add Climb") {
@@ -62,12 +94,6 @@ struct ZoneSummaryView: View {
                 }
             }
         }
-    }
-    
-    func deleteItems(at offsets: IndexSet) {
-        //TODO: look in to a way to efficiently do the delete without having to resort the entire list every single time
-        zone.climbs.sort()
-        zone.climbs.remove(atOffsets: offsets)
     }
 }
 

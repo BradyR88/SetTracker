@@ -13,23 +13,23 @@ import SwiftUI
 final class Climb {
     let id: UUID
     
-    private var _seter: String?
-    var dateUp: Date?
-    var dateDown: Date?
+    private var _setter: String?
+    private(set) var dateUp: Date?
+    private(set) var dateDown: Date?
     var grade: Int
     
     var style: [Style]
     //var color: [HoldColors]
     
-    var seter: String {
+    var setter: String {
         get {
-            return _seter ?? ""
+            return _setter ?? ""
         }
         set {
             if newValue.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                self._seter = nil
+                self._setter = nil
             } else {
-                self._seter = newValue
+                self._setter = newValue
             }
         }
     }
@@ -61,15 +61,15 @@ final class Climb {
         }
     }
     
-    var daysUp: Int {
+    var daysUp: Int? {
         let to = dateDown ?? Date()
-        guard let dateUp = dateUp else { return 0 }
+        guard let dateUp = dateUp else { return nil }
         return Calendar.current.dateComponents([.day], from: dateUp, to: to).day ?? 0
     }
     
     var description: String {
         let grade = "V\(grade)"
-        if let seter = _seter {
+        if let seter = _setter {
             return "\(grade) - \(seter)"
         } else {
             return grade
@@ -78,7 +78,7 @@ final class Climb {
     
     init(seter: String? = nil, style: [Style] = [], grade: Int, color: HoldColors? = nil) {
         self.id = UUID()
-        self._seter = seter
+        self._setter = seter
         self.dateUp = Date()
         self.dateDown = nil
         self.style = style

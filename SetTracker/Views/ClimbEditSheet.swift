@@ -31,23 +31,18 @@ struct ClimbEditSheet: View {
                     }
                 }
                 
-                TextField("Seter", text: $climb.seter)
+                TextField("Setter", text: $climb.setter)
                 
-                Button {
-                    withAnimation {
-                        expandedForm.toggle()
-                    }
-                } label: {
-                    HStack {
-                        Text("Other")
-                        Spacer()
-                        Image(systemName: expandedForm ? "chevron.down" : "chevron.right")
-                    }
-                }
-                .foregroundStyle(.primary)
+//                if climb.state != .seting {
+//                    DatePicker("Day Set", selection: $climb.dateUp, displayedComponents: .date)
+//                }
                 
-                if expandedForm {
-                    DatePicker("Day Set", selection: $climb.dateUp, displayedComponents: .date)
+                Section {
+                    Button("Done Setting") {
+                        climb.state = .up
+                    }
+                    .frame(maxWidth: .infinity)
+                    .tint(.green)
                 }
             }
         }
@@ -55,6 +50,6 @@ struct ClimbEditSheet: View {
 }
 
 //#Preview {
-//    ClimbEditSheet(climb: Climb.example, selectedClimb: .constant(nil))
+//    ClimbEditSheet(climb: Climb.example, onDone: {})
 //        .modelContainer(previewContainer)
 //}
