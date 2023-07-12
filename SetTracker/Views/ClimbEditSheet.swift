@@ -38,11 +38,23 @@ struct ClimbEditSheet: View {
 //                }
                 
                 Section {
-                    Button("Done Setting") {
-                        climb.state = .up
+                    if climb.state == .seting {
+                        Button("Done Setting") {
+                            onDone()
+                            climb.state = .up
+                        }
+                        .frame(maxWidth: .infinity)
+                        .tint(.green)
+                    } else if climb.state == .up {
+                        Button("Setting") {
+                            withAnimation {
+                                climb.state = .seting
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .tint(.orange)
                     }
-                    .frame(maxWidth: .infinity)
-                    .tint(.green)
+                    
                 }
             }
         }
