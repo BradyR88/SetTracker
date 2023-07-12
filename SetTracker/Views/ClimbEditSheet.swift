@@ -11,6 +11,8 @@ struct ClimbEditSheet: View {
     @Bindable var climb: Climb
     let onDone: () -> Void
     
+    @State var expandedForm = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -31,7 +33,22 @@ struct ClimbEditSheet: View {
                 
                 TextField("Seter", text: $climb.seter)
                 
-                DatePicker("Day Set", selection: $climb.dateUp, displayedComponents: .date)
+                Button {
+                    withAnimation {
+                        expandedForm.toggle()
+                    }
+                } label: {
+                    HStack {
+                        Text("Other")
+                        Spacer()
+                        Image(systemName: expandedForm ? "chevron.down" : "chevron.right")
+                    }
+                }
+                .foregroundStyle(.primary)
+                
+                if expandedForm {
+                    DatePicker("Day Set", selection: $climb.dateUp, displayedComponents: .date)
+                }
             }
         }
     }
