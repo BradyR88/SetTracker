@@ -49,7 +49,7 @@ final class Zone {
     /// Marks all climbs in a zone as up 
     func setComplete() {
         climbs.forEach { climb in
-            climb.state = .complete
+            climb.state = .up
         }
     }
     
@@ -57,7 +57,7 @@ final class Zone {
     func reinstate(_ climb: Climb) {
         for (index, oldClimb) in oldClimbs.enumerated() {
             if oldClimb.id == climb.id {
-                oldClimb.state = .complete
+                oldClimb.state = .up
                 climbs.append(oldClimb)
                 oldClimbs.remove(at: index)
                 break
@@ -67,7 +67,7 @@ final class Zone {
     
     func reset(on date: Date = Date()) {
         climbs.forEach { climb in
-            climb.state = .stripped
+            climb.state = .down
         }
         oldClimbs.append(contentsOf: climbs)
         climbs.removeAll()

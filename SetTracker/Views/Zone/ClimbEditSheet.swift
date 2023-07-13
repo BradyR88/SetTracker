@@ -41,11 +41,11 @@ struct ClimbEditSheet: View {
                     if climb.state == .inProgress {
                         Button("Done Setting") {
                             onDone()
-                            climb.state = .complete
+                            climb.state = .up
                         }
                         .frame(maxWidth: .infinity)
                         .tint(.green)
-                    } else if climb.state == .complete {
+                    } else if climb.state == .up {
                         Button("Setting") {
                             withAnimation {
                                 climb.state = .inProgress

@@ -16,10 +16,10 @@ struct ClimbDescriptionView: View {
             case .inProgress:
                 Image(systemName: "seal.fill")
                     .tint(.orange)
-            case .complete:
+            case .up:
                 Image(systemName: "checkmark.seal.fill")
                     .tint(.green)
-            case .stripped:
+            case .down:
                 Image(systemName: "delete.forward.fill")
                     .tint(.red)
             }

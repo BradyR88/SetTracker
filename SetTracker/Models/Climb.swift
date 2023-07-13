@@ -40,9 +40,9 @@ final class Climb {
             if dateUp == nil {
                 return .inProgress
             } else if dateUp != nil && dateDown == nil {
-                return .complete
+                return .up
             } else {
-                return .stripped
+                return .down
             }
         }
         set {
@@ -50,10 +50,10 @@ final class Climb {
             case .inProgress:
                 dateUp = nil
                 dateDown = nil
-            case .complete:
+            case .up:
                 dateUp = Date()
                 dateDown = nil
-            case .stripped:
+            case .down:
                 if dateUp == nil {
                     dateUp = Date()
                 }
@@ -110,7 +110,7 @@ extension Climb: Comparable {
 
 extension Climb {
     enum State {
-        case inProgress, complete, stripped
+        case inProgress, up, down
     }
 }
 

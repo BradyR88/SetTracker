@@ -31,19 +31,19 @@ struct ZoneSummaryView: View {
                             switch climb.state {
                             case .inProgress:
                                 Button {
-                                    climb.state = .complete
+                                    climb.state = .up
                                 } label: {
                                     Label("Done Seting", systemImage: "checkmark")
                                 }
                                 .tint(.green)
-                            case .complete:
+                            case .up:
                                 Button {
                                     climb.state = .inProgress
                                 } label: {
                                     Label("Done Seting", systemImage: "checkmark.gobackward")
                                 }
                                 .tint(.orange)
-                            case .stripped:
+                            case .down:
                                 Button {
                                     zone.reinstate(climb)
                                 } label: {
