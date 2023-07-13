@@ -34,25 +34,26 @@ final class Climb {
         }
     }
     
+    /// Record of whether or not the Climb is being set up for general use or has been torn down. Changing the variable automatically sets the dateUp and dateDown.
     var state: State {
         get {
             if dateUp == nil {
-                return .seting
+                return .inProgress
             } else if dateUp != nil && dateDown == nil {
-                return .up
+                return .complete
             } else {
-                return .down
+                return .stripped
             }
         }
         set {
             switch newValue {
-            case .seting:
+            case .inProgress:
                 dateUp = nil
                 dateDown = nil
-            case .up:
+            case .complete:
                 dateUp = Date()
                 dateDown = nil
-            case .down:
+            case .stripped:
                 if dateUp == nil {
                     dateUp = Date()
                 }
@@ -109,7 +110,7 @@ extension Climb: Comparable {
 
 extension Climb {
     enum State {
-        case seting, up, down
+        case inProgress, complete, stripped
     }
 }
 

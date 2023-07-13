@@ -38,17 +38,17 @@ struct ClimbEditSheet: View {
 //                }
                 
                 Section {
-                    if climb.state == .seting {
+                    if climb.state == .inProgress {
                         Button("Done Setting") {
                             onDone()
-                            climb.state = .up
+                            climb.state = .complete
                         }
                         .frame(maxWidth: .infinity)
                         .tint(.green)
-                    } else if climb.state == .up {
+                    } else if climb.state == .complete {
                         Button("Setting") {
                             withAnimation {
-                                climb.state = .seting
+                                climb.state = .inProgress
                             }
                         }
                         .frame(maxWidth: .infinity)

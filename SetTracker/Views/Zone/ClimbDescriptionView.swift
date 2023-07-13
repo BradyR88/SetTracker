@@ -13,13 +13,13 @@ struct ClimbDescriptionView: View {
     var body: some View {
         HStack {
             switch climb.state {
-            case .seting:
+            case .inProgress:
                 Image(systemName: "seal.fill")
                     .tint(.orange)
-            case .up:
+            case .complete:
                 Image(systemName: "checkmark.seal.fill")
                     .tint(.green)
-            case .down:
+            case .stripped:
                 Image(systemName: "delete.forward.fill")
                     .tint(.red)
             }

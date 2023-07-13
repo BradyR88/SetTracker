@@ -29,21 +29,21 @@ struct ZoneSummaryView: View {
                         }
                         .swipeActions {
                             switch climb.state {
-                            case .seting:
+                            case .inProgress:
                                 Button {
-                                    climb.state = .up
+                                    climb.state = .complete
                                 } label: {
                                     Label("Done Seting", systemImage: "checkmark")
                                 }
                                 .tint(.green)
-                            case .up:
+                            case .complete:
                                 Button {
-                                    climb.state = .seting
+                                    climb.state = .inProgress
                                 } label: {
                                     Label("Done Seting", systemImage: "checkmark.gobackward")
                                 }
                                 .tint(.orange)
-                            case .down:
+                            case .stripped:
                                 Button {
                                     zone.reinstate(climb)
                                 } label: {
@@ -81,7 +81,7 @@ struct ZoneSummaryView: View {
                     }
                     
                     Button("Done Seting") {
-                        zone.settingFinished()
+                        zone.setComplete()
                     }
                 } label: {
                     Image(systemName: "ellipsis")
