@@ -23,6 +23,7 @@
 		735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB4B2A3634410098C791 /* GymSummaryView.swift */; };
 		738FA2652A33D94100CAB9CA /* ClimbTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2642A33D94100CAB9CA /* ClimbTest.swift */; };
 		738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2672A33EA6500CAB9CA /* HomeView.swift */; };
+		7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7392AD302A5F76990031E07A /* ClimbDescriptionView.swift */; };
 		73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */; };
 		73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */; };
 		73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */; };
@@ -66,6 +67,7 @@
 		735FFB4B2A3634410098C791 /* GymSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSummaryView.swift; sourceTree = "<group>"; };
 		738FA2642A33D94100CAB9CA /* ClimbTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbTest.swift; sourceTree = "<group>"; };
 		738FA2672A33EA6500CAB9CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7392AD302A5F76990031E07A /* ClimbDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbDescriptionView.swift; sourceTree = "<group>"; };
 		73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeChartView.swift; sourceTree = "<group>"; };
 		73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSummaryView.swift; sourceTree = "<group>"; };
@@ -174,11 +176,20 @@
 			children = (
 				73F2389A2A5A31A3005EA147 /* Home */,
 				735FFB4B2A3634410098C791 /* GymSummaryView.swift */,
-				73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */,
-				734216512A43527200D248A2 /* ClimbEditSheet.swift */,
+				7392AD2F2A5F76430031E07A /* Zone */,
 				73B6F9A52A3A29E5005AF153 /* Charts */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7392AD2F2A5F76430031E07A /* Zone */ = {
+			isa = PBXGroup;
+			children = (
+				73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */,
+				7392AD302A5F76990031E07A /* ClimbDescriptionView.swift */,
+				734216512A43527200D248A2 /* ClimbEditSheet.swift */,
+			);
+			path = Zone;
 			sourceTree = "<group>";
 		};
 		73B6F9A52A3A29E5005AF153 /* Charts */ = {
@@ -341,6 +352,7 @@
 				73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */,
 				73553C292A33B3DA005974C8 /* Grade.swift in Sources */,
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
+				7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */,
 				73553C232A33B3C9005974C8 /* Gym.swift in Sources */,
 				73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */,
 				73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */,
