@@ -33,6 +33,8 @@ struct ClimbEditSheet: View {
                 
                 TextField("Setter", text: $climb.setter)
                 
+                MultiPicker(selectedItems: $climb.style)
+                
 //                if climb.state != .seting {
 //                    DatePicker("Day Set", selection: $climb.dateUp, displayedComponents: .date)
 //                }

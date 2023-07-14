@@ -18,7 +18,14 @@ final class Climb {
     private(set) var dateDown: Date?
     var grade: Int
     
-    var style: [Style]
+    //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta
+    // var style: [Style]
+    private var _style: [Style.RawValue]
+    var style: [Style] {
+        get { _style.compactMap { Style(rawValue: $0) } }
+        set { _style = newValue.map { $0.rawValue } }
+    }
+    
     //var color: [HoldColors]
     
     var setter: String {
@@ -114,7 +121,7 @@ extension Climb {
     }
 }
 
-enum Style: String, Codable {
+enum Style: String, CaseIterable, Codable {
     case crimp, sloper, power, dino, endurance, technical, morpho, bored
 }
 
