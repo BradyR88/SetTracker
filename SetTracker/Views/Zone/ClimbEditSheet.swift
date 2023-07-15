@@ -33,11 +33,14 @@ struct ClimbEditSheet: View {
                 
                 TextField("Setter", text: $climb.setter)
                 
-                MultiPicker(selectedItems: $climb.style)
+                Picker("Color", selection: $climb.color) {
+                    Text("No Color").tag(nil as HoldColors?)
+                    ForEach(HoldColors.allCases) { color in
+                        Text(color.rawValue).tag(color as HoldColors?)
+                    }
+                }
                 
-//                if climb.state != .seting {
-//                    DatePicker("Day Set", selection: $climb.dateUp, displayedComponents: .date)
-//                }
+                MultiPicker(selectedItems: $climb.style)
                 
                 Section {
                     if climb.state == .inProgress {

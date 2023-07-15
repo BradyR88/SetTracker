@@ -20,13 +20,25 @@ final class Climb {
     
     //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta
     // var style: [Style]
-    private var _style: [Style.RawValue]
+    private var _style: [String]
     var style: [Style] {
         get { _style.compactMap { Style(rawValue: $0) } }
         set { _style = newValue.map { $0.rawValue } }
     }
     
-    //var color: [HoldColors]
+    //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta
+    // var color: HoldColors?
+    private var _color: [String]
+    var color: HoldColors? {
+        get {
+            guard let stringColor = _color.first else { return nil }
+            return HoldColors(rawValue: stringColor)
+        }
+        set {
+            guard let newValue = newValue else { return _color = [] }
+            _color = [newValue.rawValue]
+        }
+    }
     
     var setter: String {
         get {
@@ -125,8 +137,10 @@ enum Style: String, CaseIterable, Codable {
     case crimp, sloper, power, dino, endurance, technical, morpho, bored
 }
 
-enum HoldColors: String, CaseIterable, Codable {
-    case black, blue, purple, green, orange, white, yellow, brown, pink, red
+enum HoldColors: String, CaseIterable, Codable, Identifiable {
+    case black = "Black", blue = "Blue", purple = "Purple", green = "Green", orange = "Orange", white = "White", yellow = "Yellow", brown = "Brown", pink = "Pink", red = "Red"
+    
+    var id: Self { return self }
     
     var uiColor: Color {
         switch self {
