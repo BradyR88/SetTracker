@@ -25,9 +25,12 @@
 		738FA2652A33D94100CAB9CA /* ClimbTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2642A33D94100CAB9CA /* ClimbTest.swift */; };
 		738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2672A33EA6500CAB9CA /* HomeView.swift */; };
 		7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7392AD302A5F76990031E07A /* ClimbDescriptionView.swift */; };
+		739C34DF2A662376009CB3CF /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C34DE2A662376009CB3CF /* ChartViewModel.swift */; };
+		73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A5A0062A66F19400ED0B12 /* AllChartsView.swift */; };
 		73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */; };
 		73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */; };
 		73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */; };
+		73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D69DF22A62309900B68425 /* StyleChartView.swift */; };
 		73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,9 +73,12 @@
 		738FA2642A33D94100CAB9CA /* ClimbTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbTest.swift; sourceTree = "<group>"; };
 		738FA2672A33EA6500CAB9CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7392AD302A5F76990031E07A /* ClimbDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbDescriptionView.swift; sourceTree = "<group>"; };
+		739C34DE2A662376009CB3CF /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		73A5A0062A66F19400ED0B12 /* AllChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChartsView.swift; sourceTree = "<group>"; };
 		73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeChartView.swift; sourceTree = "<group>"; };
 		73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSummaryView.swift; sourceTree = "<group>"; };
+		73D69DF22A62309900B68425 /* StyleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleChartView.swift; sourceTree = "<group>"; };
 		73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,7 +212,10 @@
 		73B6F9A52A3A29E5005AF153 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
+				73A5A0062A66F19400ED0B12 /* AllChartsView.swift */,
 				73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */,
+				73D69DF22A62309900B68425 /* StyleChartView.swift */,
+				739C34DE2A662376009CB3CF /* ChartViewModel.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -358,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739C34DF2A662376009CB3CF /* ChartViewModel.swift in Sources */,
 				735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */,
 				734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */,
 				73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */,
@@ -370,7 +380,9 @@
 				73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */,
 				738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */,
 				735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */,
+				73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */,
 				73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */,
+				73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */,
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
 			);

@@ -133,8 +133,12 @@ extension Climb {
     }
 }
 
-enum Style: String, CaseIterable, Codable {
+enum Style: String, CaseIterable, Codable, Comparable {
     case crimp, sloper, power, dino, endurance, technical, morpho, bored
+    
+    static func < (lhs: Style, rhs: Style) -> Bool {
+        lhs.rawValue < rhs.rawValue
+    }
 }
 
 enum HoldColors: String, CaseIterable, Codable, Identifiable {

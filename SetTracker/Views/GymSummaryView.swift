@@ -13,7 +13,7 @@ struct GymSummaryView: View {
     
     var body: some View {
         VStack {
-            GradeChartView(climbs: gym.allClimbs)
+            AllChartsView(vm: ChartsViewModel(climbs: gym.allClimbs))
                 .frame(height: 300)
             
             

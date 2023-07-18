@@ -9,16 +9,16 @@ import SwiftUI
 import Charts
 
 struct GradeChartView: View {
-    let climbs: [Climb]
+    let gradeData: [Int : Int]
     
     var body: some View {
-        if climbs.isEmpty {
+        if gradeData.isEmpty {
             ContentUnavailableView("No Climbs", systemImage: "chart.bar", description: nil)
         } else {
             Chart {
-                ForEach(climbs.sorted()) { climb in
-                    BarMark(x: .value("Grade", climb.grade.description),
-                            y: .value("Count", 1))
+                ForEach(gradeData.sorted(by: >), id: \.key) { grade, count in
+                    BarMark(x: .value("Grade", grade),
+                            y: .value("Count", count))
                 }
                 
             }
