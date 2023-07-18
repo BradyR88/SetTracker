@@ -1,5 +1,5 @@
 //
-//  ChartViewModel.swift
+//  ChartDataModel.swift
 //  SetTracker
 //
 //  Created by Brady Robshaw on 7/17/23.
@@ -8,7 +8,7 @@
 import Observation
 import Foundation
 
-@Observable class ChartsViewModel {
+struct ChartsDataModel {
     var gradeCount: [Int : Int]
     var styleCount: [Style : Int]
     

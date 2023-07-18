@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AllChartsView: View {
-    @State var vm: ChartsViewModel
+    let vm: ChartsDataModel
     
     var body: some View {
         ScrollView(.horizontal) {
