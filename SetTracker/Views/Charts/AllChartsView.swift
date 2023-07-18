@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct AllChartsView: View {
-    let vm: ChartsDataModel
+    let data: ChartsDataModel
     
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHStack {
-                GradeChartView(gradeData: vm.gradeCount)
-                    .containerRelativeFrame(.horizontal)
-                StyleChartView(styleData: vm.styleCount)
-                    .containerRelativeFrame(.horizontal)
+        if data.isEmpty {
+            ContentUnavailableView("No Climbs", systemImage: "chart.bar", description: nil)
+        } else {
+            ScrollView(.horizontal) {
+                LazyHStack {
+                    GradeChartView(gradeData: data.gradeCount)
+                        .containerRelativeFrame(.horizontal)
+                    StyleChartView(styleData: data.styleCount)
+                        .containerRelativeFrame(.horizontal)
+                }
+                .scrollTargetLayout()
             }
-            .scrollTargetLayout()
+            .scrollTargetBehavior(.viewAligned)
+            .safeAreaPadding(.horizontal, 40)
         }
-        .scrollTargetBehavior(.viewAligned)
-        .safeAreaPadding(.horizontal, 40)
     }
 }
 

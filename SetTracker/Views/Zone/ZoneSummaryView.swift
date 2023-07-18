@@ -15,7 +15,7 @@ struct ZoneSummaryView: View {
     
     var body: some View {
         VStack {
-            AllChartsView(vm: ChartsDataModel(climbs: zone.climbs))
+            AllChartsView(data: ChartsDataModel(climbs: zone.climbs))
             
             if selectedClimb == nil {
                 List {

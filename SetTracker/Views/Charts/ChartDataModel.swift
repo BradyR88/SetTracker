@@ -9,8 +9,12 @@ import Observation
 import Foundation
 
 struct ChartsDataModel {
-    var gradeCount: [Int : Int]
-    var styleCount: [Style : Int]
+    let gradeCount: [Int : Int]
+    let styleCount: [Style : Int]
+    
+    var isEmpty: Bool {
+        gradeCount.isEmpty && styleCount.isEmpty
+    }
     
     init(climbs: [Climb]) {
         var gradeCount: [Int : Int] = [:]

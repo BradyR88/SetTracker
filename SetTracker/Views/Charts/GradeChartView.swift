@@ -12,18 +12,14 @@ struct GradeChartView: View {
     let gradeData: [Int : Int]
     
     var body: some View {
-        if gradeData.isEmpty {
-            ContentUnavailableView("No Climbs", systemImage: "chart.bar", description: nil)
-        } else {
-            Chart {
-                ForEach(gradeData.sorted(by: >), id: \.key) { grade, count in
-                    BarMark(x: .value("Grade", grade),
-                            y: .value("Count", count))
-                }
-                
+        Chart {
+            ForEach(gradeData.sorted(by: >), id: \.key) { grade, count in
+                BarMark(x: .value("Grade", grade),
+                        y: .value("Count", count))
             }
-            .padding()
+            
         }
+        .padding()
     }
 }
 
