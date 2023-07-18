@@ -16,10 +16,14 @@ struct AllChartsView: View {
         } else {
             ScrollView(.horizontal) {
                 LazyHStack {
-                    GradeChartView(gradeData: data.gradeCount)
-                        .containerRelativeFrame(.horizontal)
-                    StyleChartView(styleData: data.styleCount)
-                        .containerRelativeFrame(.horizontal)
+                    if !data.gradeCount.isEmpty {
+                        GradeChartView(gradeData: data.gradeCount)
+                            .containerRelativeFrame(.horizontal)
+                    }
+                    if !data.styleCount.isEmpty {
+                        StyleChartView(styleData: data.styleCount)
+                            .containerRelativeFrame(.horizontal)
+                    }
                 }
                 .scrollTargetLayout()
             }
