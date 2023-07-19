@@ -25,10 +25,11 @@ struct AllChartsView: View {
                             .containerRelativeFrame(.horizontal)
                     }
                 }
-                .scrollTargetLayout()
             }
-            .scrollTargetBehavior(.viewAligned)
+            .contentMargins(.horizontal, -19, for: .scrollContent)
+            .scrollTargetBehavior(.paging)
             .safeAreaPadding(.horizontal, 40)
+            .scrollIndicators(.hidden)
         }
     }
 }
