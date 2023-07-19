@@ -19,7 +19,8 @@ struct GradeChartView: View {
             }
             
         }
-        .padding()
+        .padding(.horizontal , 20)
+        .padding(.vertical)
     }
 }
 

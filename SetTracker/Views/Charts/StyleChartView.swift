@@ -16,7 +16,8 @@ struct StyleChartView: View {
             SectorMark(angle: .value("Value", value))
                 .foregroundStyle(by: .value("Style", key.rawValue))
         }
-        .padding()
+        .padding(.horizontal, 20)
+        .padding(.vertical)
     }
 }
 

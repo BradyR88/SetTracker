@@ -15,7 +15,7 @@ struct AllChartsView: View {
             ContentUnavailableView("No Climbs", systemImage: "chart.bar", description: nil)
         } else {
             ScrollView(.horizontal) {
-                LazyHStack {
+                LazyHStack(spacing: 10) {
                     if !data.gradeCount.isEmpty {
                         GradeChartView(gradeData: data.gradeCount)
                             .containerRelativeFrame(.horizontal)
@@ -26,9 +26,7 @@ struct AllChartsView: View {
                     }
                 }
             }
-            .contentMargins(.horizontal, -19, for: .scrollContent)
             .scrollTargetBehavior(.paging)
-            .safeAreaPadding(.horizontal, 40)
             .scrollIndicators(.hidden)
         }
     }

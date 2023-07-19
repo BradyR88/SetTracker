@@ -191,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				73F2389A2A5A31A3005EA147 /* Home */,
-				735FFB4B2A3634410098C791 /* GymSummaryView.swift */,
 				7392AD2F2A5F76430031E07A /* Zone */,
 				73B6F9A52A3A29E5005AF153 /* Charts */,
 				738F15BB2A60BF630052131C /* HelperView */,
@@ -224,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				738FA2672A33EA6500CAB9CA /* HomeView.swift */,
+				735FFB4B2A3634410098C791 /* GymSummaryView.swift */,
 				735FFB492A3527900098C791 /* AddGymView.swift */,
 			);
 			path = Home;
