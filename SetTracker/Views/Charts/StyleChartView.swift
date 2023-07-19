@@ -10,11 +10,29 @@ import Charts
 
 struct StyleChartView: View {
     let styleData: [Style : Int]
-    
+    let zoneStyleData: [Style : Int] = [:] //previewExamples.exampleStyleData
     var body: some View {
-        Chart(styleData.sorted(by: >), id: \.key) { key, value in
-            SectorMark(angle: .value("Value", value))
+        ZStack {
+            Chart(styleData.sorted(by: >), id: \.key) { key, value in
+                    SectorMark(
+                        angle: .value("Value", value),
+                        innerRadius: .ratio(0.5),
+                        angularInset: 4
+                    )
+                    .foregroundStyle(by: .value("Style", key.rawValue))
+                    .cornerRadius(7)
+            }
+            
+            Chart(zoneStyleData.sorted(by: >), id: \.key) { key, value in
+                SectorMark(
+                    angle: .value("Value", value),
+                    outerRadius: .ratio(0.45),
+                    angularInset: 4
+                )
                 .foregroundStyle(by: .value("Style", key.rawValue))
+                .cornerRadius(7)
+            }
+            
         }
         .padding(.horizontal, 20)
         .padding(.vertical)
@@ -22,5 +40,5 @@ struct StyleChartView: View {
 }
 
 //#Preview {
-//    StyleChartView(climbs: [Climb.example])
+//    StyleChartView(styleData: [.bored : 4, .crimp : 3, .sloper : 5])
 //}

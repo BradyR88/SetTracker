@@ -36,6 +36,13 @@ struct ChartsDataModel {
             }
         }
         
+        // ads in style zero counts so colors lineup of two charts
+        Style.allCases.forEach { style in
+            if styleCount[style] == nil {
+                styleCount[style] = 0
+            }
+        }
+        
         self.gradeCount = gradeCount
         self.styleCount = styleCount
     }

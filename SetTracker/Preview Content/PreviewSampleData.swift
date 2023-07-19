@@ -33,3 +33,7 @@ struct SampleGyms {
         Gym(name: "test 6", zones: []),
     ]
 }
+
+struct previewExamples {
+    static let exampleStyleData = [Style.crimp : 4, Style.sloper : 5, Style.bored : 0, Style.dino : 1, Style.power : 3, Style.technical : 5, Style.morpho : 1]
+}
