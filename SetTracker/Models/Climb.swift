@@ -99,7 +99,7 @@ final class Climb {
     init(seter: String? = nil, style: [Style] = [], grade: Int, color: HoldColors? = nil) {
         self.id = UUID()
         self._setter = seter
-        self.dateUp = Date()
+        self.dateUp = nil
         self.dateDown = nil
         self.style = style
         self.grade = grade
