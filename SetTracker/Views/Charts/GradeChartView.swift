@@ -15,17 +15,18 @@ struct GradeChartView: View {
         Chart {
             ForEach(gradeData.sorted()) { data in
                 BarMark(
-                    x: .value("Grade", data.grade),
+                    x: .value("Grade", data.gradeString),
                     y: .value("Count", data.gymCount)
                 )
                 .position(by: .value("Scope", "Gym"))
                 
                 if let count = data.zoneCount {
                     BarMark(
-                        x: .value("Grade", data.grade),
+                        x: .value("Grade", data.gradeString),
                         y: .value("Count", count)
                     )
                     .position(by: .value("Scope", "Zone"))
+                    .foregroundStyle(Color.green)
                 }
             }
             

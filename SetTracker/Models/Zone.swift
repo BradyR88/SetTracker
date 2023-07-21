@@ -15,8 +15,7 @@ final class Zone {
     @Relationship(.cascade) var climbs: [Climb]
     @Relationship(.cascade) var oldClimbs: [Climb]
     
-    //TODO: is this a ponter bac to the gym that this zone is in? i think this is how it work but nead to conferm
-    var gym: [Gym]
+    @Relationship(.nullify, inverse: \Gym.zones) var gym: Gym?
     
     var daysSinceLastSet: (description: String, days: Int?) {
         get {

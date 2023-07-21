@@ -72,6 +72,7 @@ struct AddGymView: View {
         } else {
             let newGym = Gym(name: gymName, zones: zones)
             modelContext.insert(newGym)
+            newGym.zones = zones // this insurance that the relationship is working https://youtu.be/_QMalUGTM4E?t=629
             presentationMode.wrappedValue.dismiss()
         }
     }
