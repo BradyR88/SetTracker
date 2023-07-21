@@ -135,7 +135,7 @@ extension Climb {
 
 enum Style: String, CaseIterable, Codable, Comparable {
     // this is lemeted to 7 case's because of chart color limatations (endurance was originally also included)
-    case crimp, sloper, power, dino, technical, morpho, bored
+    case crimp = "Crimp", sloper = "Sloper", power = "Power", dino = "Dino", technical = "Technical", morpho = "Morpho", bored = "Bored"
     
     static func < (lhs: Style, rhs: Style) -> Bool {
         lhs.rawValue < rhs.rawValue
