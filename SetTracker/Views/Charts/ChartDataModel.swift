@@ -95,6 +95,8 @@ struct ChartsDataModel {
                 gradeCount[index].zoneCount = zoneCount
             }
         }
+        
+        self.styleCount = data.styleCount
     }
     
     init(gym: Gym) {
