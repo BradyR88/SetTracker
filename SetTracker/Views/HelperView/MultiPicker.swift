@@ -18,10 +18,11 @@ struct MultiPicker<T: CaseIterable & Hashable & RawRepresentable> : View where T
     ]
     
     var body: some View {
-        LazyVGrid(columns: columns) {
+        HStack {
             if selectedItems.isEmpty {
                 Text(text)
                     .foregroundStyle(Color.secondary.opacity(0.5))
+                Spacer()
             } else {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 73, maximum: 200))], content: {
                     ForEach(selectedItems, id: \.self) { item in
@@ -39,6 +40,7 @@ struct MultiPicker<T: CaseIterable & Hashable & RawRepresentable> : View where T
                         .buttonStyle(.bordered)
                     }
                 })
+                .frame(maxWidth: .infinity)
             }
             
             Menu {
