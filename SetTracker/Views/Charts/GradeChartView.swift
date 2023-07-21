@@ -9,13 +9,24 @@ import SwiftUI
 import Charts
 
 struct GradeChartView: View {
-    let gradeData: [Int : Int]
+    let gradeData: [ChartsDataModel.GradeData]
     
     var body: some View {
         Chart {
-            ForEach(gradeData.sorted(by: >), id: \.key) { grade, count in
-                BarMark(x: .value("Grade", grade),
-                        y: .value("Count", count))
+            ForEach(gradeData.sorted()) { data in
+                BarMark(
+                    x: .value("Grade", data.grade),
+                    y: .value("Count", data.gymCount)
+                )
+                .position(by: .value("Scope", "Gym"))
+                
+                if let count = data.zoneCount {
+                    BarMark(
+                        x: .value("Grade", data.grade),
+                        y: .value("Count", count)
+                    )
+                    .position(by: .value("Scope", "Zone"))
+                }
             }
             
         }
@@ -25,5 +36,5 @@ struct GradeChartView: View {
 }
 
 //#Preview {
-//    GradeChartView(climbs: Climb.example)
+//    GradeChartView(gradeData: PreviewExamples.exampleGradeData)
 //}

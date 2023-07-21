@@ -39,6 +39,13 @@ struct StyleChartView: View {
     }
 }
 
+//struct Preview_StyleChartView: PreviewProvider {
+//    static var previews: some View {
+//        StyleChartView(styleData: [.bored : 4, .crimp : 3, .sloper : 5])
+//    }
+//}
+
+
 //#Preview {
 //    StyleChartView(styleData: [.bored : 4, .crimp : 3, .sloper : 5])
 //}

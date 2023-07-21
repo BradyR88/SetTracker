@@ -34,6 +34,7 @@ struct SampleGyms {
     ]
 }
 
-struct previewExamples {
+struct PreviewExamples {
     static let exampleStyleData = [Style.crimp : 4, Style.sloper : 5, Style.bored : 0, Style.dino : 1, Style.power : 3, Style.technical : 5, Style.morpho : 1]
+    static let exampleGradeData = [1 : 4, 2 : 5, 3 : 0, 4 : 1, 5 : 3, 6 : 5, 7 : 1]
 }

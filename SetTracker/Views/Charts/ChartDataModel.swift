@@ -9,7 +9,7 @@ import Observation
 import Foundation
 
 struct ChartsDataModel {
-    let gradeCount: [Int : Int]
+    let gradeCount: [GradeData]
     let styleCount: [Style : Int]
     
     var isEmpty: Bool {
@@ -17,16 +17,18 @@ struct ChartsDataModel {
     }
     
     init(climbs: [Climb]) {
-        var gradeCount: [Int : Int] = [:]
+        var gradeDictionary: [Int : Int] = [:]
         var styleCount: [Style : Int] = [:]
         
         climbs.forEach { climb in
-            if let pastCount = gradeCount[climb.grade] {
-                gradeCount[climb.grade] = pastCount + 1
+            //Create new dictionary key with value of 1 on first instance of new grade, and counts up by one, if that grade already exist
+            if let pastCount = gradeDictionary[climb.grade] {
+                gradeDictionary[climb.grade] = pastCount + 1
             } else {
-                gradeCount[climb.grade] = 1
+                gradeDictionary[climb.grade] = 1
             }
             
+            // while looping through all the climbs records the number of each style
             climb.style.forEach { style in
                 if let pastCount = styleCount[style] {
                     styleCount[style] = pastCount + 1
@@ -43,8 +45,27 @@ struct ChartsDataModel {
 //            }
 //        }
         
-        self.gradeCount = gradeCount
+        self.gradeCount = gradeDictionary.asGradeData()
         self.styleCount = styleCount
     }
 }
 
+extension ChartsDataModel {
+    struct GradeData: Comparable, Identifiable {
+        let id = UUID()
+        
+        let grade: String
+        let gymCount: Int
+        let zoneCount: Int?
+        
+        static func < (lhs: ChartsDataModel.GradeData, rhs: ChartsDataModel.GradeData) -> Bool {
+            lhs.grade < rhs.grade
+        }
+        
+        init(grade: Int, gymCount: Int, zoneCount: Int?) {
+            self.grade = "V\(grade)"
+            self.gymCount = gymCount
+            self.zoneCount = zoneCount
+        }
+    }
+}
