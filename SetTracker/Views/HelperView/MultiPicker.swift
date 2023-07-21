@@ -8,21 +8,45 @@
 import SwiftUI
 
 struct MultiPicker<T: CaseIterable & Hashable & RawRepresentable> : View where T.RawValue == String {
+    let text: String
     var allItems: [T] = T.allCases as! [T]
     @Binding var selectedItems: [T]
     
+    let columns = [
+        GridItem(.flexible(minimum: 100, maximum: 400)),
+        GridItem(.fixed(20))
+    ]
+    
     var body: some View {
-        HStack {
-            ForEach(selectedItems, id: \.self) { item in
-                Text(item.rawValue)
+        LazyVGrid(columns: columns) {
+            if selectedItems.isEmpty {
+                Text(text)
+                    .foregroundStyle(Color.secondary.opacity(0.5))
+            } else {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 73, maximum: 200))], content: {
+                    ForEach(selectedItems, id: \.self) { item in
+                        Button {
+                            selectedItems.removeAll { $0 == item}
+                        } label: {
+                            HStack {
+                                Text(item.rawValue)
+                                    .lineLimit(1)
+                                Image(systemName: "x.circle")
+                            }
+                        }
+                        .font(.footnote)
+                        .foregroundStyle(Color.primary)
+                        .buttonStyle(.bordered)
+                    }
+                })
             }
-            
-            Spacer()
             
             Menu {
                 ForEach(allItems, id: \.self) { item in
-                    Button(item.rawValue) {
-                        selectedItems.append(item)
+                    if !selectedItems.contains(item) {
+                        Button(item.rawValue) {
+                            selectedItems.append(item)
+                        }
                     }
                 }
             } label: {

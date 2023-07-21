@@ -39,8 +39,7 @@ struct ClimbEditSheet: View {
                         Text(color.rawValue).tag(color as HoldColors?)
                     }
                 }
-                
-                MultiPicker(selectedItems: $climb.style)
+                MultiPicker(text: "Add climb style", selectedItems: $climb.style)
                 
                 Section {
                     if climb.state == .inProgress {
