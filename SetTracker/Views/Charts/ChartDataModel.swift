@@ -5,7 +5,7 @@
 //  Created by Brady Robshaw on 7/17/23.
 //
 
-import Observation
+
 import Foundation
 
 struct ChartsDataModel {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */; };
 		734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734216512A43527200D248A2 /* ClimbEditSheet.swift */; };
 		73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553BF32A33B375005974C8 /* SetTrackerApp.swift */; };
 		73553BF82A33B377005974C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BF72A33B377005974C8 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudView.swift; sourceTree = "<group>"; };
 		734216512A43527200D248A2 /* ClimbEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbEditSheet.swift; sourceTree = "<group>"; };
 		73553BF02A33B375005974C8 /* SetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73553BF32A33B375005974C8 /* SetTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackerApp.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				738F15BC2A60BFC40052131C /* MultiPicker.swift */,
+				7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */,
 			);
 			path = HelperView;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */,
 				73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */,
 				73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */,
+				7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */,
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
 			);
