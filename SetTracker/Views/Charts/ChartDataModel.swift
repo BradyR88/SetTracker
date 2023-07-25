@@ -17,7 +17,7 @@ struct ChartsDataModel {
     }
     
     mutating func showGym(_ gym: Gym) {
-        let climbs = gym.allClimbs
+        let climbs = gym.climbs
         
         let (gradeDictionary, styleCount) = getDataDictionary(from: climbs)
         

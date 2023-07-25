@@ -16,7 +16,7 @@ final class Gym {
     
     @Transient var difficultyCurve: DifficultyCurve = DifficultyCurve()
     
-    var allClimbs: [Climb] {
+    var climbs: [Climb] {
         get {
             zones.flatMap { $0.climbs }
         }
