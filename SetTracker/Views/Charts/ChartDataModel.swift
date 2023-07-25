@@ -21,14 +21,9 @@ struct ChartsDataModel {
         
         let (gradeDictionary, styleCount) = getDataDictionary(from: climbs)
         
-        // ads in style zero counts so colors lineup of two charts
-//        Style.allCases.forEach { style in
-//            if styleCount[style] == nil {
-//                styleCount[style] = 0
-//            }
-//        }
-        
         self.gradeCount = asGradeData(gradeDictionary)
+        mergeIn(difficultyCurve: gym.difficultyCurve)
+        
         self.styleCount = styleCount
     }
     
@@ -99,6 +94,14 @@ struct ChartsDataModel {
         self.styleCount = data.styleCount
     }
     
+    mutating func mergeIn(difficultyCurve curve: DifficultyCurve) {
+        for (index,gradeData) in gradeCount.enumerated() {
+            if let idealCount = curve.goalCount[gradeData.grade] {
+                gradeCount[index].idealCount = idealCount
+            }
+        }
+    }
+    
     init(gym: Gym) {
         showGym(gym)
     }
@@ -115,6 +118,7 @@ extension ChartsDataModel {
         let grade: Int
         let gymCount: Int
         var zoneCount: Int?
+        var idealCount: Int?
         
         var gradeString: String { "V\(grade)"}
         
@@ -122,10 +126,11 @@ extension ChartsDataModel {
             lhs.grade < rhs.grade
         }
         
-        init(grade: Int, gymCount: Int, zoneCount: Int? = nil) {
+        init(grade: Int, gymCount: Int, zoneCount: Int? = nil, idealCount: Int? = nil) {
             self.grade = grade
             self.gymCount = gymCount
             self.zoneCount = zoneCount
+            self.idealCount = idealCount
         }
     }
 }

@@ -8,7 +8,6 @@
 import Foundation
 import SwiftData
 
-@Model
 class DifficultyCurve {
     let goalCount: [Int : Int]
     
@@ -27,5 +26,22 @@ class DifficultyCurve {
     
     init(goalCount: [Int : Int]) {
         self.goalCount = goalCount
+    }
+    
+    init() {
+        self.goalCount = [
+            0 : 5,
+            1 : 6,
+            2 : 7,
+            3 : 8,
+            4 : 9,
+            5 : 8,
+            6 : 6,
+            7 : 5,
+            8 : 4,
+            9 : 3,
+            10 : 2,
+            11 : 1
+        ]
     }
 }

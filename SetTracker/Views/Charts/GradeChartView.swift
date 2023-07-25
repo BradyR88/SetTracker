@@ -28,6 +28,13 @@ struct GradeChartView: View {
                     .position(by: .value("Scope", "Zone"))
                     .foregroundStyle(Color.green)
                 }
+                
+                if let count = data.idealCount {
+                    LineMark(
+                        x: .value("Grade", data.gradeString),
+                        y: .value("Count", count)
+                    )
+                }
             }
             
         }

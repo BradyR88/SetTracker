@@ -14,6 +14,8 @@ final class Gym {
     var name: String
     @Relationship(.cascade) var zones: [Zone]
     
+    @Transient var difficultyCurve: DifficultyCurve = DifficultyCurve()
+    
     var allClimbs: [Climb] {
         get {
             zones.flatMap { $0.climbs }
