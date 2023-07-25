@@ -34,6 +34,7 @@ struct GradeChartView: View {
                         x: .value("Grade", data.gradeString),
                         y: .value("Count", count)
                     )
+                    .foregroundStyle(Color.green)
                 }
             }
             
