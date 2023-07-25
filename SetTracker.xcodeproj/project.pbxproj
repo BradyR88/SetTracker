@@ -33,6 +33,7 @@
 		73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */; };
 		73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D69DF22A62309900B68425 /* StyleChartView.swift */; };
 		73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */; };
+		73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSummaryView.swift; sourceTree = "<group>"; };
 		73D69DF22A62309900B68425 /* StyleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleChartView.swift; sourceTree = "<group>"; };
 		73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
+		73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCurve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				73553C242A33B3CF005974C8 /* Zone.swift */,
 				73553C262A33B3D5005974C8 /* Climb.swift */,
 				73553C282A33B3DA005974C8 /* Grade.swift */,
+				73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */,
 				73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */,
 				73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */,
+				73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */,
 				7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */,
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,

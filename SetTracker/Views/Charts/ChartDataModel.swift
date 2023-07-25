@@ -118,7 +118,7 @@ extension ChartsDataModel {
         
         var gradeString: String { "V\(grade)"}
         
-        static func < (lhs: ChartsDataModel.GradeData, rhs: ChartsDataModel.GradeData) -> Bool {
+        static func < (lhs: GradeData, rhs: GradeData) -> Bool {
             lhs.grade < rhs.grade
         }
         
