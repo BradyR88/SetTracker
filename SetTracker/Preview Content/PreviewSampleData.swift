@@ -14,7 +14,7 @@ let previewContainer: ModelContainer = {
             for: Gym.self, ModelConfiguration(inMemory: true)
         )
         for gym in SampleGyms.contents {
-            container.mainContext.insert(object: gym)
+            container.mainContext.insert(gym)
         }
         return container
     } catch {
