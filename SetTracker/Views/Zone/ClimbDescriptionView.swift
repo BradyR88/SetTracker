@@ -15,14 +15,15 @@ struct ClimbDescriptionView: View {
             switch climb.state {
             case .inProgress:
                 Image(systemName: "seal.fill")
-                    .tint(.orange)
+                    .tint(climb.color?.uiColor ?? .gray)
             case .up:
                 Image(systemName: "checkmark.seal.fill")
-                    .tint(.green)
+                    .tint(climb.color?.uiColor ?? .gray)
             case .down:
                 Image(systemName: "delete.forward.fill")
-                    .tint(.red)
+                    .tint(climb.color?.uiColor ?? .gray)
             }
+                
             Text(climb.description)
                 .tint(.primary)
             Spacer()
