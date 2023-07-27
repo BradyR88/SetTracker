@@ -34,7 +34,6 @@
 		73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D69DF22A62309900B68425 /* StyleChartView.swift */; };
 		73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */; };
 		73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */; };
-		73FB8C6C2A704E8100DCFB30 /* Chartable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB8C6B2A704E8100DCFB30 /* Chartable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +84,6 @@
 		73D69DF22A62309900B68425 /* StyleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleChartView.swift; sourceTree = "<group>"; };
 		73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCurve.swift; sourceTree = "<group>"; };
-		73FB8C6B2A704E8100DCFB30 /* Chartable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chartable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +221,6 @@
 				73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */,
 				73D69DF22A62309900B68425 /* StyleChartView.swift */,
 				739C34DE2A662376009CB3CF /* ChartDataModel.swift */,
-				73FB8C6B2A704E8100DCFB30 /* Chartable.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 				7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */,
 				73553C232A33B3C9005974C8 /* Gym.swift in Sources */,
 				73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */,
-				73FB8C6C2A704E8100DCFB30 /* Chartable.swift in Sources */,
 				738F15BD2A60BFC40052131C /* MultiPicker.swift in Sources */,
 				73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */,
 				738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */,
