@@ -41,6 +41,21 @@ struct ClimbEditSheet: View {
                 }
                 MultiPicker(text: "Add climb style", selectedItems: $climb.style)
                 
+                Section(isExpanded: $expandedForm) {
+                    DatePicker("Date Set", selection: $climb.safeDateUp, displayedComponents: .date)
+                } header: {
+                    HStack{
+                        Text("Other")
+                        Spacer()
+                        Button {
+                            expandedForm.toggle()
+                        } label: {
+                            Image(systemName: expandedForm ? "chevron.down" : "chevron.right")
+                        }
+
+                    }
+                }
+                
                 Section {
                     if climb.state == .inProgress {
                         Button("Done Setting") {
@@ -58,7 +73,6 @@ struct ClimbEditSheet: View {
                         .frame(maxWidth: .infinity)
                         .tint(.orange)
                     }
-                    
                 }
             }
         }

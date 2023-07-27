@@ -53,6 +53,15 @@ final class Climb {
         }
     }
     
+    var safeDateUp: Date {
+        get {
+            dateUp ?? Date()
+        }
+        set {
+            dateUp = newValue
+        }
+    }
+    
     /// Record of whether or not the Climb is being set up for general use or has been torn down. Changing the variable automatically sets the dateUp and dateDown.
     var state: State {
         get {
