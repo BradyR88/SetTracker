@@ -12,6 +12,7 @@ struct ZoneSummaryView: View {
     @Bindable var zone: Zone
     
     @State private var selectedClimb: Climb?
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
@@ -76,8 +77,8 @@ struct ZoneSummaryView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
-                    Button("Reset") {
-                        zone.reset()
+                    Button("Reset", role: .destructive) {
+                        showingAlert = true
                     }
                     
                     Button("Done Seting") {
@@ -88,6 +89,22 @@ struct ZoneSummaryView: View {
                 }
             }
         }
+        .alert("Reset all Climbs", isPresented: $showingAlert, actions: {
+            Button(role: .destructive) {
+                zone.reset()
+            } label: {
+                Text("OK")
+            }
+            
+            Button {
+                // do nothing
+            } label: {
+                Text("Cancel")
+            }
+
+        }, message: {
+            Text("This will mark all climbs as striped and remove them from the zone.")
+        })
     }
 }
 
