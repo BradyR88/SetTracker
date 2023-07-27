@@ -19,6 +19,7 @@ struct GradeChartView: View {
                     y: .value("Count", data.gymCount)
                 )
                 .position(by: .value("Scope", "Gym"))
+                .zIndex(0)
                 
                 if let count = data.zoneCount {
                     BarMark(
@@ -27,6 +28,7 @@ struct GradeChartView: View {
                     )
                     .position(by: .value("Scope", "Zone"))
                     .foregroundStyle(Color.green)
+                    .zIndex(0)
                 }
                 
                 if let count = data.idealCount {
@@ -35,6 +37,15 @@ struct GradeChartView: View {
                         y: .value("Count", count)
                     )
                     .foregroundStyle(Color.green)
+                    .zIndex(1)
+                    
+                    PointMark(
+                        x: .value("Grade", data.gradeString),
+                        y: .value("Count", count)
+                    )
+                    .foregroundStyle(Color.green)
+                    .zIndex(2)
+                    
                 }
             }
             
