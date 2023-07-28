@@ -94,9 +94,12 @@ struct ChartsDataModel {
         self.styleCount = data.styleCount
     }
     
+    ///Takes difficulty curve information and adds it to GradeData so it can be displayed as a line in a chart.
     mutating func mergeIn(difficultyCurve curve: DifficultyCurve) {
+        let data = curve.goalNormalised(to: gradeCount.count)
+        
         for (index,gradeData) in gradeCount.enumerated() {
-            if let idealCount = curve.goalCount[gradeData.grade] {
+            if let idealCount = data[gradeData.grade] {
                 gradeCount[index].idealCount = idealCount
             }
         }
@@ -118,7 +121,7 @@ extension ChartsDataModel {
         let grade: Int
         let gymCount: Int
         var zoneCount: Int?
-        var idealCount: Int?
+        var idealCount: Double?
         
         var gradeString: String { "V\(grade)"}
         
@@ -130,7 +133,13 @@ extension ChartsDataModel {
             self.grade = grade
             self.gymCount = gymCount
             self.zoneCount = zoneCount
-            self.idealCount = idealCount
+            
+            if let idealCount = idealCount {
+                self.idealCount = Double(idealCount)
+            } else {
+                self.idealCount = nil
+            }
+            
         }
     }
 }

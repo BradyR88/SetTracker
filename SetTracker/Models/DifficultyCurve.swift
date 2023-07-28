@@ -24,6 +24,11 @@ class DifficultyCurve {
         }
     }
     
+    func goalNormalised(to num: Int) -> [Int : Double] {
+        let offset = Double(num) / Double(total)
+        return goalCount.mapValues { value in return Double(value) * offset }
+    }
+    
     init(goalCount: [Int : Int]) {
         self.goalCount = goalCount
     }

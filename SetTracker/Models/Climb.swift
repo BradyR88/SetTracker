@@ -110,7 +110,8 @@ final class Climb {
         self._setter = seter
         self.dateUp = nil
         self.dateDown = nil
-        self.style = style
+        self._style = []
+        self._color = []
         self.grade = grade
         //self.color = color
     }
