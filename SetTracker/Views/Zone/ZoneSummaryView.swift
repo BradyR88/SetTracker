@@ -95,12 +95,6 @@ struct ZoneSummaryView: View {
             } label: {
                 Text("OK")
             }
-            
-            Button {
-                // do nothing
-            } label: {
-                Text("Cancel")
-            }
 
         }, message: {
             Text("This will mark all climbs as striped and remove them from the zone.")

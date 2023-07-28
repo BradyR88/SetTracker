@@ -79,6 +79,7 @@ final class Zone {
         self.id = UUID()
         self.name = name
         self.climbs = climb
+        self.oldClimbs = []
     }
     
     enum DisplayMode {

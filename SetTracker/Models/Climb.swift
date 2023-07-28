@@ -110,10 +110,17 @@ final class Climb {
         self._setter = seter
         self.dateUp = nil
         self.dateDown = nil
-        self._style = []
-        self._color = []
         self.grade = grade
-        //self.color = color
+        
+        let rawStyle = style.map { $0.rawValue }
+        self._style = rawStyle
+        
+        if let color = color {
+            self._color = [color.rawValue]
+        } else {
+            self._color = []
+        }
+        
     }
 }
 
