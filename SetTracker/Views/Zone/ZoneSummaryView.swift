@@ -13,71 +13,14 @@ struct ZoneSummaryView: View {
     
     @State private var selectedClimb: Climb?
     @State private var showingAlert = false
+    @State private var showingSheet = false
     
     var body: some View {
         VStack {
             AllChartsView(data: ChartsDataModel(zone: zone))
             
             if selectedClimb == nil {
-                List {
-                    ForEach(zone.climbs.sorted()) { climb in
-                        Button {
-                            withAnimation {
-                                selectedClimb = climb
-                            }
-                        } label: {
-                            ClimbDescriptionView(climb: climb)
-                        }
-                        .swipeActions {
-                            switch climb.state {
-                            case .inProgress:
-                                Button {
-                                    climb.state = .up
-                                } label: {
-                                    Label("Done Seting", systemImage: "checkmark")
-                                }
-                                .tint(.green)
-                            case .up:
-                                Button {
-                                    climb.state = .inProgress
-                                } label: {
-                                    Label("Done Seting", systemImage: "checkmark.gobackward")
-                                }
-                                .tint(.orange)
-                                
-                                Button {
-                                    zone.strip(climb: climb)
-                                } label: {
-                                    Label("Strip", systemImage: "arrow.down.app")
-                                }
-                                .tint(.purple)
-                            case .down:
-                                Button {
-                                    zone.reinstate(climb)
-                                } label: {
-                                    Label("Reinstate", systemImage: "checkmark.gobackward")
-                                }
-                                .tint(.teal)
-                            }
-                            
-                            
-                            
-                            Button(role: .destructive) {
-                                zone.delete(climb)
-                            } label: {
-                                Label(" delete", systemImage: "trash")
-                            }
-                        }
-                    }
-                    
-                    Section {
-                        Button("Add Climb") {
-                            let newClimb = Climb(grade: 4)
-                            zone.climbs.append(newClimb)
-                            selectedClimb = newClimb
-                        }
-                    }
-                }
+                ZoneListView(zone: zone, selectedClimb: $selectedClimb)
             } else {
                 ClimbEditSheet(climb: selectedClimb!) { selectedClimb = nil }
             }
@@ -88,6 +31,10 @@ struct ZoneSummaryView: View {
                 Menu {
                     Button("Reset", role: .destructive) {
                         showingAlert = true
+                    }
+                    
+                    Button("Last Set") {
+                        showingSheet = true
                     }
                     
                     Button("Done Seting") {
@@ -108,6 +55,10 @@ struct ZoneSummaryView: View {
         }, message: {
             Text("This will mark all climbs as striped and remove them from the zone.")
         })
+        .sheet(isPresented: $showingSheet) {
+            DateEditSheet(zone: zone)
+                .presentationDetents([.fraction(0.66)])
+        }
     }
 }
 

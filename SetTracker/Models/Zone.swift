@@ -17,6 +17,36 @@ final class Zone {
     
     @Relationship(.nullify, inverse: \Gym.zones) var gym: Gym?
     
+    var dateOfLastSet: Date {
+        var date: Date = Date()
+        
+        guard !climbs.isEmpty else { return Date() }
+        for climb in climbs {
+            if date > climb.safeDateUp {
+                date = climb.safeDateUp
+            }
+        }
+        return date
+    }
+    
+    var daysSinceLastSet: Int? {
+        var days: Int? = nil
+        
+        guard !climbs.isEmpty else { return nil }
+        
+        for climb in climbs {
+            if days == nil {
+                days = climb.daysUp
+            } else if let daysUp = climb.daysUp {
+                if daysUp > days! {
+                    days = daysUp
+                }
+            }
+        }
+        
+        return days
+    }
+    
     var description: String {
         var description = "\(climbs.count) climbs"
         if let daysSinceLastSet = daysSinceLastSet {
@@ -29,30 +59,18 @@ final class Zone {
         return description
     }
     
-    var daysSinceLastSet: Int? {
-        get {
-            var days: Int? = nil
-            
-            guard !climbs.isEmpty else { return nil }
-            
-            for climb in climbs {
-                if days == nil {
-                    days = climb.daysUp
-                } else if let daysUp = climb.daysUp {
-                    if daysUp > days! {
-                        days = daysUp
-                    }
-                }
-            }
-            
-            return days
-        }
-    }
-    
     /// Deletes relevant Climb from Climbs list. Does not go into oldClimbs.
     func delete(_ climb: Climb) {
         climbs.removeAll { _climb in
             climb.id == _climb.id
+        }
+    }
+    
+    func lastSetDate(is date: Date, editAll: Bool) {
+        for climb in climbs {
+            if editAll || climb.state == .up {
+                climb.safeDateUp = date
+            }
         }
     }
     
