@@ -20,7 +20,7 @@ struct GymSummaryView: View {
                     HStack {
                         Text(zone.name)
                         Spacer()
-                        Text(zone.daysSinceLastSet.description)
+                        Text(zone.description)
                     }
                 }
                 .swipeActions {

@@ -17,11 +17,23 @@ final class Zone {
     
     @Relationship(.nullify, inverse: \Gym.zones) var gym: Gym?
     
-    var daysSinceLastSet: (description: String, days: Int?) {
+    var description: String {
+        var description = "\(climbs.count) climbs"
+        if let daysSinceLastSet = daysSinceLastSet {
+            if daysSinceLastSet == 0 {
+                description.append(" last set today")
+            } else {
+                description.append(" last set \(daysSinceLastSet) days ago")
+            }
+        }
+        return description
+    }
+    
+    var daysSinceLastSet: Int? {
         get {
             var days: Int? = nil
             
-            guard !climbs.isEmpty else { return ("Empty", nil) }
+            guard !climbs.isEmpty else { return nil }
             
             for climb in climbs {
                 if days == nil {
@@ -33,11 +45,7 @@ final class Zone {
                 }
             }
             
-            if days == nil {
-                return ("Unknown",nil)
-            } else {
-                return ("Last set \(days!) days ago", days)
-            }
+            return days
         }
     }
     
