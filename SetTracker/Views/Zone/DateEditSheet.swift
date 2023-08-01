@@ -12,8 +12,8 @@ struct DateEditSheet: View {
     @Environment(\.dismiss) private var dismiss
     
     @Bindable var zone: Zone
-    @State private var date = Date()
-    @State private var editAll = false
+    @State private var date: Date
+    @State private var editAll: Bool
     
     var body: some View {
         NavigationStack {
@@ -42,8 +42,13 @@ struct DateEditSheet: View {
     
     init(zone: Zone) {
         self.zone = zone
-        self.date = zone.dateOfLastSet
-        self.editAll = false
+        _date = State(initialValue: zone.dateOfLastSet)
+        if zone.daysSinceLastSet == nil {
+            _editAll = State(initialValue: true)
+        } else {
+            _editAll = State(initialValue: false)
+        }
+        
     }
 }
 
