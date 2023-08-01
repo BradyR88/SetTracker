@@ -55,6 +55,13 @@ final class Zone {
         }
     }
     
+    /// Sets climb state as .down and moves it to oldClimbs
+    func strip(climb: Climb) {
+        climb.state = .down
+        oldClimbs.append(climb)
+        climbs.removeAll { $0 == climb }
+    }
+    
     /// Add oldClimb back into the Climb list and marks its state as .up
     func reinstate(_ climb: Climb) {
         for (index, oldClimb) in oldClimbs.enumerated() {
@@ -67,6 +74,7 @@ final class Zone {
         }
     }
     
+    ///Sets all climbs as .down and moves all climbs to oldClimbs
     func reset(on date: Date = Date()) {
         climbs.forEach { climb in
             climb.state = .down
@@ -81,7 +89,9 @@ final class Zone {
         self.climbs = climb
         self.oldClimbs = []
     }
-    
+}
+
+extension Zone {
     enum DisplayMode {
         case currentClimbs, oldClimbs
         

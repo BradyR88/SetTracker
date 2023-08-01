@@ -27,8 +27,9 @@ struct GymSummaryView: View {
                     Button {
                         zone.reset()
                     } label: {
-                        Label("Reset", systemImage: "checkmark.gobackward")
+                        Label("Reset", systemImage: "arrow.down.app")
                     }
+                    .tint(.purple)
                 }
             }
         }

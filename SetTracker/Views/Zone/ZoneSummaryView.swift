@@ -44,6 +44,13 @@ struct ZoneSummaryView: View {
                                     Label("Done Seting", systemImage: "checkmark.gobackward")
                                 }
                                 .tint(.orange)
+                                
+                                Button {
+                                    zone.strip(climb: climb)
+                                } label: {
+                                    Label("Strip", systemImage: "arrow.down.app")
+                                }
+                                .tint(.purple)
                             case .down:
                                 Button {
                                     zone.reinstate(climb)
