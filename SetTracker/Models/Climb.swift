@@ -18,7 +18,7 @@ final class Climb {
     private(set) var dateDown: Date?
     var grade: Int
     
-    //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta
+    //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta (it is)
     // var style: [Style]
     private var _style: [String]
     var style: [Style] {
@@ -26,7 +26,7 @@ final class Climb {
         set { _style = newValue.map { $0.rawValue } }
     }
     
-    //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta
+    //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta (it is)
     // var color: HoldColors?
     private var _color: [String]
     var color: HoldColors? {

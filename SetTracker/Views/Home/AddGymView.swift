@@ -41,13 +41,18 @@ struct AddGymView: View {
             }
             .navigationTitle("Add Gym")
             .toolbar {
-                Button("Dismiss") {
-                    presentationMode.wrappedValue.dismiss()
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Dismiss") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
                 
-                Button("Save") {
-                    save()
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Save") {
+                        save()
+                    } 
                 }
+                
             }
             .alert("No Zones", isPresented: $showingAlert, actions: {
                 Button {
