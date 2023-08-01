@@ -72,7 +72,9 @@ struct ZoneSummaryView: View {
                     
                     Section {
                         Button("Add Climb") {
-                            zone.climbs.append(Climb(grade: 4))
+                            let newClimb = Climb(grade: 4)
+                            zone.climbs.append(newClimb)
+                            selectedClimb = newClimb
                         }
                     }
                 }
