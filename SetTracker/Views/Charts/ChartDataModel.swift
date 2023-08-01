@@ -16,6 +16,12 @@ struct ChartsDataModel {
         gradeCount.isEmpty && styleCount.isEmpty
     }
     
+    var total: Int {
+        var total: Int = 0
+        gradeCount.forEach { total += $0.gymCount }
+        return total
+    }
+    
     mutating func showGym(_ gym: Gym) {
         let climbs = gym.climbs
         
@@ -96,7 +102,7 @@ struct ChartsDataModel {
     
     ///Takes difficulty curve information and adds it to GradeData so it can be displayed as a line in a chart.
     mutating func mergeIn(difficultyCurve curve: DifficultyCurve) {
-        let data = curve.goalNormalised(to: gradeCount.count)
+        let data = curve.goalNormalised(to: total)
         
         for (index,gradeData) in gradeCount.enumerated() {
             if let idealCount = data[gradeData.grade] {
