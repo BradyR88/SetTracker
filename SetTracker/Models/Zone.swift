@@ -55,7 +55,7 @@ final class Zone {
         }
     }
     
-    /// Add soldClimb back into the Climb list and marks its state as .up
+    /// Add oldClimb back into the Climb list and marks its state as .up
     func reinstate(_ climb: Climb) {
         for (index, oldClimb) in oldClimbs.enumerated() {
             if oldClimb.id == climb.id {
