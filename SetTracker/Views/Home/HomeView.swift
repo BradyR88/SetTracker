@@ -48,8 +48,8 @@ struct HomeView: View {
                 Button("Delete", role: .destructive) {
                     withAnimation {
                         let toBeDeleted = selectedGym
-                        gymId = nil
                         modelContext.delete(toBeDeleted!)
+                        gymId = gyms.first?.id
                     }
                 }
             }, message: {

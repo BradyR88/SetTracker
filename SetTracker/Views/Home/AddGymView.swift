@@ -11,6 +11,8 @@ struct AddGymView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) var presentationMode
     
+    @AppStorage("gymId") var gymId: UUID?
+    
     @State private var gymName: String = ""
     @State private var zones: [Zone] = [Zone(name: "Zone 1")]
     @State private var showingAlert = false
@@ -78,6 +80,7 @@ struct AddGymView: View {
             let newGym = Gym(name: gymName, zones: zones)
             modelContext.insert(newGym)
             newGym.zones = zones // this insurance that the relationship is working https://youtu.be/_QMalUGTM4E?t=629
+            gymId = newGym.id
             presentationMode.wrappedValue.dismiss()
         }
     }
