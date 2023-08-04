@@ -10,11 +10,21 @@ import SwiftData
 
 @main
 struct SetTrackerApp: App {
-
+    
+    let modelContainer: ModelContainer
+    
+    init() {
+        do {
+            modelContainer = try ModelContainer(for: [Gym.self, Zone.self, Climb.self])
+        } catch {
+            fatalError("Could not initialize ModelContainer")
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
         }
-        .modelContainer(for: Gym.self)
+        .modelContainer(modelContainer)
     }
 }
