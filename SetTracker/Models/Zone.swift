@@ -12,10 +12,10 @@ import Foundation
 final class Zone {
     let id: UUID
     var name: String
-    @Relationship(.cascade) var climbs: [Climb]
-    @Relationship(.cascade) var oldClimbs: [Climb]
+    @Relationship(deleteRule: .cascade) var climbs: [Climb]
+    @Relationship(deleteRule: .cascade) var oldClimbs: [Climb]
     
-    @Relationship(.nullify, inverse: \Gym.zones) var gym: Gym?
+    @Relationship(deleteRule: .nullify, inverse: \Gym.zones) var gym: Gym?
     
     var dateOfLastSet: Date {
         var date: Date = Date()

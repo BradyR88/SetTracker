@@ -12,7 +12,7 @@ import SwiftData
 final class Gym {
     let id: UUID
     var name: String
-    @Relationship(.cascade) var zones: [Zone]
+    @Relationship(deleteRule: .cascade) var zones: [Zone]
     
     @Transient var difficultyCurve: DifficultyCurve = DifficultyCurve()
     

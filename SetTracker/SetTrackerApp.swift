@@ -15,7 +15,7 @@ struct SetTrackerApp: App {
     
     init() {
         do {
-            modelContainer = try ModelContainer(for: [Gym.self, Zone.self, Climb.self])
+            modelContainer = try ModelContainer(for: [Gym.self])
         } catch {
             fatalError("Could not initialize ModelContainer")
         }
