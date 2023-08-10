@@ -15,7 +15,10 @@ struct AddGymView: View {
     
     @State private var gymName: String = ""
     @State private var zones: [Zone] = [Zone(name: "Zone 1")]
+    @State private var difficultyCurve = DifficultyCurve()
+    
     @State private var showingAlert = false
+    @State private var showingDifficultyCurve = false
     
     var body: some View {
         NavigationStack {
@@ -40,6 +43,13 @@ struct AddGymView: View {
                         Text("Gym must have at least one zone.")
                     }
                 }
+                
+                Section(isExpanded: $showingDifficultyCurve) {
+                    DifficultyCurveView(difficultyCurve: $difficultyCurve)
+                } header: {
+                    Text("Difficulty Curve")
+                }
+
             }
             .navigationTitle("Add Gym")
             .toolbar {
