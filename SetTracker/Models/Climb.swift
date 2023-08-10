@@ -17,14 +17,7 @@ final class Climb {
     private(set) var dateUp: Date?
     private(set) var dateDown: Date?
     var grade: Int
-    
-    //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta (it is)
-    // var style: [Style]
-    private var _style: [String]
-    var style: [Style] {
-        get { _style.compactMap { Style(rawValue: $0) } }
-        set { _style = newValue.map { $0.rawValue } }
-    }
+    var style: [Style]
     
     //TODO: simplify down to one variable, saving enums is crashing swiftData, hoping it's a bug in the beta (it is)
     // var color: HoldColors?
@@ -111,9 +104,7 @@ final class Climb {
         self.dateUp = nil
         self.dateDown = nil
         self.grade = grade
-        
-        let rawStyle = style.map { $0.rawValue }
-        self._style = rawStyle
+        self.style = style
         
         if let color = color {
             self._color = [color.rawValue]
