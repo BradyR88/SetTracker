@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 class DifficultyCurve {
-    let goalCount: [Int : Int]
+    var goalCount: [Int : Int]
     
     var total: Int {
         var total: Int = 0

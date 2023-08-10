@@ -11,7 +11,9 @@ struct DifficultyCurveView: View {
     @Binding var difficultyCurve: DifficultyCurve
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(difficultyCurve.goalCount.sorted(by: <), id: \.key) { grade, value in
+            Text("grade: \(grade) - count: \(value)")
+        }
     }
 }
 
