@@ -13,8 +13,7 @@ final class Gym {
     let id: UUID
     var name: String
     @Relationship(deleteRule: .cascade) var zones: [Zone]
-    
-    @Transient var difficultyCurve: DifficultyCurve = DifficultyCurve()
+    var difficultyCurve: DifficultyCurve
     
     var climbs: [Climb] {
         get {
@@ -22,10 +21,11 @@ final class Gym {
         }
     }
     
-    init(name: String, zones: [Zone]) {
+    init(name: String, zones: [Zone], difficultyCurve: DifficultyCurve = DifficultyCurve()) {
         self.id = UUID()
         self.name = name
         self.zones = zones
+        self.difficultyCurve = difficultyCurve
     }
 }
 

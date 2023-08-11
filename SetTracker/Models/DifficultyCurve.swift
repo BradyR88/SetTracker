@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+@Model
 class DifficultyCurve {
     var goalCount: [Int : Int]
     
@@ -28,6 +29,15 @@ class DifficultyCurve {
         let offset = Double(num) / Double(total)
         return goalCount.mapValues { value in return Double(value) * offset }
     }
+    
+    func onIncrement(of grade: Int) {
+        goalCount[grade]? += 1
+    }
+    
+    func onDecrement(of grade: Int) {
+        goalCount[grade]? -= 1
+    }
+    
     
     init(goalCount: [Int : Int]) {
         self.goalCount = goalCount

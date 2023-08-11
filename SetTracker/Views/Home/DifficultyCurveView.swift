@@ -12,7 +12,12 @@ struct DifficultyCurveView: View {
     
     var body: some View {
         ForEach(difficultyCurve.goalCount.sorted(by: <), id: \.key) { grade, value in
-            Text("grade: \(grade) - count: \(value)")
+            Stepper("Grade\(grade) - \(value)") {
+                difficultyCurve.onIncrement(of: grade)
+            } onDecrement: {
+                difficultyCurve.onDecrement(of: grade)
+            }
+
         }
     }
 }

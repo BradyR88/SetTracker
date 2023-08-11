@@ -18,7 +18,6 @@ struct AddGymView: View {
     @State private var difficultyCurve = DifficultyCurve()
     
     @State private var showingAlert = false
-    @State private var showingDifficultyCurve = false
     
     var body: some View {
         NavigationStack {
@@ -44,7 +43,7 @@ struct AddGymView: View {
                     }
                 }
                 
-                Section(isExpanded: $showingDifficultyCurve) {
+                Section {
                     DifficultyCurveView(difficultyCurve: $difficultyCurve)
                 } header: {
                     Text("Difficulty Curve")
@@ -87,7 +86,7 @@ struct AddGymView: View {
         if zones.isEmpty {
             showingAlert.toggle()
         } else {
-            let newGym = Gym(name: gymName, zones: zones)
+            let newGym = Gym(name: gymName, zones: zones, difficultyCurve: difficultyCurve)
             modelContext.insert(newGym)
             newGym.zones = zones // this insurance that the relationship is working https://youtu.be/_QMalUGTM4E?t=629
             gymId = newGym.id
