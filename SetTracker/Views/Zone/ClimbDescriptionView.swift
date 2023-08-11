@@ -13,7 +13,7 @@ struct ClimbDescriptionView: View {
     var body: some View {
         HStack {
             Text("V\(climb.grade)")
-                .foregroundStyle(climb.color == .black ? Color.white : Color.primary)
+                .foregroundStyle(climb.color == .black ? Color.white : Color.black)
                 .padding(6)
                 .background {
                     RoundedRectangle(cornerRadius: 5)
@@ -43,7 +43,7 @@ struct ClimbDescriptionView: View {
 }
 
 #Preview {
-    var climb = Climb.example
+    let climb = Climb.example
     
     return Button {
         if climb.state == .down {
