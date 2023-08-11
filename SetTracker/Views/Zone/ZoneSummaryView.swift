@@ -17,22 +17,23 @@ struct ZoneSummaryView: View {
     
     var body: some View {
         VStack {
-            AllChartsView(data: ChartsDataModel(zone: zone))
-            
             if zone.climbs.isEmpty {
-                Button {
-                    addClimb()
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100)
-                        .padding(.bottom, 150)
+                ContentUnavailableView {
+                    Label("No Climbs", systemImage: "square.stack.3d.up.slash")
+                } actions: {
+                    Button("Add Climb") {
+                        addClimb()
+                    }
+                    .buttonStyle(.bordered)
                 }
-            } else if selectedClimb == nil {
-                ZoneListView(zone: zone, selectedClimb: $selectedClimb)
             } else {
-                ClimbEditSheet(climb: selectedClimb!) { selectedClimb = nil }
+                AllChartsView(data: ChartsDataModel(zone: zone))
+                
+                if selectedClimb == nil {
+                    ZoneListView(zone: zone, selectedClimb: $selectedClimb)
+                } else {
+                    ClimbEditSheet(climb: selectedClimb!) { selectedClimb = nil }
+                }
             }
         }
         .navigationTitle(zone.name)
