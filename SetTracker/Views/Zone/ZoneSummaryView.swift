@@ -19,7 +19,17 @@ struct ZoneSummaryView: View {
         VStack {
             AllChartsView(data: ChartsDataModel(zone: zone))
             
-            if selectedClimb == nil {
+            if zone.climbs.isEmpty {
+                Button {
+                    addClimb()
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100)
+                        .padding(.bottom, 150)
+                }
+            } else if selectedClimb == nil {
                 ZoneListView(zone: zone, selectedClimb: $selectedClimb)
             } else {
                 ClimbEditSheet(climb: selectedClimb!) { selectedClimb = nil }
@@ -47,9 +57,7 @@ struct ZoneSummaryView: View {
             
             ToolbarItem(placement: .primaryAction) {
                 Button {
-                    let newClimb = Climb(grade: 4)
-                    zone.climbs.append(newClimb)
-                    selectedClimb = newClimb
+                    addClimb()
                 } label: {
                     Label("Add Climb", systemImage: "plus.circle")
                 }
@@ -70,6 +78,12 @@ struct ZoneSummaryView: View {
             DateEditSheet(zone: zone)
                 .presentationDetents([.fraction(0.66)])
         }
+    }
+    
+    func addClimb() {
+        let newClimb = Climb(grade: 4)
+        zone.climbs.append(newClimb)
+        selectedClimb = newClimb
     }
 }
 
