@@ -63,14 +63,6 @@ struct ZoneListView: View {
                     }
                 }
             }
-            
-            Section {
-                Button("Add Climb") {
-                    let newClimb = Climb(grade: 4)
-                    zone.climbs.append(newClimb)
-                    selectedClimb = newClimb
-                }
-            }
         }
     }
 }

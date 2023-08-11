@@ -44,6 +44,17 @@ struct ZoneSummaryView: View {
                     Image(systemName: "ellipsis")
                 }
             }
+            
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    let newClimb = Climb(grade: 4)
+                    zone.climbs.append(newClimb)
+                    selectedClimb = newClimb
+                } label: {
+                    Label("Add Climb", systemImage: "plus.circle")
+                }
+
+            }
         }
         .alert("Reset all Climbs", isPresented: $showingAlert, actions: {
             Button(role: .destructive) {
