@@ -20,6 +20,11 @@ final class Climb {
     var style: [Style]
     var color: HoldColors?
     
+    var lastSetDescription: String {
+        guard let daysUp = daysUp else { return "--"}
+        return "\(daysUp) Day\(daysUp == 1 ? "" : "s") Ago"
+    }
+    
     var setter: String {
         get {
             return _setter ?? ""
@@ -76,15 +81,6 @@ final class Climb {
         return Calendar.current.dateComponents([.day], from: dateUp, to: to).day ?? 0
     }
     
-    var description: String {
-        let grade = "V\(grade)"
-        if let seter = _setter {
-            return "\(grade) - \(seter)"
-        } else {
-            return grade
-        }
-    }
-    
     init(seter: String? = nil, style: [Style] = [], grade: Int, color: HoldColors? = nil) {
         self.id = UUID()
         self._setter = seter
@@ -97,7 +93,7 @@ final class Climb {
 }
 
 extension Climb {
-    static let example = Climb(seter: "Brady Roshaw", style: [.crimp,.endurance], grade: 6)
+    static let example = Climb(seter: "Brady Roshaw", style: [.crimp,.endurance], grade: 6 ,color: .white)
     
     static let examples = [
         Climb(grade: 3),

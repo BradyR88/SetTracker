@@ -12,29 +12,46 @@ struct ClimbDescriptionView: View {
     
     var body: some View {
         HStack {
-            switch climb.state {
-            case .inProgress:
-                Image(systemName: "seal.fill")
-                    .tint(climb.color?.uiColor ?? .gray)
-            case .up:
-                Image(systemName: "checkmark.seal.fill")
-                    .tint(climb.color?.uiColor ?? .gray)
-            case .down:
-                Image(systemName: "delete.forward.fill")
-                    .tint(climb.color?.uiColor ?? .gray)
-            }
+            Text("V\(climb.grade)")
+                .foregroundStyle(climb.color == .black ? Color.white : Color.primary)
+                .padding(6)
+                .background {
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundStyle(climb.color?.uiColor ?? .gray)
+                }
+                .padding(2)
+                .background {
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundStyle(climb.color == .white ? Color.black : climb.color?.uiColor ?? .gray)
+                }
                 
-            Text(climb.description)
-                .tint(.primary)
+            VStack(alignment: .leading) {
+                Text("Setter: \(climb.setter)")
+                Text(climb.lastSetDescription)
+            }
+            .font(.subheadline)
+            
+            
             Spacer()
-            if let daysUp = climb.daysUp {
-                Text("\(daysUp)")
-                    .tint(.primary)
+            
+            if climb.state == .up {
+                Image(systemName: "checkmark.circle")
             }
         }
+        .foregroundStyle(Color.primary)
     }
 }
 
-//#Preview {
-//    ClimbDescriptionView(climb: Climb.example)
-//}
+#Preview {
+    var climb = Climb.example
+    
+    return Button {
+        if climb.state == .down {
+            climb.state = .up
+        } else {
+            climb.state = .down
+        }
+    } label: {
+        ClimbDescriptionView(climb: climb)
+    }
+}
