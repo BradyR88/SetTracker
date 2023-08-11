@@ -17,10 +17,14 @@ struct GymSummaryView: View {
             
             List(gym.zones.sorted()) { zone in
                 NavigationLink(value: zone) {
-                    HStack {
+                    VStack(alignment: .leading) {
                         Text(zone.name)
-                        Spacer()
-                        Text(zone.description)
+                            .bold()
+                        Group {
+                            Text("Climbs: \(zone.climbs.count)")
+                            Text(zone.lastSetDescription)
+                        }
+                        .font(.subheadline)
                     }
                 }
                 .swipeActions {

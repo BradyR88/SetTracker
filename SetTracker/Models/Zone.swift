@@ -38,7 +38,7 @@ final class Zone {
             if days == nil {
                 days = climb.daysUp
             } else if let daysUp = climb.daysUp {
-                if daysUp > days! {
+                if daysUp < days! {
                     days = daysUp
                 }
             }
@@ -47,16 +47,9 @@ final class Zone {
         return days
     }
     
-    var description: String {
-        var description = "\(climbs.count) climbs"
-        if let daysSinceLastSet = daysSinceLastSet {
-            if daysSinceLastSet == 0 {
-                description.append(" last set today")
-            } else {
-                description.append(" last set \(daysSinceLastSet) days ago")
-            }
-        }
-        return description
+    var lastSetDescription: String {
+        guard let daysSinceLastSet = daysSinceLastSet else { return "--"}
+        return "\(daysSinceLastSet) Day\(daysSinceLastSet == 1 ? "" : "s") Ago"
     }
     
     /// Deletes relevant Climb from Climbs list. Does not go into oldClimbs.
