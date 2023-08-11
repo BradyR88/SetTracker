@@ -97,14 +97,14 @@ final class Climb {
 }
 
 extension Climb {
-    static let example = Climb(seter: "Brady Roshaw", style: [.crimp,.morpho], grade: 6)
+    static let example = Climb(seter: "Brady Roshaw", style: [.crimp,.endurance], grade: 6)
     
     static let examples = [
         Climb(grade: 3),
-        Climb(seter: "Brady", style: [.crimp,.technical], grade: 6),
-        Climb(seter: "Nate", style: [.power,.sloper,.technical], grade: 8),
-        Climb(seter: "Alaxa", style: [.morpho,.technical], grade: 5),
-        Climb(seter: "Brady", style: [.morpho,.power], grade: 5)
+        Climb(seter: "Brady", style: [.crimp,.pinch], grade: 6),
+        Climb(seter: "Nate", style: [.power,.sloper,], grade: 8),
+        Climb(seter: "Alaxa", style: [], grade: 5),
+        Climb(seter: "Brady", style: [.dino,.power], grade: 5)
     ]
 }
 
@@ -124,7 +124,7 @@ extension Climb {
 
 enum Style: String, CaseIterable, Codable, Comparable {
     // this is lemeted to 7 case's because of chart color limatations (endurance was originally also included)
-    case crimp = "Crimp", sloper = "Sloper", power = "Power", dino = "Dino", technical = "Technical", morpho = "Morpho", bored = "Bored"
+    case crimp = "Crimp", sloper = "Sloper", power = "Power", dino = "Dino", pinch = "pinch", endurance = "Endurance"
     
     static func < (lhs: Style, rhs: Style) -> Bool {
         lhs.rawValue < rhs.rawValue
