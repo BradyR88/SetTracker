@@ -32,6 +32,7 @@ struct ClimbEditSheet: View {
                 }
                 
                 TextField("Setter", text: $climb.setter)
+                    .submitLabel(.done)
                 
                 Picker("Color", selection: $climb.color) {
                     Text("No Color").tag(nil as HoldColors?)
