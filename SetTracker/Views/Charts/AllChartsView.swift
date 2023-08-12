@@ -33,5 +33,5 @@ struct AllChartsView: View {
 }
 
 //#Preview {
-//    AllChartsView()
+//    AllChartsView(data: .example)
 //}

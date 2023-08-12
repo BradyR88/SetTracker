@@ -92,15 +92,7 @@ struct HomeView: View {
     }
 }
 
-//struct Preview_GymSummaryView: PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-//            .modelContainer(previewContainer)
-//    }
-//}
-
-//
-//#Preview {
-//    HomeView()
-//        .modelContainer(previewContainer)
-//}
+#Preview {
+    HomeView()
+        .modelContainer(previewContainer)
+}

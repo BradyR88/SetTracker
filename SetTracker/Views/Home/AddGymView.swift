@@ -99,11 +99,10 @@ struct AddGymView: View {
     }
 }
 
-//#Preview {
-//    Text("test")
-//        .sheet(isPresented: .constant(true)) {
-//            AddGymView()
-//                .presentationDetents([.medium])
-//        }
-//    
-//}
+#Preview {
+    Text("test")
+        .sheet(isPresented: .constant(true)) {
+            AddGymView()
+        }
+    
+}

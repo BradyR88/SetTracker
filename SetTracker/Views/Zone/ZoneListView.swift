@@ -68,5 +68,5 @@ struct ZoneListView: View {
 }
 
 //#Preview {
-//    ZoneListView()
+//    ZoneListView(zone: .example, selectedClimb: .constant(nil))
 //}

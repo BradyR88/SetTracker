@@ -90,7 +90,7 @@ struct ZoneSummaryView: View {
 
 //#Preview {
 //    NavigationStack {
-//        ZoneSummaryView(zone: .constant(Zone.example))
+//        ZoneSummaryView(zone: Zone.example)
 //    }
-//    
+//    .modelContainer(previewContainer)
 //}
