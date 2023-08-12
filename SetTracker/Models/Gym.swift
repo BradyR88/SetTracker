@@ -28,8 +28,3 @@ final class Gym {
         self.difficultyCurve = difficultyCurve
     }
 }
-
-// Provides example data to use in previews
-extension Gym {
-    static let example = Gym(name: "Alchemy", zones: Zone.examples)
-}

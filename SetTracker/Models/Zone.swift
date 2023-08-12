@@ -128,14 +128,3 @@ extension Zone: TimeUpDating {
         return days
     }
 }
-
-extension Zone {
-    static let example = Zone(name: "Zone 1", climb: [Climb(grade: 1),Climb(grade: 3)])
-    
-    static let examples = [
-        Zone(name: "Zone 1", climb: [Climb(grade: 1),Climb(grade: 3)]),
-        Zone(name: "Zone 2", climb: [Climb(grade: 3),Climb(grade: 3)]),
-        Zone(name: "Zone 3", climb: [Climb(grade: 7),Climb(grade: 4)]),
-        Zone(name: "Zone 4", climb: [Climb(grade: 1),Climb(grade: 4)])
-    ]
-}

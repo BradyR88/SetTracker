@@ -43,7 +43,7 @@ struct ClimbDescriptionView: View {
 }
 
 #Preview {
-    let climb = Climb.example
+    let climb = PreviewExamples.exampleClimb
     
     return Button {
         if climb.state == .down {

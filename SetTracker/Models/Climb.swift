@@ -81,18 +81,6 @@ final class Climb {
     }
 }
 
-extension Climb {
-    static let example = Climb(seter: "Brady Roshaw", style: [.crimp,.endurance], grade: 6 ,color: .white)
-    
-    static let examples = [
-        Climb(grade: 3),
-        Climb(seter: "Brady", style: [.crimp,.pinch], grade: 6),
-        Climb(seter: "Nate", style: [.power,.sloper,], grade: 8),
-        Climb(seter: "Alaxa", style: [], grade: 5),
-        Climb(seter: "Brady", style: [.dino,.power], grade: 5)
-    ]
-}
-
 extension Climb: Comparable {
     //TODO: sort by grage and thin the something somethig else if the grades are the same
     //TODO: provide difrint sort methods so the view can pick how to sort the data
