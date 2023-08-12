@@ -22,7 +22,7 @@ struct GymSummaryView: View {
                             .bold()
                         Group {
                             Text("Climbs: \(zone.climbs.count)")
-                            Text(zone.lastSetDescription)
+                            Text(zone.daysUpDescription)
                         }
                         .font(.subheadline)
                     }

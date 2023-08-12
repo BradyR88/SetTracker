@@ -27,7 +27,7 @@ struct ClimbDescriptionView: View {
                 
             VStack(alignment: .leading) {
                 Text("Setter: \(climb.setter)")
-                Text(climb.lastSetDescription)
+                Text(climb.daysUpDescription)
             }
             .font(.subheadline)
             

@@ -20,11 +20,6 @@ final class Climb {
     var style: [Style]
     var color: HoldColors?
     
-    var lastSetDescription: String {
-        guard let daysUp = daysUp else { return "--"}
-        return "\(daysUp) Day\(daysUp == 1 ? "" : "s") Ago"
-    }
-    
     var setter: String {
         get {
             return _setter ?? ""
@@ -75,12 +70,6 @@ final class Climb {
         }
     }
     
-    var daysUp: Int? {
-        let to = dateDown ?? Date()
-        guard let dateUp = dateUp else { return nil }
-        return Calendar.current.dateComponents([.day], from: dateUp, to: to).day ?? 0
-    }
-    
     init(seter: String? = nil, style: [Style] = [], grade: Int, color: HoldColors? = nil) {
         self.id = UUID()
         self._setter = seter
@@ -109,6 +98,14 @@ extension Climb: Comparable {
     //TODO: provide difrint sort methods so the view can pick how to sort the data
     static func < (lhs: Climb, rhs: Climb) -> Bool {
         lhs.grade < rhs.grade
+    }
+}
+
+extension Climb: TimeUpDating {
+    var daysUp: Int? {
+        let to = dateDown ?? Date()
+        guard let dateUp = dateUp else { return nil }
+        return Calendar.current.dateComponents([.day], from: dateUp, to: to).day ?? 0
     }
 }
 

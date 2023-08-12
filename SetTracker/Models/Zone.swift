@@ -29,29 +29,6 @@ final class Zone {
         return date
     }
     
-    var daysSinceLastSet: Int? {
-        var days: Int? = nil
-        
-        guard !climbs.isEmpty else { return nil }
-        
-        for climb in climbs {
-            if days == nil {
-                days = climb.daysUp
-            } else if let daysUp = climb.daysUp {
-                if daysUp < days! {
-                    days = daysUp
-                }
-            }
-        }
-        
-        return days
-    }
-    
-    var lastSetDescription: String {
-        guard let daysSinceLastSet = daysSinceLastSet else { return "--"}
-        return "\(daysSinceLastSet) Day\(daysSinceLastSet == 1 ? "" : "s") Ago"
-    }
-    
     /// Deletes relevant Climb from Climbs list. Does not go into oldClimbs.
     func delete(_ climb: Climb) {
         climbs.removeAll { _climb in
@@ -129,6 +106,26 @@ extension Zone: Comparable {
     //TODO: provide multiple sort options, so the view can't decide what type of sort it wants
     static func < (lhs: Zone, rhs: Zone) -> Bool {
         lhs.name < rhs.name
+    }
+}
+
+extension Zone: TimeUpDating {
+    var daysUp: Int? {
+        var days: Int? = nil
+        
+        guard !climbs.isEmpty else { return nil }
+        
+        for climb in climbs {
+            if days == nil {
+                days = climb.daysUp
+            } else if let daysUp = climb.daysUp {
+                if daysUp < days! {
+                    days = daysUp
+                }
+            }
+        }
+        
+        return days
     }
 }
 

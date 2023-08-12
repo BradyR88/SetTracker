@@ -43,7 +43,7 @@ struct DateEditSheet: View {
     init(zone: Zone) {
         self.zone = zone
         _date = State(initialValue: zone.dateOfLastSet)
-        if zone.daysSinceLastSet == nil {
+        if zone.daysUp == nil {
             _editAll = State(initialValue: true)
         } else {
             _editAll = State(initialValue: false)
