@@ -60,12 +60,6 @@ struct MultiPicker<T: CaseIterable & Hashable & RawRepresentable> : View where T
     }
 }
 
-//struct MultiPicker_Preview: PreviewProvider {
-//    static var previews: some View {
-//        MultiPicker(allItems: ["0","1","2"], selectedItems: .constant([]))
-//    }
-//}
-
 #Preview {
     MultiPicker(text: "test", allItems: Style.allCases, selectedItems: .constant([.dino]))
 }

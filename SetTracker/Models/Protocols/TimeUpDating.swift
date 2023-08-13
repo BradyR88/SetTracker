@@ -15,6 +15,10 @@ protocol TimeUpDating {
 extension TimeUpDating {
     var daysUpDescription: String {
         guard let daysUp = daysUp else { return "--"}
-        return "\(daysUp) Day\(daysUp == 1 ? "" : "s") Ago"
+        if daysUp == 0 {
+            return "Today"
+        } else {
+            return "\(daysUp) Day\(daysUp == 1 ? "" : "s") Ago"
+        }
     }
 }
