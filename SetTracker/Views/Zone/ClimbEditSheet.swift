@@ -27,7 +27,10 @@ struct ClimbEditSheet: View {
             Form {
                 Section("Grade") {
                     HorizontalPicker($climb.grade, items: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]) { grade in
-                        Text("V\(grade)")
+                        GeometryReader { reader in
+                            Text("V\(grade)")
+                                .frame(width: reader.size.width, height: reader.size.height, alignment: .center)
+                        }
                     }
                 }
                 

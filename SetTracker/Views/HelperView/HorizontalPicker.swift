@@ -42,46 +42,42 @@ public struct HorizontalPicker<Content: View, Item>: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
+            ZStack(alignment: Alignment(horizontal: .center, vertical: .center)) {
+                RoundedRectangle(cornerRadius: 15)
                     .foregroundStyle(Color.gray)
                     .opacity(0.2)
-                    .frame(width: geometry.size.width / 11)
+                    .frame(width: self.calcContentWidth(geometry, option: contentWidthOption))
                 
-                ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
-                    
-                    HStack(spacing: 0) {
-                        ForEach(0..<items.wrappedValue.count, id: \.self) { position in
-                            drawContentView(position, geometry: geometry)
-                        }
+                HStack(spacing: 0) {
+                    ForEach(0..<items.wrappedValue.count, id: \.self) { position in
+                        drawContentView(position, geometry: geometry)
                     }
-                    .frame(width: geometry.size.width, alignment: .leading)
-                    .offset(x: -CGFloat(self.position + 1) * self.calcContentWidth(geometry, option: contentWidthOption))
-                    .offset(x: self.translation + (geometry.size.width / 2) + (self.calcContentWidth(geometry, option: contentWidthOption) / 2))
-                    .animation(.interactiveSpring(), value: self.position + 1)
-                    .animation(.interactiveSpring(), value: translation)
-                    .clipped()
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .contentShape(Rectangle())
-                .gesture(
-                    DragGesture().updating(self.$translation) { value, state, _ in
-                        state = value.translation.width
-                    }
-                        .onEnded { value in
-                            let offset = value.translation.width / self.calcContentWidth(geometry, option: contentWidthOption)
-                            let newIndex = (CGFloat(self.position) - offset).rounded()
-                            self.position = min(max(Int(newIndex), 0), self.items.wrappedValue.count - 1)
-                        }
-                )
+                .frame(width: geometry.size.width, alignment: .leading)
+                .offset(x: -CGFloat(self.position + 1) * self.calcContentWidth(geometry, option: contentWidthOption))
+                .offset(x: self.translation + (geometry.size.width / 2) + (self.calcContentWidth(geometry, option: contentWidthOption) / 2))
+                .animation(.interactiveSpring(), value: self.position + 1)
+                .animation(.interactiveSpring(), value: translation)
+                .clipped()
             }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .contentShape(Rectangle())
+            .gesture(
+                DragGesture().updating(self.$translation) { value, state, _ in
+                    state = value.translation.width
+                }
+                    .onEnded { value in
+                        let offset = value.translation.width / self.calcContentWidth(geometry, option: contentWidthOption)
+                        let newIndex = (CGFloat(self.position) - offset).rounded()
+                        self.position = min(max(Int(newIndex), 0), self.items.wrappedValue.count - 1)
+                    }
+            )
         }
     }
     
     private func drawContentView(_ position: Int, geometry: GeometryProxy) -> some View {
         let sizeResult: CGFloat
         let alphaResult: Double
-        //let rotationResult: Double
         
         let maxRange = floor(maxVisible(geometry) / 2.0)
         let offset = translation / self.calcContentWidth(geometry, option: contentWidthOption)
@@ -100,15 +96,10 @@ public struct HorizontalPicker<Content: View, Item>: View {
         let preAlphaRst = Double(per) * alphaGap
         alphaResult = 1.0 - preAlphaRst
         
-        //        let rotationGap = 1.0 - rotationFactor
-        //        let preRotationRst = per * rotationGap
-        //rotationResult = cosh(per)
-        
         let item = items.wrappedValue[position]
         return contentBuilder(item)
             .scaleEffect(sizeResult)
             .opacity(alphaResult)
-        //.rotation3DEffect(.radians(rotationResult), axis: (x: 0, y: 1, z: 0))
             .frame(width: self.calcContentWidth(geometry, option: contentWidthOption), alignment: .center)
     }
     
@@ -131,11 +122,14 @@ public struct HorizontalPicker<Content: View, Item>: View {
 
 struct SwiftUIWheelPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalPicker(Binding.constant(5), items: Binding.constant([0, 1, 2, 3, 4, 5, 6, 7, 8 ,9, 10])) { value in
-            GeometryReader { reader in
-                Text("V\(value)")
-                    .frame(width: reader.size.width, height: reader.size.height, alignment: .center)
+        Form {
+            HorizontalPicker(Binding.constant(5), items: Binding.constant([0, 1, 2, 3, 4, 5, 6, 7, 8 ,9, 10])) { value in
+                GeometryReader { reader in
+                    Text("V\(value)")
+                        .frame(width: reader.size.width, height: reader.size.height, alignment: .center)
+                }
             }
         }
+        .padding(.top, 200)
     }
 }
