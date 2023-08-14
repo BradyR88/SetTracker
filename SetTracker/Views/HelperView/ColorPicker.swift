@@ -8,24 +8,57 @@
 import SwiftUI
 
 struct ColorPicker: View {
-    @Binding var color: HoldColors?
+    @Environment(\.colorScheme) var colorScheme
+    
+    @Binding var holdColor: HoldColors?
     
     let columns = [
-        GridItem(.adaptive(minimum: 50))
+        GridItem(.adaptive(minimum: 40))
     ]
     
     
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(HoldColors.allCases) { color in
-                color.uiColor
-                    .clipShape(Circle())
-                    .frame(height: 50)
+                Button {
+                    holdColor = color
+                } label: {
+                    Circle()
+                        .foregroundStyle(color.uiColor)
+                        .padding(4)
+                        .background {
+                            if color == .white && colorScheme == .light {
+                                Color.black
+                            } else {
+                                color.uiColor
+                            }
+                            
+                        }
+                        .clipShape(Circle())
+                }
+                .buttonStyle(BorderlessButtonStyle())
             }
+            
+            Button {
+                holdColor = nil
+            } label: {
+                Circle()
+                    .foregroundStyle(Color.gray)
+                    .padding(4)
+                    .background{ Color.gray }
+                    .clipShape(Circle())
+            }
+            .buttonStyle(BorderlessButtonStyle())
         }
     }
+        
 }
 
 #Preview {
-    ColorPicker(color: .constant(HoldColors.red))
+    @State var holdColor: HoldColors? = .blue
+    
+    return Form {
+        Text(holdColor?.rawValue ?? "Nope")
+        ColorPicker(holdColor: $holdColor)
+    }
 }
