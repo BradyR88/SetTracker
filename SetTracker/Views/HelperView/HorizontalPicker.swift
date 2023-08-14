@@ -16,13 +16,75 @@ public enum WidthOption {
 }
 //SwiftUICustomSlider
 public struct HorizontalPicker<Content: View, Item>: View {
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
+    
     
     private var items: Binding<[Item]>
     let contentBuilder: (Item) -> Content
     @Binding var position: Int
     @GestureState private var translation: CGFloat = 0
     // how far a item is spaced apart from its neighbor
-    private var contentWidthOption: WidthOption = .Fixed(35)
+    private var contentWidthOption: WidthOption {
+        switch dynamicTypeSize {
+        case .xSmall:
+            return .Fixed(30)
+        case .small:
+            return .Fixed(30)
+        case .medium:
+            return .Fixed(35)
+        case .large:
+            return .Fixed(35)
+        case .xLarge:
+            return .Fixed(39)
+        case .xxLarge:
+            return .Fixed(42)
+        case .xxxLarge:
+            return .Fixed(45)
+        case .accessibility1:
+            return .Fixed(50)
+        case .accessibility2:
+            return .Fixed(63)
+        case .accessibility3:
+            return .Fixed(80)
+        case .accessibility4:
+            return .Fixed(90)
+        case .accessibility5:
+            return .Fixed(98)
+        @unknown default:
+            return .Fixed(35)
+        }
+    }
+    private var contentPadingOption: CGFloat {
+        switch dynamicTypeSize {
+            
+        case .xSmall:
+            0
+        case .small:
+            0
+        case .medium:
+            0
+        case .large:
+            0
+        case .xLarge:
+            0
+        case .xxLarge:
+            0
+        case .xxxLarge:
+            0
+        case .accessibility1:
+            20
+        case .accessibility2:
+            25
+        case .accessibility3:
+            30
+        case .accessibility4:
+            35
+        case .accessibility5:
+            40
+        @unknown default:
+            0
+        }
+    }
     // how much the text size decreases as you move away from the center
     private var sizeFactor: CGFloat = 0.9
     // how much the text fades as you move away from the center
@@ -53,6 +115,7 @@ public struct HorizontalPicker<Content: View, Item>: View {
                         drawContentView(position, geometry: geometry)
                     }
                 }
+                .padding(.vertical, contentPadingOption)
                 .frame(width: geometry.size.width, alignment: .leading)
                 .offset(x: -CGFloat(self.position + 1) * self.calcContentWidth(geometry, option: contentWidthOption))
                 .offset(x: self.translation + (geometry.size.width / 2) + (self.calcContentWidth(geometry, option: contentWidthOption) / 2))
@@ -73,6 +136,7 @@ public struct HorizontalPicker<Content: View, Item>: View {
                     }
             )
         }
+        .padding(.vertical, contentPadingOption)
     }
     
     private func drawContentView(_ position: Int, geometry: GeometryProxy) -> some View {
