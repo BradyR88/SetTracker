@@ -27,8 +27,6 @@ public struct HorizontalPicker<Content: View, Item>: View {
     private var sizeFactor: CGFloat = 0.9
     // how much the text fades as you move away from the center
     private var alphaFactor: Double = 0.2
-    // how much the text rotates as you move away from the center
-    private var rotationFactor: Double = 90
     private var onValueChanged: ((Item) -> Void)? = nil
     
     public init(_ position: Binding<Int>, items: Binding<[Item]>, @ViewBuilder content: @escaping (Item) -> Content) {
@@ -104,7 +102,7 @@ public struct HorizontalPicker<Content: View, Item>: View {
         
 //        let rotationGap = 1.0 - rotationFactor
 //        let preRotationRst = per * rotationGap
-//        rotationResult = cosh(per)
+        //rotationResult = cosh(per)
         
         let item = items.wrappedValue[position]
         return contentBuilder(item)
