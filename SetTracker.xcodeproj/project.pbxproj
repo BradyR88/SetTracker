@@ -22,6 +22,7 @@
 		73553C2B2A33B61C005974C8 /* GradeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C2A2A33B61C005974C8 /* GradeTests.swift */; };
 		735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB492A3527900098C791 /* AddGymView.swift */; };
 		735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB4B2A3634410098C791 /* GymSummaryView.swift */; };
+		737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */; };
 		738F15BD2A60BFC40052131C /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F15BC2A60BFC40052131C /* MultiPicker.swift */; };
 		738FA2652A33D94100CAB9CA /* ClimbTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2642A33D94100CAB9CA /* ClimbTest.swift */; };
 		738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2672A33EA6500CAB9CA /* HomeView.swift */; };
@@ -76,6 +77,7 @@
 		73553C2A2A33B61C005974C8 /* GradeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTests.swift; sourceTree = "<group>"; };
 		735FFB492A3527900098C791 /* AddGymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGymView.swift; sourceTree = "<group>"; };
 		735FFB4B2A3634410098C791 /* GymSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSummaryView.swift; sourceTree = "<group>"; };
+		737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPicker.swift; sourceTree = "<group>"; };
 		738F15BC2A60BFC40052131C /* MultiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPicker.swift; sourceTree = "<group>"; };
 		738FA2642A33D94100CAB9CA /* ClimbTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbTest.swift; sourceTree = "<group>"; };
 		738FA2672A33EA6500CAB9CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				738F15BC2A60BFC40052131C /* MultiPicker.swift */,
 				7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */,
+				737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */,
 			);
 			path = HelperView;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				73F5D0A72A797A470050149B /* ZoneListView.swift in Sources */,
 				73F5D0A92A7987560050149B /* DateEditSheet.swift in Sources */,
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
+				737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
