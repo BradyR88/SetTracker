@@ -35,7 +35,7 @@ struct SampleGyms {
 }
 
 struct PreviewExamples {
-    static let exampleStyleData = [Style.crimp : 4, Style.sloper : 5, Style.dino : 0, Style.dino : 1, Style.power : 3, Style.pinch : 5, Style.endurance : 1]
+    static let exampleStyleData = [Style.crimp : 4, Style.sloper : 5, Style.dyno : 0, Style.dyno : 1, Style.power : 3, Style.pinch : 5, Style.endurance : 1]
     static let exampleGradeData = [1 : 4, 2 : 5, 3 : 0, 4 : 1, 5 : 3, 6 : 5, 7 : 1]
     
     static let exampleClimb = Climb(seter: "Brady Roshaw", style: [.crimp,.endurance], grade: 6 ,color: .white)
@@ -44,7 +44,7 @@ struct PreviewExamples {
         Climb(seter: "Brady", style: [.crimp,.pinch], grade: 6),
         Climb(seter: "Nate", style: [.power,.sloper,], grade: 8),
         Climb(seter: "Alaxa", style: [], grade: 5),
-        Climb(seter: "Brady", style: [.dino,.power], grade: 5)
+        Climb(seter: "Brady", style: [.dyno,.power], grade: 5)
     ]
     
     static let exampleZone = Zone(name: "Zone 1", climb: [Climb(grade: 1),Climb(grade: 3)])

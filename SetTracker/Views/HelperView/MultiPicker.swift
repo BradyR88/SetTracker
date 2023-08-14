@@ -61,5 +61,5 @@ struct MultiPicker<T: CaseIterable & Hashable & RawRepresentable> : View where T
 }
 
 #Preview {
-    MultiPicker(text: "test", allItems: Style.allCases, selectedItems: .constant([.dino]))
+    MultiPicker(text: "test", allItems: Style.allCases, selectedItems: .constant([.dyno]))
 }
