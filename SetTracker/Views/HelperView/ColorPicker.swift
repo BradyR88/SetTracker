@@ -13,7 +13,7 @@ struct ColorPicker: View {
     @Binding var holdColor: HoldColors?
     
     let columns = [
-        GridItem(.adaptive(minimum: 40))
+        GridItem(.adaptive(minimum: 30))
     ]
     
     
@@ -21,18 +21,27 @@ struct ColorPicker: View {
         LazyVGrid(columns: columns) {
             ForEach(HoldColors.allCases) { color in
                 Button {
-                    holdColor = color
+                    withAnimation {
+                        holdColor = color
+                    }
                 } label: {
                     Circle()
                         .foregroundStyle(color.uiColor)
-                        .padding(4)
+                        .padding(3)
                         .background {
                             if color == .white && colorScheme == .light {
-                                Color.black
+                                Color.gray
                             } else {
                                 color.uiColor
                             }
-                            
+                        }
+                        .overlay {
+                            if color == holdColor {
+                                Image(systemName: "checkmark")
+                                    .resizable()
+                                    .padding(10)
+                                    .foregroundStyle(color == .black ? Color.white : Color.black)
+                            }
                         }
                         .clipShape(Circle())
                 }
@@ -40,16 +49,26 @@ struct ColorPicker: View {
             }
             
             Button {
-                holdColor = nil
+                withAnimation {
+                    holdColor = nil
+                }
             } label: {
                 Circle()
                     .foregroundStyle(Color.gray)
                     .padding(4)
                     .background{ Color.gray }
+                    .overlay {
+                        if holdColor == nil {
+                            Image(systemName: "xmark.circle")
+                                .resizable()
+                                .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
+                        }
+                    }
                     .clipShape(Circle())
             }
             .buttonStyle(BorderlessButtonStyle())
         }
+        .sensoryFeedback(.selection, trigger: holdColor)
     }
         
 }
