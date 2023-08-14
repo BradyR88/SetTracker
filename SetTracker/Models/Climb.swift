@@ -136,7 +136,7 @@ enum HoldColors: String, CaseIterable, Codable, Identifiable {
         case .brown:
             Color.brown
         case .pink:
-            Color.pink
+            Color(red: 255, green: 0, blue: 127)
         case .red:
             Color.red
         }
