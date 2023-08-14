@@ -34,15 +34,20 @@ struct ClimbEditSheet: View {
                     }
                 }
                 
+                Section("Hold Color") {
+                    ColorPicker(holdColor: $climb.color)
+                }
+                
                 TextField("Setter", text: $climb.setter)
                     .submitLabel(.done)
                 
-                Picker("Color", selection: $climb.color) {
-                    Text("No Color").tag(nil as HoldColors?)
-                    ForEach(HoldColors.allCases) { color in
-                        Text(color.rawValue).tag(color as HoldColors?)
-                    }
-                }
+                // leaving because it might be useful pending on how I implement color blind mode
+//                Picker("Color", selection: $climb.color) {
+//                    Text("No Color").tag(nil as HoldColors?)
+//                    ForEach(HoldColors.allCases) { color in
+//                        Text(color.rawValue).tag(color as HoldColors?)
+//                    }
+//                }
                 MultiPicker(text: "Add climb style", selectedItems: $climb.style)
                 
                 Section(isExpanded: $expandedForm) {
