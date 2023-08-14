@@ -24,9 +24,11 @@ public struct HorizontalPicker<Content: View, Item>: View {
     // how far a item is spaced apart from its neighbor
     private var contentWidthOption: WidthOption = .Fixed(35)
     // how much the text size decreases as you move away from the center
-    private var sizeFactor: CGFloat = 0.7
+    private var sizeFactor: CGFloat = 0.9
     // how much the text fades as you move away from the center
     private var alphaFactor: Double = 0.2
+    // how much the text rotates as you move away from the center
+    private var rotationFactor: Double = 90
     private var onValueChanged: ((Item) -> Void)? = nil
     
     public init(_ position: Binding<Int>, items: Binding<[Item]>, @ViewBuilder content: @escaping (Item) -> Content) {
@@ -79,37 +81,36 @@ public struct HorizontalPicker<Content: View, Item>: View {
     }
     
     private func drawContentView(_ position: Int, geometry: GeometryProxy) -> some View {
-        var sizeResult: CGFloat = 1
-        var alphaResult: Double = 1
+        let sizeResult: CGFloat
+        let alphaResult: Double
+        //let rotationResult: Double
         
-        if sizeFactor != 1.0 || alphaFactor != 1.0 {
-            let maxRange = floor(maxVisible(geometry) / 2.0)
-            let offset = translation / self.calcContentWidth(geometry, option: contentWidthOption)
-            let newIndex = CGFloat(self.position) - offset
-            let posGap = CGFloat(position) - newIndex
-            //let posGap = CGFloat(position) - (newIndex.truncatingRemainder(dividingBy: CGFloat(self.items.wrappedValue.count)))
-            var per = abs(posGap / maxRange)
-            if 1.0 < per {
-                per = 1.0
-            }
-            
-            if sizeFactor != 1.0 {
-                let sizeGap = 1.0 - sizeFactor
-                let preSizeRst = per * sizeGap
-                sizeResult = 1 - preSizeRst
-            }
-            
-            if alphaFactor != 1.0 {
-                let alphaGap = 1.0 - alphaFactor
-                let preAlphaRst = Double(per) * alphaGap
-                alphaResult = 1.0 - preAlphaRst
-            }
+        let maxRange = floor(maxVisible(geometry) / 2.0)
+        let offset = translation / self.calcContentWidth(geometry, option: contentWidthOption)
+        let newIndex = CGFloat(self.position) - offset
+        let posGap = CGFloat(position) - newIndex
+        var per = abs(posGap / maxRange)
+        if 1.0 < per {
+            per = 1.0
         }
+        
+        let sizeGap = 1.0 - sizeFactor
+        let preSizeRst = per * sizeGap
+        sizeResult = 1 - preSizeRst
+        
+        let alphaGap = 1.0 - alphaFactor
+        let preAlphaRst = Double(per) * alphaGap
+        alphaResult = 1.0 - preAlphaRst
+        
+//        let rotationGap = 1.0 - rotationFactor
+//        let preRotationRst = per * rotationGap
+//        rotationResult = cosh(per)
         
         let item = items.wrappedValue[position]
         return contentBuilder(item)
             .scaleEffect(sizeResult)
             .opacity(alphaResult)
+            //.rotation3DEffect(.radians(rotationResult), axis: (x: 0, y: 1, z: 0))
             .frame(width: self.calcContentWidth(geometry, option: contentWidthOption), alignment: .center)
     }
     
