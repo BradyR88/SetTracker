@@ -137,6 +137,7 @@ public struct HorizontalPicker<Content: View, Item>: View {
             )
         }
         .padding(.vertical, contentPadingOption)
+        .sensoryFeedback(.selection, trigger: position)
     }
     
     private func drawContentView(_ position: Int, geometry: GeometryProxy) -> some View {
