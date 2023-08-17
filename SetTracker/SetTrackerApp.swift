@@ -16,6 +16,7 @@ struct SetTrackerApp: App {
     init() {
         do {
             modelContainer = try ModelContainer(for: [Gym.self])
+            GlobalModelContext.global.modelContext = modelContainer.mainContext
         } catch {
             fatalError("Could not initialize ModelContainer")
         }

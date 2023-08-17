@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ZoneListView: View {
+    @Environment(\.modelContext) private var modelContext
     @Bindable var zone: Zone
     @Binding var selectedClimb: Climb?
     
@@ -35,7 +36,7 @@ struct ZoneListView: View {
                         Button {
                             climb.state = .inProgress
                         } label: {
-                            Label("Done Seting", systemImage: "checkmark.gobackward")
+                            Label("Seting", systemImage: "checkmark.gobackward")
                         }
                         .tint(.orange)
                         

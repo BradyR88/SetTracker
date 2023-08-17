@@ -34,6 +34,7 @@ final class Zone {
         climbs.removeAll { _climb in
             climb.id == _climb.id
         }
+        GlobalModelContext.global.modelContext?.delete(climb.self)
     }
     
     func lastSetDate(is date: Date, editAll: Bool) {
@@ -56,6 +57,7 @@ final class Zone {
         climb.state = .down
         oldClimbs.append(climb)
         climbs.removeAll { $0 == climb }
+        GlobalModelContext.global.modelContext?.delete(climb.self)
     }
     
     /// Add oldClimb back into the Climb list and marks its state as .up
