@@ -23,6 +23,8 @@
 		735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB492A3527900098C791 /* AddGymView.swift */; };
 		735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB4B2A3634410098C791 /* GymSummaryView.swift */; };
 		737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */; };
+		7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FCAC2A8E705300B8C83D /* HoldColors.swift */; };
+		7381FCAF2A8E708800B8C83D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FCAE2A8E708800B8C83D /* Style.swift */; };
 		738F15BD2A60BFC40052131C /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F15BC2A60BFC40052131C /* MultiPicker.swift */; };
 		738FA2652A33D94100CAB9CA /* ClimbTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2642A33D94100CAB9CA /* ClimbTest.swift */; };
 		738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2672A33EA6500CAB9CA /* HomeView.swift */; };
@@ -80,6 +82,8 @@
 		735FFB492A3527900098C791 /* AddGymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGymView.swift; sourceTree = "<group>"; };
 		735FFB4B2A3634410098C791 /* GymSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSummaryView.swift; sourceTree = "<group>"; };
 		737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPicker.swift; sourceTree = "<group>"; };
+		7381FCAC2A8E705300B8C83D /* HoldColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldColors.swift; sourceTree = "<group>"; };
+		7381FCAE2A8E708800B8C83D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		738F15BC2A60BFC40052131C /* MultiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPicker.swift; sourceTree = "<group>"; };
 		738FA2642A33D94100CAB9CA /* ClimbTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbTest.swift; sourceTree = "<group>"; };
 		738FA2672A33EA6500CAB9CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -194,10 +198,20 @@
 				73553C262A33B3D5005974C8 /* Climb.swift */,
 				73553C282A33B3DA005974C8 /* Grade.swift */,
 				73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */,
+				7381FCAB2A8E701500B8C83D /* Enums */,
 				73909EF32A87D76F007A24DC /* Protocols */,
 				73E2BF382A8D9EC900843376 /* GlobalModelContext.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7381FCAB2A8E701500B8C83D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7381FCAC2A8E705300B8C83D /* HoldColors.swift */,
+				7381FCAE2A8E708800B8C83D /* Style.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		738F15BB2A60BF630052131C /* HelperView */ = {
@@ -418,11 +432,13 @@
 				73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */,
 				738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */,
 				735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */,
+				7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */,
 				73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */,
 				73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */,
 				73909EF52A87D7FF007A24DC /* TimeUpDating.swift in Sources */,
 				73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */,
 				73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */,
+				7381FCAF2A8E708800B8C83D /* Style.swift in Sources */,
 				7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */,
 				73F5D0A72A797A470050149B /* ZoneListView.swift in Sources */,
 				73F5D0A92A7987560050149B /* DateEditSheet.swift in Sources */,
