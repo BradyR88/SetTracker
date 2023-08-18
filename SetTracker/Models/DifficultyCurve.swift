@@ -59,4 +59,25 @@ class DifficultyCurve {
             11 : 1
         ]
     }
+    
+    init(center: Int, hight: Int, skew: Int) {
+        var value: [Int:Int] = [center : hight]
+        var headOffset: Int = 1
+        
+        var head: Int { center + headOffset }
+        
+        while head <= 11 {
+            value[head] = hight * abs(headOffset)/6
+            headOffset += 1
+        }
+        
+        headOffset = -1
+        
+        while head >= 0 {
+            value[head] = hight * abs(headOffset)/6
+            headOffset -= 1
+        }
+        
+        self.goalCount = value
+    }
 }
