@@ -76,6 +76,8 @@ final class Zone {
     func reset(on date: Date = Date()) {
         climbs.forEach { climb in
             climb.state = .down
+            //TODO: this is not the best way to do this use a predicate to remove all climbs in this zone at the same time not one at a time in a loop
+            GlobalModelContext.global.modelContext?.delete(climb.self)
         }
         oldClimbs.append(contentsOf: climbs)
         climbs.removeAll()
