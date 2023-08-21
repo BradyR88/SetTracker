@@ -67,14 +67,14 @@ class DifficultyCurve {
         var head: Int { center + headOffset }
         
         while head <= 11 {
-            value[head] = hight * abs(headOffset)/6
+            value[head] = Int(Double(hight) * (-0.1*Double(abs(headOffset)) + 1))
             headOffset += 1
         }
         
         headOffset = -1
         
         while head >= 0 {
-            value[head] = hight * abs(headOffset)/6
+            value[head] = Int(Double(hight) * (-0.1*Double(abs(headOffset)) + 1))
             headOffset -= 1
         }
         
