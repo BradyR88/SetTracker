@@ -62,33 +62,18 @@ class DifficultyCurve {
     
     init(center: Int, hight: Int, skew: Int) {
         var value: [Int:Int] = [center : hight]
-        var headOffset: Int = 1
+        let standardDeviation = 3.0
         
-        var head: Int { center + headOffset }
-        
-        while head <= 11 {
-            value[head] = Int(Double(hight) * gradeOffset(headOffset: headOffset))
-            headOffset += 1
-        }
-        
-        headOffset = -1
-        
-        while head >= 0 {
-            value[head] = Int(Double(hight) * gradeOffset(headOffset: headOffset))
-            headOffset -= 1
+        for grade in 1..<12 {
+            value[grade] = normalDistributionY(x: Double(grade), height: Double(hight), center: Double(center), standardDeviation: standardDeviation)
         }
         
         self.goalCount = value
         
-        func gradeOffset(headOffset: Int) -> Double {
-            var offset: Double
-            
-            // the lenear offset y = -0.1*x + 1
-            offset = -0.1*Double(abs(headOffset)) + 1
-            // add a soft roll off to the top of the graph
-            offset += abs(cos(tanh(offset/4)*Double.pi)) * 0.1
-            
-            return offset
+        func normalDistributionY(x: Double, height: Double, center: Double, standardDeviation: Double) -> Int {
+            let exponent = -pow((x - center), 2) / (2 * pow(standardDeviation, 2))
+            let coefficient = height
+            return Int(coefficient * exp(exponent))
         }
     }
 }

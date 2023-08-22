@@ -38,13 +38,17 @@ struct DifficultyCurveView: View {
             .padding()
         }
         HStack {
-            Text("Center")
+            Text("Center: \(center)")
             Slider(value: $center, in: 0...12)
         }
-        .onChange(of: center) {
-            //withAnimation {
-                difficultyCurve = DifficultyCurve(center: Int(center), hight: 20, skew: 0)
-            //}
+        HStack {
+            Text("Hight: \(height)")
+            Slider(value: $height, in: 10...40)
+        }
+        .onChange(of: center + height + skew) {
+            withAnimation {
+                difficultyCurve = DifficultyCurve(center: Int(center), hight: Int(height), skew: 0)
+            }
         }
         
     }
