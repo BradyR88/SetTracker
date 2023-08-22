@@ -60,12 +60,24 @@ class DifficultyCurve {
         ]
     }
     
-    init(center: Int, hight: Int, skew: Int) {
+    init(center: Int, hight: Int, leftSkew: Double, rightSkew: Double) {
         var value: [Int:Int] = [center : hight]
         let standardDeviation = 3.0
+        let maxValue = 12
+        let minValue = 1
         
-        for grade in 1..<12 {
+        for grade in minValue..<maxValue {
             value[grade] = normalDistributionY(x: Double(grade), height: Double(hight), center: Double(center), standardDeviation: standardDeviation)
+        }
+        
+        for grade in center..<maxValue {
+            guard let oldValue = value[grade] else { return }
+            value[grade] = Int(compressIntoNewRange(input: Double(oldValue), max: Double(hight), min: 0, newMin: rightSkew))
+        }
+        
+        for grade in minValue..<center {
+            guard let oldValue = value[grade] else { return }
+            value[grade] = Int(compressIntoNewRange(input: Double(oldValue), max: Double(hight), min: 0, newMin: leftSkew))
         }
         
         self.goalCount = value
@@ -74,6 +86,14 @@ class DifficultyCurve {
             let exponent = -pow((x - center), 2) / (2 * pow(standardDeviation, 2))
             let coefficient = height
             return Int(coefficient * exp(exponent))
+        }
+        
+        func compressIntoNewRange(input: Double, max: Double, min: Double, newMin: Double) -> Double {
+            let startRange = max - min
+            let offOfMax = max - input
+            let ratio = offOfMax / startRange
+            let newRange = max - newMin
+            return max - (ratio * newRange)
         }
     }
 }

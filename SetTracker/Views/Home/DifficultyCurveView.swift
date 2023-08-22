@@ -13,7 +13,8 @@ struct DifficultyCurveView: View {
     
     @State private var height: Double = 20
     @State private var center: Double = 4
-    @State private var skew: Double = 0
+    @State private var rightSkew: Double = 0
+    @State private var leftSkew: Double = 0
     
     var body: some View {
         HStack {
@@ -45,9 +46,17 @@ struct DifficultyCurveView: View {
             Text("Hight: \(height)")
             Slider(value: $height, in: 10...40)
         }
-        .onChange(of: center + height + skew) {
+        HStack {
+            Text("Right Skew: \(rightSkew)")
+            Slider(value: $rightSkew, in: 0...20)
+        }
+        HStack {
+            Text("Left Skew: \(leftSkew)")
+            Slider(value: $leftSkew, in: 0...20)
+        }
+        .onChange(of: center + height + leftSkew + rightSkew) {
             withAnimation {
-                difficultyCurve = DifficultyCurve(center: Int(center), hight: Int(height), skew: 0)
+                difficultyCurve = DifficultyCurve(center: Int(center), hight: Int(height), leftSkew: leftSkew, rightSkew: rightSkew)
             }
         }
         
