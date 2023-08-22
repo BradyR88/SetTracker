@@ -67,17 +67,28 @@ class DifficultyCurve {
         var head: Int { center + headOffset }
         
         while head <= 11 {
-            value[head] = Int(Double(hight) * (-0.1*Double(abs(headOffset)) + 1))
+            value[head] = Int(Double(hight) * gradeOffset(headOffset: headOffset))
             headOffset += 1
         }
         
         headOffset = -1
         
         while head >= 0 {
-            value[head] = Int(Double(hight) * (-0.1*Double(abs(headOffset)) + 1))
+            value[head] = Int(Double(hight) * gradeOffset(headOffset: headOffset))
             headOffset -= 1
         }
         
         self.goalCount = value
+        
+        func gradeOffset(headOffset: Int) -> Double {
+            var offset: Double
+            
+            // the lenear offset y = -0.1*x + 1
+            offset = -0.1*Double(abs(headOffset)) + 1
+            // add a soft roll off to the top of the graph
+            offset += abs(cos(tanh(offset/4)*Double.pi)) * 0.1
+            
+            return offset
+        }
     }
 }

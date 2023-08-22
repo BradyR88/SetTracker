@@ -42,7 +42,9 @@ struct DifficultyCurveView: View {
             Slider(value: $center, in: 0...12)
         }
         .onChange(of: center) {
-            difficultyCurve = DifficultyCurve(center: Int(center), hight: 20, skew: 0)
+            //withAnimation {
+                difficultyCurve = DifficultyCurve(center: Int(center), hight: 20, skew: 0)
+            //}
         }
         
     }
