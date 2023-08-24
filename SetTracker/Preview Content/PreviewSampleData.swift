@@ -11,7 +11,8 @@ import SwiftData
 let previewContainer: ModelContainer = {
     do {
         let container = try ModelContainer(
-            for: Gym.self, ModelConfiguration(inMemory: true)
+            for: Gym.self,
+            configurations: ModelConfiguration(isStoredInMemoryOnly: true)
         )
         for gym in SampleGyms.contents {
             container.mainContext.insert(gym)

@@ -67,33 +67,19 @@ class DifficultyCurve {
         let minValue = 1
         
         for grade in minValue..<maxValue {
-            value[grade] = normalDistributionY(x: Double(grade), height: Double(hight), center: Double(center), standardDeviation: standardDeviation)
+            value[grade] = HelperMath.singal.normalDistributionY(x: Double(grade), height: Double(hight), center: Double(center), standardDeviation: standardDeviation)
         }
         
         for grade in center..<maxValue {
-            guard let oldValue = value[grade] else { return }
-            value[grade] = Int(compressIntoNewRange(input: Double(oldValue), max: Double(hight), min: 0, newMin: rightSkew))
+            guard let oldValue = value[grade] else { continue }
+            value[grade] = Int(HelperMath.singal.compressIntoNewRange(input: Double(oldValue), max: Double(hight), min: 0, newMin: rightSkew))
         }
         
         for grade in minValue..<center {
-            guard let oldValue = value[grade] else { return }
-            value[grade] = Int(compressIntoNewRange(input: Double(oldValue), max: Double(hight), min: 0, newMin: leftSkew))
+            guard let oldValue = value[grade] else { continue }
+            value[grade] = Int(HelperMath.singal.compressIntoNewRange(input: Double(oldValue), max: Double(hight), min: 0, newMin: leftSkew))
         }
         
         self.goalCount = value
-        
-        func normalDistributionY(x: Double, height: Double, center: Double, standardDeviation: Double) -> Int {
-            let exponent = -pow((x - center), 2) / (2 * pow(standardDeviation, 2))
-            let coefficient = height
-            return Int(coefficient * exp(exponent))
-        }
-        
-        func compressIntoNewRange(input: Double, max: Double, min: Double, newMin: Double) -> Double {
-            let startRange = max - min
-            let offOfMax = max - input
-            let ratio = offOfMax / startRange
-            let newRange = max - newMin
-            return max - (ratio * newRange)
-        }
     }
 }
