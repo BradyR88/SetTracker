@@ -86,9 +86,9 @@ struct AddGymView: View {
         if zones.isEmpty {
             showingAlert.toggle()
         } else {
-            let newGym = Gym(name: gymName, zones: zones, difficultyCurve: difficultyCurve)
+            let newGym = Gym(name: gymName, zones: [])
             modelContext.insert(newGym)
-            newGym.zones = zones // this insurance that the relationship is working https://youtu.be/_QMalUGTM4E?t=629
+            newGym.addZones(zones)
             gymId = newGym.id
             presentationMode.wrappedValue.dismiss()
         }

@@ -10,7 +10,7 @@ import Charts
 
 struct StyleChartView: View {
     let styleData: [Style : Int]
-    let zoneStyleData: [Style : Int] = [:] //previewExamples.exampleStyleData
+    let zoneStyleData: [Style : Int] = [:]
     var body: some View {
         ZStack {
             Chart(styleData.sorted(by: >), id: \.key) { key, value in
@@ -39,13 +39,7 @@ struct StyleChartView: View {
     }
 }
 
-//struct Preview_StyleChartView: PreviewProvider {
-//    static var previews: some View {
-//        StyleChartView(styleData: [.bored : 4, .crimp : 3, .sloper : 5])
-//    }
-//}
-
-
-//#Preview {
-//    StyleChartView(styleData: [.bored : 4, .crimp : 3, .sloper : 5])
-//}
+#Preview {
+    let example = [Style.crimp : 4, Style.crimp : 3, Style.sloper : 5]
+    return StyleChartView(styleData: example)
+}

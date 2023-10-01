@@ -43,10 +43,14 @@ struct GymSummaryView: View {
     }
 }
 
-//#Preview {
-//    MainActor.assumeIsolated {
-//        GymSummaryView(gym: Gym.example)
-//            .modelContainer(previewContainer)
-//    }
-//    
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Gym.self, configurations: config)
+        
+        return GymSummaryView(gym: PreviewExamples.exampleGym)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}
