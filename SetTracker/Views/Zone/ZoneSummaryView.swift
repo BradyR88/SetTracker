@@ -88,9 +88,15 @@ struct ZoneSummaryView: View {
     }
 }
 
-//#Preview {
-//    NavigationStack {
-//        ZoneSummaryView(zone: Zone.example)
-//    }
-//    .modelContainer(previewContainer)
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Zone.self, configurations: config)
+
+        let example = Zone(name: "Test")
+        return ZoneSummaryView(zone: example)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}
