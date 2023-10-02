@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ClimbEditSheet: View {
     @Bindable var climb: Climb
@@ -88,7 +89,17 @@ struct ClimbEditSheet: View {
     }
 }
 
-//#Preview {
-//    ClimbEditSheet(climb: Climb.example, onDone: {})
-//        .modelContainer(previewContainer)
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Climb.self, configurations: config)
+
+        let example = Climb(grade: 4)
+        return ClimbEditSheet(climb: example, onDone: {
+            // N/A
+        })
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}

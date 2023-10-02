@@ -33,5 +33,7 @@ struct AllChartsView: View {
 }
 
 //#Preview {
-//    AllChartsView(data: .example)
+//    let data = ChartsDataModel(gym: Gym(name: "Test", zones: []))
+//    
+//    return AllChartsView(data: data)
 //}

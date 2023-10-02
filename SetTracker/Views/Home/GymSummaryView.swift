@@ -48,7 +48,8 @@ struct GymSummaryView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Gym.self, configurations: config)
         
-        return GymSummaryView(gym: PreviewExamples.exampleGym)
+        let example = Gym(name: "Test", zones: [])
+        return GymSummaryView(gym: example)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container.")

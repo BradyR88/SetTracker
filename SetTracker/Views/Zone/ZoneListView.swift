@@ -68,6 +68,15 @@ struct ZoneListView: View {
     }
 }
 
-//#Preview {
-//    ZoneListView(zone: .example, selectedClimb: .constant(nil))
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Zone.self, configurations: config)
+        
+        let example = Zone(name: "Test", climb: [])
+        return ZoneListView(zone: example, selectedClimb: .constant(nil))
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}

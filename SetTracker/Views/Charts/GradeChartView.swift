@@ -56,5 +56,5 @@ struct GradeChartView: View {
 }
 
 //#Preview {
-//    GradeChartView(gradeData: PreviewExamples.exampleGradeData)
+//    GradeChartView(gradeData: [1:3,2:3,3:2])
 //}

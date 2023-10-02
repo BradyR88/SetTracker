@@ -52,6 +52,15 @@ struct DateEditSheet: View {
     }
 }
 
-//#Preview {
-//    DateEditSheet()
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Zone.self, configurations: config)
+
+        let example = Zone(name: "Test")
+        return DateEditSheet(zone: example)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}
