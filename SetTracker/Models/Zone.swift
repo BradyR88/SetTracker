@@ -15,7 +15,7 @@ final class Zone {
     @Relationship(deleteRule: .cascade) var climbs: [Climb]
     @Relationship(deleteRule: .cascade) var oldClimbs: [Climb]
     
-    @Relationship(deleteRule: .nullify, inverse: \Gym.zones) var gym: Gym?
+    var gym: Gym?
     
     var dateOfLastSet: Date {
         var date: Date = Date()
