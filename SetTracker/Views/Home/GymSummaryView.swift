@@ -17,15 +17,7 @@ struct GymSummaryView: View {
             
             List(gym.zones.sorted()) { zone in
                 NavigationLink(value: zone) {
-                    VStack(alignment: .leading) {
-                        Text(zone.name)
-                            .bold()
-                        Group {
-                            Text("Climbs: \(zone.climbs.count)")
-                            Text(zone.daysUpDescription)
-                        }
-                        .font(.subheadline)
-                    }
+                    ZoneBarView(zone: zone)
                 }
                 .swipeActions {
                     Button {
@@ -43,15 +35,15 @@ struct GymSummaryView: View {
     }
 }
 
-#Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Gym.self, configurations: config)
-        
-        let example = Gym(name: "Test", zones: [])
-        return GymSummaryView(gym: example)
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
-}
+//#Preview {
+//    do {
+//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//        let container = try ModelContainer(for: Gym.self, configurations: config)
+//        
+//        let example = Gym(name: "Test", zones: [])
+//        return GymSummaryView(gym: example)
+//            .modelContainer(container)
+//    } catch {
+//        fatalError("Failed to create model container.")
+//    }
+//}
