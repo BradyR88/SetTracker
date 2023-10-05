@@ -19,6 +19,7 @@ final class Climb {
     var grade: Int
     var style: [Style]
     var color: HoldColors?
+    var zone: Zone?
     
     var setter: String {
         get {

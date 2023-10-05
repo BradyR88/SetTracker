@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ClimbEditSheet: View {
+    @Environment(ChartsViewModel.self) var chartVM
     @Bindable var climb: Climb
     let onDone: () -> Void
     
@@ -85,6 +86,14 @@ struct ClimbEditSheet: View {
                     }
                 }
             }
+        }
+        .onChange(of: climb.grade) { _, _ in
+            if let zone = climb.zone {
+                if let gym = zone.gym {
+                    chartVM.setUp(gym.climbs)
+                }
+            }
+            
         }
     }
 }

@@ -12,7 +12,7 @@ import Foundation
 final class Zone {
     let id: UUID
     var name: String
-    @Relationship(deleteRule: .cascade) var climbs: [Climb]
+    @Relationship(deleteRule: .cascade, inverse: \Climb.zone) var climbs: [Climb]
     @Relationship(deleteRule: .cascade) var oldClimbs: [Climb]
     
     var gym: Gym?
