@@ -9,14 +9,18 @@ import Observation
 import SwiftUI
 
 @Observable class ChartsViewModel {
-    var climbs: [Climb]?
+    var climbData: [BarEntry]?
     var zoneClimbs: [Climb]?
     
     func setUp(_ climbs: [Climb], zone: [Climb]? = nil) {
         withAnimation {
-            self.climbs = climbs
+            self.climbData = climbData(climbs: climbs)
             self.zoneClimbs = zone
         }
+    }
+    
+    func climbData(climbs: [Climb]) -> [BarEntry] {
+        return climbs.map {BarEntry(name: String($0.grade), number: 1)}
     }
     
     struct BarEntry: Identifiable {
@@ -27,16 +31,12 @@ import SwiftUI
         }
     }
     
-    var allEntries: [BarEntry] {
-        if let climbs {
-            return climbs.map {BarEntry(name: String($0.grade), number: 1)}
-        } else {
-            return []
-        }
-    }
-    
     var grouping: [String : [BarEntry]] {
-        Dictionary(grouping: allEntries, by: {$0.name})
+        if let climbData {
+            return Dictionary(grouping: climbData, by: {$0.name})
+        } else {
+            return [:]
+        }
     }
     
     var groupings: [BarEntry] {
