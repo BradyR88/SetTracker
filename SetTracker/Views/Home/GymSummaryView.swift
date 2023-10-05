@@ -13,7 +13,7 @@ struct GymSummaryView: View {
     
     var body: some View {
         VStack {
-            AllChartsView(data: ChartsDataModel(gym: gym))
+            AllChartsView(climbs: gym.climbs)
             
             List(gym.zones.sorted()) { zone in
                 NavigationLink(value: zone) {

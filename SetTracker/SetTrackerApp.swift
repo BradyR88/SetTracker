@@ -25,6 +25,7 @@ struct SetTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environment(ChartsViewModel())
         }
         .modelContainer(modelContainer)
     }

@@ -9,45 +9,45 @@ import SwiftUI
 import Charts
 
 struct GradeChartView: View {
-    let gradeData: [ChartsDataModel.GradeData]
+    @Environment(ChartsViewModel.self) var vm
     
     var body: some View {
         Chart {
-            ForEach(gradeData.sorted()) { data in
+            ForEach(vm.groupings) { barEntry in
                 BarMark(
-                    x: .value("Grade", data.gradeString),
-                    y: .value("Count", data.gymCount)
+                    x: .value("Grade", barEntry.name),
+                    y: .value("Count", barEntry.number)
                 )
                 .position(by: .value("Scope", "Gym"))
                 .zIndex(0)
-                
-                if let count = data.zoneCount {
-                    BarMark(
-                        x: .value("Grade", data.gradeString),
-                        y: .value("Count", count)
-                    )
-                    .position(by: .value("Scope", "Zone"))
-                    .foregroundStyle(Color.green)
-                    .zIndex(0)
-                }
-                
-                if let count = data.idealCount {
-                    LineMark(
-                        x: .value("Grade", data.gradeString),
-                        y: .value("Count", count)
-                    )
-                    .foregroundStyle(Color.red)
-                    .zIndex(1)
-                    
-                    PointMark(
-                        x: .value("Grade", data.gradeString),
-                        y: .value("Count", count)
-                    )
-                    .foregroundStyle(Color.red)
-                    .zIndex(2)
-                    
-                }
             }
+            
+//            if let count = data.zoneCount {
+//                BarMark(
+//                    x: .value("Grade", data.gradeString),
+//                    y: .value("Count", count)
+//                )
+//                .position(by: .value("Scope", "Zone"))
+//                .foregroundStyle(Color.green)
+//                .zIndex(0)
+//            }
+            
+//            if let count = data.idealCount {
+//                LineMark(
+//                    x: .value("Grade", data.gradeString),
+//                    y: .value("Count", count)
+//                )
+//                .foregroundStyle(Color.red)
+//                .zIndex(1)
+//                
+//                PointMark(
+//                    x: .value("Grade", data.gradeString),
+//                    y: .value("Count", count)
+//                )
+//                .foregroundStyle(Color.red)
+//                .zIndex(2)
+//                
+//            }
             
         }
         .padding(.horizontal , 20)
