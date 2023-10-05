@@ -38,12 +38,7 @@ struct AllChartsView: View {
                 .scrollIndicators(.hidden)
             }
         }
-        .onAppear {
-            chartVM.setUp(climbs)
-        }
-        .onChange(of: climbs) { _, newValue in
-            chartVM.setUp(newValue)
-        }
+        .chartUpdater(for: climbs)
     }
 }
 
