@@ -13,6 +13,22 @@ struct GradeChartView: View {
     
     var body: some View {
         Chart {
+            ForEach(vm.difficultyCurve ?? []) { barEntry in
+                LineMark(
+                    x: .value("Grade", barEntry.name),
+                    y: .value("Count", barEntry.number)
+                )
+                .foregroundStyle(Color.red)
+                .zIndex(1)
+                
+                PointMark(
+                    x: .value("Grade", barEntry.name),
+                    y: .value("Count", barEntry.name)
+                )
+                .foregroundStyle(Color.red)
+                .zIndex(1)
+            }
+            
             ForEach(vm.allGroupings) { barEntry in
                 BarMark(
                     x: .value("Grade", barEntry.name),
@@ -31,24 +47,6 @@ struct GradeChartView: View {
                 .foregroundStyle(Color.green)
                 .zIndex(0)
             }
-            
-//            if let count = data.idealCount {
-//                LineMark(
-//                    x: .value("Grade", data.gradeString),
-//                    y: .value("Count", count)
-//                )
-//                .foregroundStyle(Color.red)
-//                .zIndex(1)
-//                
-//                PointMark(
-//                    x: .value("Grade", data.gradeString),
-//                    y: .value("Count", count)
-//                )
-//                .foregroundStyle(Color.red)
-//                .zIndex(2)
-//                
-//            }
-            
         }
         .padding(.horizontal , 20)
         .padding(.vertical)

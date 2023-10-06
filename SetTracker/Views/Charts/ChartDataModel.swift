@@ -11,16 +11,26 @@ import SwiftUI
 @Observable class ChartsViewModel {
     var allClimbs: [BarEntry]?
     var zoneClimbs: [BarEntry]?
+    var difficultyCurve: [BarEntry]?
     
     func setUp(_ climbs: [Climb], zone: [Climb]?) {
         withAnimation {
             self.allClimbs = climbData(climbs: climbs)
             self.zoneClimbs = climbData(climbs: zone ?? [])
+            self.difficultyCurve = setDifficultyCurve(curve: climbs.first?.zone?.gym?.difficultyCurve)
         }
     }
     
-    func climbData(climbs: [Climb]) -> [BarEntry] {
+    private func climbData(climbs: [Climb]) -> [BarEntry] {
         return climbs.map {BarEntry(name: String($0.grade), number: 1)}
+    }
+    
+    private func setDifficultyCurve(curve: DifficultyCurve?) -> [BarEntry] {
+        guard let curve else { return [] }
+        return curve.goalCount.map { (grade, count) in
+            BarEntry(name: String(grade), number: count)
+        }
+        .sorted(using: KeyPathComparator(\.name))
     }
     
     struct BarEntry: Identifiable {
