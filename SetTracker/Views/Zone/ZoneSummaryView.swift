@@ -27,7 +27,7 @@ struct ZoneSummaryView: View {
                     .buttonStyle(.bordered)
                 }
             } else {
-                AllChartsView(climbs: zone.climbs)
+                AllChartsView(allClimbs: zone.gym?.climbs ?? [], zoneClimbs: zone.climbs)
                 
                 if selectedClimb == nil {
                     ZoneListView(zone: zone, selectedClimb: $selectedClimb)

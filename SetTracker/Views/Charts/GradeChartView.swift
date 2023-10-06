@@ -13,7 +13,7 @@ struct GradeChartView: View {
     
     var body: some View {
         Chart {
-            ForEach(vm.groupings) { barEntry in
+            ForEach(vm.allGroupings) { barEntry in
                 BarMark(
                     x: .value("Grade", barEntry.name),
                     y: .value("Count", barEntry.number)
@@ -22,15 +22,15 @@ struct GradeChartView: View {
                 .zIndex(0)
             }
             
-//            if let count = data.zoneCount {
-//                BarMark(
-//                    x: .value("Grade", data.gradeString),
-//                    y: .value("Count", count)
-//                )
-//                .position(by: .value("Scope", "Zone"))
-//                .foregroundStyle(Color.green)
-//                .zIndex(0)
-//            }
+            ForEach(vm.zoneGroupings) { barEntry in
+                BarMark(
+                    x: .value("Grade", barEntry.name),
+                    y: .value("Count", barEntry.number)
+                )
+                .position(by: .value("Scope", "Zone"))
+                .foregroundStyle(Color.green)
+                .zIndex(0)
+            }
             
 //            if let count = data.idealCount {
 //                LineMark(

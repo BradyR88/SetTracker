@@ -9,13 +9,13 @@ import Observation
 import SwiftUI
 
 @Observable class ChartsViewModel {
-    var climbData: [BarEntry]?
-    var zoneClimbs: [Climb]?
+    var allClimbs: [BarEntry]?
+    var zoneClimbs: [BarEntry]?
     
-    func setUp(_ climbs: [Climb], zone: [Climb]? = nil) {
+    func setUp(_ climbs: [Climb], zone: [Climb]?) {
         withAnimation {
-            self.climbData = climbData(climbs: climbs)
-            self.zoneClimbs = zone
+            self.allClimbs = climbData(climbs: climbs)
+            self.zoneClimbs = climbData(climbs: zone ?? [])
         }
     }
     
@@ -31,17 +31,37 @@ import SwiftUI
         }
     }
     
-    var grouping: [String : [BarEntry]] {
-        if let climbData {
-            return Dictionary(grouping: climbData, by: {$0.name})
+    //MARK: All Climbs computed variables
+    var allGrouping: [String : [BarEntry]] {
+        if let allClimbs {
+            return Dictionary(grouping: allClimbs, by: {$0.name})
         } else {
             return [:]
         }
     }
     
-    var groupings: [BarEntry] {
+    var allGroupings: [BarEntry] {
         var groupings: [BarEntry] = []
-        for (name, entries) in grouping {
+        for (name, entries) in allGrouping {
+            let ttl = entries.reduce(0) { $0 + $1.number }
+            groupings.append(BarEntry(name: name, number: ttl))
+        }
+        return groupings.filter { $0.number > 0 }
+            .sorted(using: KeyPathComparator(\.name))
+    }
+    
+    //MARK: Just zone computed variables
+    var zoneGrouping: [String : [BarEntry]] {
+        if let zoneClimbs {
+            return Dictionary(grouping: zoneClimbs, by: {$0.name})
+        } else {
+            return [:]
+        }
+    }
+    
+    var zoneGroupings: [BarEntry] {
+        var groupings: [BarEntry] = []
+        for (name, entries) in zoneGrouping {
             let ttl = entries.reduce(0) { $0 + $1.number }
             groupings.append(BarEntry(name: name, number: ttl))
         }

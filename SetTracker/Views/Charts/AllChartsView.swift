@@ -8,25 +8,19 @@
 import SwiftUI
 
 struct AllChartsView: View {
-    let climbs: [Climb]
     @Environment(ChartsViewModel.self) var chartVM
+    let allClimbs: [Climb]
+    var zoneClimbs: [Climb]?
     
     var body: some View {
         Group {
-            if chartVM.groupings.isEmpty {
+            if chartVM.allGroupings.isEmpty {
                 ContentUnavailableView("No Climbs", systemImage: "chart.bar", description: nil)
             } else {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 10) {
                         GradeChartView()
                             .containerRelativeFrame(.horizontal)
-                        
-                        Button {
-                            chartVM.setUp(climbs)
-                        } label: {
-                            Text("update charts")
-                        }
-                        
                         
                         //                    if !data.styleCount.isEmpty {
                         //                        StyleChartView()
@@ -38,7 +32,24 @@ struct AllChartsView: View {
                 .scrollIndicators(.hidden)
             }
         }
-        .chartUpdater(for: climbs)
+        .onAppear {
+            chartVM.setUp(allClimbs, zone: zoneClimbs)
+        }
+        .onChange(of: allClimbs) { _, newValue in
+            chartVM.setUp(newValue, zone: zoneClimbs)
+        }
+    }
+}
+
+extension AllChartsView {
+    init(allClimbs: [Climb], zoneClimbs: [Climb]) {
+        self.allClimbs = allClimbs
+        self.zoneClimbs = zoneClimbs
+    }
+    
+    init(climbs: [Climb]) {
+        self.allClimbs = climbs
+        self.zoneClimbs = nil
     }
 }
 

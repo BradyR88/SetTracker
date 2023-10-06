@@ -34,7 +34,6 @@
 		739C34DF2A662376009CB3CF /* ChartDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C34DE2A662376009CB3CF /* ChartDataModel.swift */; };
 		73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A5A0062A66F19400ED0B12 /* AllChartsView.swift */; };
 		73ACA5062A8AA8120098A507 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ACA5052A8AA8120098A507 /* ColorPicker.swift */; };
-		73B2BF822ACF3730001AEE6A /* ChartsUpdaterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2BF812ACF3730001AEE6A /* ChartsUpdaterModifier.swift */; };
 		73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */; };
 		73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */; };
 		73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */; };
@@ -96,7 +95,6 @@
 		739C34DE2A662376009CB3CF /* ChartDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataModel.swift; sourceTree = "<group>"; };
 		73A5A0062A66F19400ED0B12 /* AllChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChartsView.swift; sourceTree = "<group>"; };
 		73ACA5052A8AA8120098A507 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
-		73B2BF812ACF3730001AEE6A /* ChartsUpdaterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsUpdaterModifier.swift; sourceTree = "<group>"; };
 		73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeChartView.swift; sourceTree = "<group>"; };
 		73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSummaryView.swift; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 				73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */,
 				73D69DF22A62309900B68425 /* StyleChartView.swift */,
 				739C34DE2A662376009CB3CF /* ChartDataModel.swift */,
-				73B2BF812ACF3730001AEE6A /* ChartsUpdaterModifier.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -456,7 +453,6 @@
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
-				73B2BF822ACF3730001AEE6A /* ChartsUpdaterModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
