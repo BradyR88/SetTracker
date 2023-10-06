@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ZoneSummaryView: View {
+    @Environment(ChartsViewModel.self) var chartVM
     @Bindable var zone: Zone
     
     @State private var selectedClimb: Climb?
@@ -27,7 +28,7 @@ struct ZoneSummaryView: View {
                     .buttonStyle(.bordered)
                 }
             } else {
-                AllChartsView(allClimbs: zone.gym?.climbs ?? [], zoneClimbs: zone.climbs)
+                AllChartsView()
                 
                 if selectedClimb == nil {
                     ZoneListView(zone: zone, selectedClimb: $selectedClimb)
@@ -78,6 +79,12 @@ struct ZoneSummaryView: View {
         .sheet(isPresented: $showingSheet) {
             DateEditSheet(zone: zone)
                 .presentationDetents([.fraction(0.66)])
+        }
+        .onAppear {
+            chartVM.setUp(zone.gym?.climbs ?? [], zone: zone.climbs)
+        }
+        .onChange(of: zone.climbs) { _, newValue in
+            chartVM.setUp(zone.gym?.climbs ?? [], zone: newValue)
         }
     }
     

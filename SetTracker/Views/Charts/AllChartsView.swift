@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AllChartsView: View {
     @Environment(ChartsViewModel.self) var chartVM
-    let allClimbs: [Climb]
-    var zoneClimbs: [Climb]?
     
     var body: some View {
         Group {
@@ -32,24 +30,6 @@ struct AllChartsView: View {
                 .scrollIndicators(.hidden)
             }
         }
-        .onAppear {
-            chartVM.setUp(allClimbs, zone: zoneClimbs)
-        }
-        .onChange(of: allClimbs) { _, newValue in
-            chartVM.setUp(newValue, zone: zoneClimbs)
-        }
-    }
-}
-
-extension AllChartsView {
-    init(allClimbs: [Climb], zoneClimbs: [Climb]) {
-        self.allClimbs = allClimbs
-        self.zoneClimbs = zoneClimbs
-    }
-    
-    init(climbs: [Climb]) {
-        self.allClimbs = climbs
-        self.zoneClimbs = nil
     }
 }
 

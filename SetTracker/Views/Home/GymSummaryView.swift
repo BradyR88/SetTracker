@@ -9,11 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct GymSummaryView: View {
+    @Environment(ChartsViewModel.self) var chartVM
     @Bindable var gym: Gym
     
     var body: some View {
         VStack {
-            AllChartsView(climbs: gym.climbs)
+            AllChartsView()
             
             List(gym.zones.sorted()) { zone in
                 NavigationLink(value: zone) {
@@ -31,6 +32,12 @@ struct GymSummaryView: View {
         }
         .navigationDestination(for: Zone.self) { zone in
             ZoneSummaryView(zone: zone)
+        }
+        .onAppear {
+            chartVM.setUp(gym.climbs)
+        }
+        .onChange(of: gym.climbs) { _, newValue in
+            chartVM.setUp(newValue)
         }
     }
 }

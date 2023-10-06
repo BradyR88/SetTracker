@@ -13,7 +13,7 @@ import SwiftUI
     var zoneClimbs: [BarEntry]?
     var difficultyCurve: [BarEntry]?
     
-    func setUp(_ climbs: [Climb], zone: [Climb]?) {
+    func setUp(_ climbs: [Climb], zone: [Climb]? = nil) {
         withAnimation {
             self.allClimbs = climbData(climbs: climbs)
             self.zoneClimbs = climbData(climbs: zone ?? [])
