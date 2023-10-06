@@ -93,7 +93,13 @@ struct ClimbEditSheet: View {
                     chartVM.setUp(gym.climbs, zone: zone.climbs)
                 }
             }
-            
+        }
+        .onChange(of: climb.style) { _, _ in
+            if let zone = climb.zone {
+                if let gym = zone.gym {
+                    chartVM.setUp(gym.climbs, zone: zone.climbs)
+                }
+            }
         }
     }
 }

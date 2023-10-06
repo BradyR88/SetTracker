@@ -10,12 +10,14 @@ import SwiftUI
 
 @Observable class ChartsViewModel {
     var allClimbs: [BarEntry]?
+    var allStyle: [BarEntry]?
     var zoneClimbs: [BarEntry]?
     var difficultyCurve: [BarEntry]?
     
     func setUp(_ climbs: [Climb], zone: [Climb]? = nil) {
         withAnimation {
             self.allClimbs = climbData(climbs: climbs)
+            self.allStyle = styleData(climbs: climbs)
             self.zoneClimbs = climbData(climbs: zone ?? [])
             self.difficultyCurve = setDifficultyCurve(curve: climbs.first?.zone?.gym?.difficultyCurve)
         }
@@ -23,6 +25,14 @@ import SwiftUI
     
     private func climbData(climbs: [Climb]) -> [BarEntry] {
         return climbs.map {BarEntry(name: String($0.grade), number: 1)}
+    }
+    
+    private func styleData(climbs: [Climb]) -> [BarEntry] {
+        climbs.flatMap { climb in
+            climb.style.compactMap { style in
+                BarEntry(name: style.rawValue, number: 1)
+            }
+        }
     }
     
     private func setDifficultyCurve(curve: DifficultyCurve?) -> [BarEntry] {
@@ -72,6 +82,25 @@ import SwiftUI
     var zoneGroupings: [BarEntry] {
         var groupings: [BarEntry] = []
         for (name, entries) in zoneGrouping {
+            let ttl = entries.reduce(0) { $0 + $1.number }
+            groupings.append(BarEntry(name: name, number: ttl))
+        }
+        return groupings.filter { $0.number > 0 }
+            .sorted(using: KeyPathComparator(\.name))
+    }
+    
+    //MARK: Style computed variables
+    var styleGrouping: [String : [BarEntry]] {
+        if let allStyle {
+            return Dictionary(grouping: allStyle, by: {$0.name})
+        } else {
+            return [:]
+        }
+    }
+    
+    var styleGroupings: [BarEntry] {
+        var groupings: [BarEntry] = []
+        for (name, entries) in styleGrouping {
             let ttl = entries.reduce(0) { $0 + $1.number }
             groupings.append(BarEntry(name: name, number: ttl))
         }

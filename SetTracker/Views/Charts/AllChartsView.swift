@@ -20,10 +20,10 @@ struct AllChartsView: View {
                         GradeChartView()
                             .containerRelativeFrame(.horizontal)
                         
-                        //                    if !data.styleCount.isEmpty {
-                        //                        StyleChartView()
-                        //                            .containerRelativeFrame(.horizontal)
-                        //                    }
+                        if !chartVM.styleGroupings.isEmpty {
+                            StyleChartView()
+                                .containerRelativeFrame(.horizontal)
+                        }
                     }
                 }
                 .scrollTargetBehavior(.paging)
