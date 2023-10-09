@@ -24,79 +24,69 @@ struct HomeView: View {
     }
     
     var body: some View {
-        ZStack {
-            NavigationStack {
-                Group {
-                    if !gyms.isEmpty {
-                        if let selectedGym = selectedGym {
-                            // this is what's being shown everything else is just figuring out the correct unavailable view to show
-                            GymSummaryView(gym: selectedGym)
-                        } else {
-                            ContentUnavailableView("Select a Gym", systemImage: "square.stack.3d.up.slash", description: nil)
-                        }
-                    } else {
-                        ContentUnavailableView {
-                            Label("No Gyms", systemImage: "square.stack.3d.up.slash")
-                        } actions: {
-                            Button("Add Gym") {
-                                showingSheet = true
-                            }
-                            .buttonStyle(.bordered)
-                        }
-                    }
+        Group {
+            if !gyms.isEmpty {
+                if let selectedGym = selectedGym {
+                    // this is what's being shown everything else is just figuring out the correct unavailable view to show
+                    GymSummaryView(gym: selectedGym)
+                } else {
+                    ContentUnavailableView("Select a Gym", systemImage: "square.stack.3d.up.slash", description: nil)
                 }
-                .alert("Delete gym", isPresented: $showingAlert, actions: {
-                    Button("Delete", role: .destructive) {
-                        withAnimation {
-                            let toBeDeleted = selectedGym
-                            modelContext.delete(toBeDeleted!)
-                            gymId = gyms.first?.id
-                        }
+            } else {
+                ContentUnavailableView {
+                    Label("No Gyms", systemImage: "square.stack.3d.up.slash")
+                } actions: {
+                    Button("Add Gym") {
+                        showingSheet = true
                     }
-                }, message: {
-                    Text("This will permunuty delete this gym, as well as all corresponding zones and climbs!")
-                })
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Menu {
-                            Button("Add Gym") {
-                                showingSheet.toggle()
-                            }
-                            
-                            //Delete Gym
-                            if selectedGym != nil {
-                                Button("Delete Gym", role: .destructive) {
-                                    showingAlert = true
-                                }
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis")
-                        }
-                    }
-                    
-                    ToolbarItem(placement: .principal) {
-                        Text(gymName)
-                    }
+                    .buttonStyle(.bordered)
                 }
-                .toolbarTitleMenu {
-                    ForEach(gyms) { gym in
-                        Button(gym.name) {
-                            gymId = gym.id
-                        }
-                    }
-                }
-                .sheet(isPresented: $showingSheet, content: {
-                    AddGymView()
-                })
-            }
-            
-            VStack {
-                AllChartsView()
-                    .padding(.bottom, 425)
-                    .padding(.top, 30)
             }
         }
+        .alert("Delete gym", isPresented: $showingAlert, actions: {
+            Button("Delete", role: .destructive) {
+                withAnimation {
+                    let toBeDeleted = selectedGym
+                    modelContext.delete(toBeDeleted!)
+                    gymId = gyms.first?.id
+                }
+            }
+        }, message: {
+            Text("This will permunuty delete this gym, as well as all corresponding zones and climbs!")
+        })
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu {
+                    Button("Add Gym") {
+                        showingSheet.toggle()
+                    }
+                    
+                    //Delete Gym
+                    if selectedGym != nil {
+                        Button("Delete Gym", role: .destructive) {
+                            showingAlert = true
+                        }
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                }
+            }
+            
+            ToolbarItem(placement: .principal) {
+                Text(gymName)
+            }
+        }
+        .toolbarTitleMenu {
+            ForEach(gyms) { gym in
+                Button(gym.name) {
+                    gymId = gym.id
+                }
+            }
+        }
+        .sheet(isPresented: $showingSheet, content: {
+            AddGymView()
+        })
     }
 }
 
