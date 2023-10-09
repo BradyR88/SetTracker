@@ -13,23 +13,20 @@ struct GymSummaryView: View {
     @Bindable var gym: Gym
     
     var body: some View {
-        VStack {
-            AllChartsView()
-            
-            List(gym.zones.sorted()) { zone in
-                NavigationLink(value: zone) {
-                    ZoneBarView(zone: zone)
+        List(gym.zones.sorted()) { zone in
+            NavigationLink(value: zone) {
+                ZoneBarView(zone: zone)
+            }
+            .swipeActions {
+                Button {
+                    zone.reset()
+                } label: {
+                    Label("Reset", systemImage: "arrow.down.app")
                 }
-                .swipeActions {
-                    Button {
-                        zone.reset()
-                    } label: {
-                        Label("Reset", systemImage: "arrow.down.app")
-                    }
-                    .tint(.purple)
-                }
+                .tint(.purple)
             }
         }
+        .padding(.top, 285)
         .navigationDestination(for: Zone.self) { zone in
             ZoneSummaryView(zone: zone)
         }

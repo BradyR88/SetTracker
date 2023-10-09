@@ -28,15 +28,16 @@ struct ZoneSummaryView: View {
                     .buttonStyle(.bordered)
                 }
             } else {
-                AllChartsView()
-                
-                if selectedClimb == nil {
-                    ZoneListView(zone: zone, selectedClimb: $selectedClimb)
-                } else {
-                    ClimbEditSheet(climb: selectedClimb!) { selectedClimb = nil }
+                Group {
+                    if selectedClimb == nil {
+                        ZoneListView(zone: zone, selectedClimb: $selectedClimb)
+                    } else {
+                        ClimbEditSheet(climb: selectedClimb!) { selectedClimb = nil }
+                    }
                 }
             }
         }
+        .padding(.top, 285)
         .navigationTitle(zone.name)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
