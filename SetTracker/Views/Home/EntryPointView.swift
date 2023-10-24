@@ -16,7 +16,11 @@ struct EntryPointView: View {
                 }
                 AllChartsView()
                     .padding(.bottom, 425)
-                    .padding(.top, 30)
+                    .safeAreaPadding(.top, 35)
+            }
+            .onAppear {
+                print("Look -> \(geometry.frame(in: .named("")))")
+                print(geometry.frame(in: .global))
             }
         }
     }

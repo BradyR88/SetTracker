@@ -87,6 +87,7 @@ struct HomeView: View {
         .sheet(isPresented: $showingSheet, content: {
             AddGymView()
         })
+        .coordinateSpace(name: "HomeView")
     }
 }
 
