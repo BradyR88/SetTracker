@@ -30,13 +30,14 @@ struct ZoneSummaryView: View {
             } else {
                 AllChartsView()
                 
-                if selectedClimb == nil {
-                    ZoneListView(zone: zone, selectedClimb: $selectedClimb)
-                } else {
-                    ClimbEditSheet(climb: selectedClimb!) { selectedClimb = nil }
-                }
+                ZoneListView(zone: zone, selectedClimb: $selectedClimb)
             }
         }
+        .sheet(item: $selectedClimb, onDismiss: {
+            selectedClimb = nil
+        }, content: { climb in
+            ClimbEditSheet(climb: climb)
+        })
         .navigationTitle(zone.name)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -95,15 +96,15 @@ struct ZoneSummaryView: View {
     }
 }
 
-#Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Zone.self, configurations: config)
-
-        let example = Zone(name: "Test")
-        return ZoneSummaryView(zone: example)
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
-}
+//#Preview {
+//    do {
+//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//        let container = try ModelContainer(for: Zone.self, configurations: config)
+//
+//        let example = Zone(name: "Test")
+//        return ZoneSummaryView(zone: example)
+//            .modelContainer(container)
+//    } catch {
+//        fatalError("Failed to create model container.")
+//    }
+//}

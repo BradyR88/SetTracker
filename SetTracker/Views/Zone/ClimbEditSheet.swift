@@ -10,22 +10,13 @@ import SwiftData
 
 struct ClimbEditSheet: View {
     @Environment(ChartsViewModel.self) var chartVM
+    @Environment(\.dismiss) var dismiss
     @Bindable var climb: Climb
-    let onDone: () -> Void
     
     @State var expandedForm = false
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button("Done") {
-                    onDone()
-                }
-                .padding(.trailing)
-                .buttonStyle(.bordered)
-            }
-            
             Form {
                 Section("Grade") {
                     HorizontalPicker($climb.grade, items: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]) { grade in
@@ -70,7 +61,7 @@ struct ClimbEditSheet: View {
                 Section {
                     if climb.state == .inProgress {
                         Button("Done Setting") {
-                            onDone()
+                            dismiss()
                             climb.state = .up
                         }
                         .frame(maxWidth: .infinity)
@@ -104,17 +95,15 @@ struct ClimbEditSheet: View {
     }
 }
 
-#Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Climb.self, configurations: config)
-
-        let example = Climb(grade: 4)
-        return ClimbEditSheet(climb: example, onDone: {
-            // N/A
-        })
-            .modelContainer(container)
-    } catch {
-        fatalError("Failed to create model container.")
-    }
-}
+//#Preview {
+//    do {
+//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//        let container = try ModelContainer(for: Climb.self, configurations: config)
+//
+//        let example = Climb(grade: 4)
+//        return ClimbEditSheet(climb: example)
+//            .modelContainer(container)
+//    } catch {
+//        fatalError("Failed to create model container.")
+//    }
+//}
