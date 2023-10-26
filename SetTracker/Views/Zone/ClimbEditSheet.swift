@@ -16,7 +16,7 @@ struct ClimbEditSheet: View {
     @State var expandedForm = false
     
     var body: some View {
-        VStack {
+        NavigationStack {
             Form {
                 Section("Grade") {
                     HorizontalPicker($climb.grade, items: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]) { grade in
@@ -35,12 +35,12 @@ struct ClimbEditSheet: View {
                     .submitLabel(.done)
                 
                 // leaving because it might be useful pending on how I implement color blind mode
-//                Picker("Color", selection: $climb.color) {
-//                    Text("No Color").tag(nil as HoldColors?)
-//                    ForEach(HoldColors.allCases) { color in
-//                        Text(color.rawValue).tag(color as HoldColors?)
-//                    }
-//                }
+                //                Picker("Color", selection: $climb.color) {
+                //                    Text("No Color").tag(nil as HoldColors?)
+                //                    ForEach(HoldColors.allCases) { color in
+                //                        Text(color.rawValue).tag(color as HoldColors?)
+                //                    }
+                //                }
                 MultiPicker(text: "Add climb style", selectedItems: $climb.style)
                 
                 Section(isExpanded: $expandedForm) {
@@ -54,7 +54,7 @@ struct ClimbEditSheet: View {
                         } label: {
                             Image(systemName: expandedForm ? "chevron.down" : "chevron.right")
                         }
-
+                        
                     }
                 }
                 
@@ -74,6 +74,17 @@ struct ClimbEditSheet: View {
                         }
                         .frame(maxWidth: .infinity)
                         .tint(.orange)
+                    }
+                }
+            }
+            .navigationTitle("Edit Climb")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Save")
+                            .bold()
                     }
                 }
             }

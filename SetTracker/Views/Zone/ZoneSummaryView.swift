@@ -37,6 +37,7 @@ struct ZoneSummaryView: View {
             selectedClimb = nil
         }, content: { climb in
             ClimbEditSheet(climb: climb)
+                .presentationDetents([.medium])
         })
         .navigationTitle(zone.name)
         .toolbar {
