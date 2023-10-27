@@ -22,10 +22,9 @@ struct ZoneBarView: View {
                 .font(.subheadline)
             }
             
-//            Spacer()
-//            
-//            Color.gray
-//                .padding(.leading, 40)
+            Spacer()
+            
+            MiniGradeChart(zone: zone)
         }
     }
 }

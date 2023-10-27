@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */; };
 		734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734216512A43527200D248A2 /* ClimbEditSheet.swift */; };
+		734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */; };
 		73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553BF32A33B375005974C8 /* SetTrackerApp.swift */; };
 		73553BF82A33B377005974C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BF72A33B377005974C8 /* Assets.xcassets */; };
 		73553BFB2A33B377005974C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BFA2A33B377005974C8 /* Preview Assets.xcassets */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudView.swift; sourceTree = "<group>"; };
 		734216512A43527200D248A2 /* ClimbEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbEditSheet.swift; sourceTree = "<group>"; };
+		734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGradeChart.swift; sourceTree = "<group>"; };
 		73553BF02A33B375005974C8 /* SetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73553BF32A33B375005974C8 /* SetTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackerApp.swift; sourceTree = "<group>"; };
 		73553BF72A33B377005974C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */,
 				73D69DF22A62309900B68425 /* StyleChartView.swift */,
 				739C34DE2A662376009CB3CF /* ChartDataModel.swift */,
+				734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */,
 				735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */,
 				7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */,
+				734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */,
 				73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */,
 				73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */,
 				73909EF52A87D7FF007A24DC /* TimeUpDating.swift in Sources */,
