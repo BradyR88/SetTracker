@@ -9,9 +9,9 @@ import Observation
 import SwiftUI
 
 @Observable class ChartsViewModel {
-    var allClimbs: [BarEntry]?
-    var allStyle: [BarEntry]?
-    var zoneClimbs: [BarEntry]?
+    private var allClimbs: [BarEntry]?
+    private var allStyle: [BarEntry]?
+    private var zoneClimbs: [BarEntry]?
     var difficultyCurve: [BarEntry]?
     
     func setUp(_ climbs: [Climb], zone: [Climb]? = nil) {
@@ -52,57 +52,46 @@ import SwiftUI
     }
     
     //MARK: All Climbs computed variables
-    var allGrouping: [String : [BarEntry]] {
-        if let allClimbs {
-            return Dictionary(grouping: allClimbs, by: {$0.name})
-        } else {
-            return [:]
-        }
+    private var allGrouping: [String : [BarEntry]] {
+        allClimbs?.grouping() ?? [:]
     }
     
     var allGroupings: [BarEntry] {
-        var groupings: [BarEntry] = []
-        for (name, entries) in allGrouping {
-            let ttl = entries.reduce(0) { $0 + $1.number }
-            groupings.append(BarEntry(name: name, number: ttl))
-        }
-        return groupings.filter { $0.number > 0 }
-            .sorted(using: KeyPathComparator(\.name))
+        allGrouping.groupings()
     }
     
     //MARK: Just zone computed variables
-    var zoneGrouping: [String : [BarEntry]] {
-        if let zoneClimbs {
-            return Dictionary(grouping: zoneClimbs, by: {$0.name})
-        } else {
-            return [:]
-        }
+    private var zoneGrouping: [String : [BarEntry]] {
+        zoneClimbs?.grouping() ?? [:]
     }
     
     var zoneGroupings: [BarEntry] {
-        var groupings: [BarEntry] = []
-        for (name, entries) in zoneGrouping {
-            let ttl = entries.reduce(0) { $0 + $1.number }
-            groupings.append(BarEntry(name: name, number: ttl))
-        }
-        return groupings.filter { $0.number > 0 }
-            .sorted(using: KeyPathComparator(\.name))
+        zoneGrouping.groupings()
     }
     
     //MARK: Style computed variables
-    var styleGrouping: [String : [BarEntry]] {
-        if let allStyle {
-            return Dictionary(grouping: allStyle, by: {$0.name})
-        } else {
-            return [:]
-        }
+    private var styleGrouping: [String : [BarEntry]] {
+        allStyle?.grouping() ?? [:]
     }
     
     var styleGroupings: [BarEntry] {
-        var groupings: [BarEntry] = []
-        for (name, entries) in styleGrouping {
+        styleGrouping.groupings()
+    }
+}
+
+
+extension Array where Element == ChartsViewModel.BarEntry {
+    func grouping() -> [String : [ChartsViewModel.BarEntry]] {
+        Dictionary(grouping: self, by: {$0.name})
+    }
+}
+
+extension Dictionary where Key == String, Value == Array<ChartsViewModel.BarEntry> {
+    func groupings() -> [ChartsViewModel.BarEntry] {
+        var groupings: [ChartsViewModel.BarEntry] = []
+        for (name, entries) in self {
             let ttl = entries.reduce(0) { $0 + $1.number }
-            groupings.append(BarEntry(name: name, number: ttl))
+            groupings.append(ChartsViewModel.BarEntry(name: name, number: ttl))
         }
         return groupings.filter { $0.number > 0 }
             .sorted(using: KeyPathComparator(\.name))
