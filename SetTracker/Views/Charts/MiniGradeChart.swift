@@ -13,7 +13,7 @@ struct MiniGradeChart: View {
     @Bindable private var vm = ChartsViewModel()
     
     var body: some View {
-        Chart(vm.allGroupings) { barEntry in
+        Chart(vm.miniChart) { barEntry in
             BarMark(
                 x: .value("Grade", barEntry.name),
                 y: .value("Count", barEntry.number)
@@ -21,13 +21,15 @@ struct MiniGradeChart: View {
             //.position(by: .value("Scope", "Zone"))
             .foregroundStyle(Color.green)
         }
-//        .chartXScale(domain: 0...12)
-//        .chartXAxis {
-//            AxisMarks(values: [0,1,2,3,4,5,6,7,8,9,10,11]) { value in
-//                AxisGridLine()
-//                AxisTick()
-//            }
-//        }
+        .chartYAxis{
+            AxisMarks(values: .automatic(minimumStride: 1, desiredCount: 3))
+        }
+        .chartXAxis {
+            AxisMarks {
+                AxisGridLine()
+            }
+            AxisMarks(values: ["2","4","6","8","10"])
+        }
         .frame(height: 50)
         .padding(.horizontal , 20)
         .padding(.vertical)

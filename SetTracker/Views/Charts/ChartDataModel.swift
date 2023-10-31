@@ -65,6 +65,18 @@ import SwiftUI
     var styleGroupings: [BarEntry] {
         allStyle?.grouping() ?? []
     }
+    
+    //MARK: Mini Chart
+    var miniChart: [BarEntry] {
+        guard let allClimbs = allClimbs else { return [] }
+        let dicGroop = Dictionary(grouping: allClimbs, by: {$0.name})
+        var groupings: [ChartsViewModel.BarEntry] = []
+        for grade in 1...11 {
+            let ttl = dicGroop[String(grade)]?.reduce(0) { $0 + $1.number } ?? 0
+            groupings.append(BarEntry(name: String(grade), number: ttl))
+        }
+        return groupings.sorted(using: KeyPathComparator(\.name))
+    }
 }
 
 
