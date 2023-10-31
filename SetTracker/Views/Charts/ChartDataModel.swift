@@ -19,7 +19,7 @@ import SwiftUI
             self.allClimbs = climbData(climbs: climbs)
             self.allStyle = styleData(climbs: climbs)
             self.zoneClimbs = climbData(climbs: zone ?? [])
-            self.difficultyCurve = setDifficultyCurve(curve: climbs.first?.zone?.gym?.difficultyCurve)
+            self.difficultyCurve = setDifficultyCurve(curve: climbs.first?.zone?.gym?.difficultyCurve, climbCount: climbs.count)
         }
     }
     
@@ -35,9 +35,9 @@ import SwiftUI
         }
     }
     
-    private func setDifficultyCurve(curve: DifficultyCurve?) -> [BarEntry] {
+    private func setDifficultyCurve(curve: DifficultyCurve?, climbCount: Int) -> [BarEntry] {
         guard let curve else { return [] }
-        return curve.goalCount.map { (grade, count) in
+        return curve.goalNormalised(to: climbCount).map { (grade, count) in
             BarEntry(name: String(grade), number: count)
         }
         .sorted(using: KeyPathComparator(\.name))
@@ -45,51 +45,34 @@ import SwiftUI
     
     struct BarEntry: Identifiable {
         var name: String
-        var number: Int
+        var number: Double
         var id: String {
             name
         }
     }
     
     //MARK: All Climbs computed variables
-    private var allGrouping: [String : [BarEntry]] {
-        allClimbs?.grouping() ?? [:]
-    }
-    
     var allGroupings: [BarEntry] {
-        allGrouping.groupings()
+        allClimbs?.grouping() ?? []
     }
     
     //MARK: Just zone computed variables
-    private var zoneGrouping: [String : [BarEntry]] {
-        zoneClimbs?.grouping() ?? [:]
-    }
-    
     var zoneGroupings: [BarEntry] {
-        zoneGrouping.groupings()
+        zoneClimbs?.grouping() ?? []
     }
     
     //MARK: Style computed variables
-    private var styleGrouping: [String : [BarEntry]] {
-        allStyle?.grouping() ?? [:]
-    }
-    
     var styleGroupings: [BarEntry] {
-        styleGrouping.groupings()
+        allStyle?.grouping() ?? []
     }
 }
 
 
 extension Array where Element == ChartsViewModel.BarEntry {
-    func grouping() -> [String : [ChartsViewModel.BarEntry]] {
-        Dictionary(grouping: self, by: {$0.name})
-    }
-}
-
-extension Dictionary where Key == String, Value == Array<ChartsViewModel.BarEntry> {
-    func groupings() -> [ChartsViewModel.BarEntry] {
+    func grouping() -> [ChartsViewModel.BarEntry] {
+        let dicGroop = Dictionary(grouping: self, by: {$0.name})
         var groupings: [ChartsViewModel.BarEntry] = []
-        for (name, entries) in self {
+        for (name, entries) in dicGroop {
             let ttl = entries.reduce(0) { $0 + $1.number }
             groupings.append(ChartsViewModel.BarEntry(name: name, number: ttl))
         }
