@@ -39,19 +39,19 @@ struct DifficultyCurveView: View {
             .padding()
         }
         HStack {
-            Text("Center: \(center)")
+            Text("Center: \(center, specifier: "%.1f")")
             Slider(value: $center, in: 0...12)
         }
         HStack {
-            Text("Hight: \(height)")
+            Text("Hight: \(height, specifier: "%.1f")")
             Slider(value: $height, in: 10...40)
         }
         HStack {
-            Text("Right Skew: \(rightSkew)")
+            Text("Right Skew: \(rightSkew, specifier: "%.1f")")
             Slider(value: $rightSkew, in: 0...20)
         }
         HStack {
-            Text("Left Skew: \(leftSkew)")
+            Text("Left Skew: \(leftSkew, specifier: "%.1f")")
             Slider(value: $leftSkew, in: 0...20)
         }
         .onChange(of: center + height + leftSkew + rightSkew) {
