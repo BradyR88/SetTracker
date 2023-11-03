@@ -35,24 +35,33 @@ struct DifficultyCurveView: View {
                     .zIndex(2)
                 }
             }
+            .chartYAxis {
+                AxisMarks(values: .automatic(desiredCount: 5))
+            }
+            .chartXAxis {
+                AxisMarks(values: .automatic(desiredCount: 11))
+            }
             .frame(height: 200)
             .padding()
         }
-        HStack {
-            Text("Center: \(center, specifier: "%.1f")")
-            Slider(value: $center, in: 0...12)
-        }
-        HStack {
-            Text("Hight: \(height, specifier: "%.1f")")
-            Slider(value: $height, in: 10...40)
-        }
-        HStack {
-            Text("Right Skew: \(rightSkew, specifier: "%.1f")")
-            Slider(value: $rightSkew, in: 0...20)
-        }
-        HStack {
-            Text("Left Skew: \(leftSkew, specifier: "%.1f")")
-            Slider(value: $leftSkew, in: 0...20)
+        
+        Grid(alignment: .leading) {
+            GridRow {
+                Text("Center: \(center, specifier: "%.1f")")
+                Slider(value: $center, in: 0...12)
+            }
+            GridRow {
+                Text("Hight: \(height, specifier: "%.1f")")
+                Slider(value: $height, in: 10...40)
+            }
+            GridRow {
+                Text("Right Skew: \(rightSkew, specifier: "%.1f")")
+                Slider(value: $rightSkew, in: 0...20)
+            }
+            GridRow {
+                Text("Left Skew: \(leftSkew, specifier: "%.1f")")
+                Slider(value: $leftSkew, in: 0...20)
+            }
         }
         .onChange(of: center + height + leftSkew + rightSkew) {
             withAnimation {
