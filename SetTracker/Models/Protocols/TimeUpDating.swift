@@ -18,7 +18,7 @@ extension TimeUpDating {
         if daysUp == 0 {
             return "Today"
         } else {
-            return "\(daysUp) Day\(daysUp == 1 ? "" : "s") Ago"
+            return "\(daysUp) Day\(daysUp == 1 ? "" : "s") up"
         }
     }
 }
