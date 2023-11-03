@@ -55,7 +55,11 @@ struct DifficultyCurveView: View {
                 Slider(value: $height, in: 10...40)
             }
             GridRow {
-                Text("Right Skew: \(rightSkew, specifier: "%.1f")")
+                ZStack(alignment: .leading) {
+                    Text("Right Skew: \(rightSkew, specifier: "%.1f")")
+                    Text("Right Skew: 20.0") // this is the longest the text will ever be, and this is here and invisible to stop the grid from slightly shifting in size whenever this number changes
+                        .foregroundStyle(Color.clear)
+                }
                 Slider(value: $rightSkew, in: 0...20)
             }
             GridRow {
