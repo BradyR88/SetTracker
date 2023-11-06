@@ -11,13 +11,14 @@ import Charts
 struct DifficultyCurveView: View {
     @Binding var difficultyCurve: DifficultyCurve
     
+    @State private var editMode: Bool = true
     @State private var height: Double = 20
     @State private var center: Double = 4
     @State private var rightSkew: Double = 0
     @State private var leftSkew: Double = 0
     
     var body: some View {
-        HStack {
+        VStack {
             Chart {
                 ForEach(difficultyCurve.goalCount.sorted(by: >), id: \.key) { key, value in
                     LineMark(
@@ -43,30 +44,48 @@ struct DifficultyCurveView: View {
             }
             .frame(height: 200)
             .padding()
+            
+            Picker("Edit Mode", selection: $editMode) {
+                Text("Sliders").tag(false)
+                Text("Precise").tag(true)
+            }
+            .pickerStyle(.segmented)
+            
+            if editMode {
+                ForEach(difficultyCurve.goalCount.sorted(by: <), id: \.key) { grade, value in
+                    Stepper("Grade\(grade) - \(value)") {
+                        difficultyCurve.onIncrement(of: grade)
+                    } onDecrement: {
+                        difficultyCurve.onDecrement(of: grade)
+                    }
+                }
+            } else {
+                Grid(alignment: .leading) {
+                    GridRow {
+                        Text("Center: \(center, specifier: "%.1f")")
+                        Slider(value: $center, in: 0...12)
+                    }
+                    GridRow {
+                        Text("Hight: \(height, specifier: "%.1f")")
+                        Slider(value: $height, in: 10...40)
+                    }
+                    GridRow {
+                        ZStack(alignment: .leading) {
+                            Text("Right Skew: \(rightSkew, specifier: "%.1f")")
+                            Text("Right Skew: 20.0") // this is the longest the text will ever be, and this is here and invisible to stop the grid from slightly shifting in size whenever this number changes
+                                .foregroundStyle(Color.clear)
+                        }
+                        Slider(value: $rightSkew, in: 0...20)
+                    }
+                    GridRow {
+                        Text("Left Skew: \(leftSkew, specifier: "%.1f")")
+                        Slider(value: $leftSkew, in: 0...20)
+                    }
+                }
+            }
         }
         
-        Grid(alignment: .leading) {
-            GridRow {
-                Text("Center: \(center, specifier: "%.1f")")
-                Slider(value: $center, in: 0...12)
-            }
-            GridRow {
-                Text("Hight: \(height, specifier: "%.1f")")
-                Slider(value: $height, in: 10...40)
-            }
-            GridRow {
-                ZStack(alignment: .leading) {
-                    Text("Right Skew: \(rightSkew, specifier: "%.1f")")
-                    Text("Right Skew: 20.0") // this is the longest the text will ever be, and this is here and invisible to stop the grid from slightly shifting in size whenever this number changes
-                        .foregroundStyle(Color.clear)
-                }
-                Slider(value: $rightSkew, in: 0...20)
-            }
-            GridRow {
-                Text("Left Skew: \(leftSkew, specifier: "%.1f")")
-                Slider(value: $leftSkew, in: 0...20)
-            }
-        }
+        
         .onChange(of: center + height + leftSkew + rightSkew) {
             withAnimation {
                 difficultyCurve = DifficultyCurve(center: Int(center), hight: Int(height), leftSkew: leftSkew, rightSkew: rightSkew)
