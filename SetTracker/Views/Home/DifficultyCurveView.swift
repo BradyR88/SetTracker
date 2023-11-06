@@ -52,8 +52,8 @@ struct DifficultyCurveView: View {
             .pickerStyle(.segmented)
             
             if editMode {
-                ForEach(difficultyCurve.goalCount.sorted(by: <), id: \.key) { grade, value in
-                    Stepper("Grade\(grade) - \(value)") {
+                ForEach(difficultyCurve.goalPersent.sorted(by: <), id: \.key) { grade, value in
+                    Stepper("V\(grade) ~ \(value)%") {
                         difficultyCurve.onIncrement(of: grade)
                     } onDecrement: {
                         difficultyCurve.onDecrement(of: grade)
