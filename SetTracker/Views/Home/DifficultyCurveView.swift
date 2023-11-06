@@ -53,7 +53,7 @@ struct DifficultyCurveView: View {
             
             if editMode {
                 ForEach(difficultyCurve.goalPersent.sorted(by: <), id: \.key) { grade, value in
-                    Stepper("V\(grade) ~ \(value)%") {
+                    Stepper("V\(grade) ~ \(value, specifier: "%.1f")%") {
                         difficultyCurve.onIncrement(of: grade)
                     } onDecrement: {
                         difficultyCurve.onDecrement(of: grade)
@@ -79,6 +79,9 @@ struct DifficultyCurveView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            difficultyCurve = DifficultyCurve(center: Int(center), hight: 35, leftSkew: leftSkew, rightSkew: rightSkew)
         }
         .onChange(of: center + height + leftSkew + rightSkew) {
             withAnimation {
