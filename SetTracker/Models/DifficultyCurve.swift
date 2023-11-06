@@ -21,7 +21,7 @@ class DifficultyCurve {
     // this results in some rounding, that might mean everything does not add up to 100
     var goalPersent: [Int : Int] {
         goalCount.mapValues { i in
-            i / total * 100
+            Int((Double(i) / Double(total)) * 100.0)
         }
     }
     

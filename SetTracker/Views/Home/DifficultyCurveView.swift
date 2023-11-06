@@ -11,7 +11,7 @@ import Charts
 struct DifficultyCurveView: View {
     @Binding var difficultyCurve: DifficultyCurve
     
-    @State private var editMode: Bool = true
+    @State private var editMode: Bool = false
     @State private var height: Double = 20
     @State private var center: Double = 4
     @State private var rightSkew: Double = 0
@@ -20,7 +20,7 @@ struct DifficultyCurveView: View {
     var body: some View {
         VStack {
             Chart {
-                ForEach(difficultyCurve.goalCount.sorted(by: >), id: \.key) { key, value in
+                ForEach(difficultyCurve.goalPersent.sorted(by: >), id: \.key) { key, value in
                     LineMark(
                         x: .value("Grade", key),
                         y: .value("Count", value)
@@ -66,10 +66,6 @@ struct DifficultyCurveView: View {
                         Slider(value: $center, in: 0...12)
                     }
                     GridRow {
-                        Text("Hight: \(height, specifier: "%.1f")")
-                        Slider(value: $height, in: 10...40)
-                    }
-                    GridRow {
                         ZStack(alignment: .leading) {
                             Text("Right Skew: \(rightSkew, specifier: "%.1f")")
                             Text("Right Skew: 20.0") // this is the longest the text will ever be, and this is here and invisible to stop the grid from slightly shifting in size whenever this number changes
@@ -84,11 +80,9 @@ struct DifficultyCurveView: View {
                 }
             }
         }
-        
-        
         .onChange(of: center + height + leftSkew + rightSkew) {
             withAnimation {
-                difficultyCurve = DifficultyCurve(center: Int(center), hight: Int(height), leftSkew: leftSkew, rightSkew: rightSkew)
+                difficultyCurve = DifficultyCurve(center: Int(center), hight: 35, leftSkew: leftSkew, rightSkew: rightSkew)
             }
         }
         
