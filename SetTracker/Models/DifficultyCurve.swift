@@ -64,7 +64,7 @@ class DifficultyCurve {
         var value: [Int:Int] = [center : hight]
         let standardDeviation = 3.0
         let maxValue = 12
-        let minValue = 1
+        let minValue = 0
         
         for grade in minValue..<maxValue {
             value[grade] = HelperMath.singal.normalDistributionY(x: Double(grade), height: Double(hight), center: Double(center), standardDeviation: standardDeviation)

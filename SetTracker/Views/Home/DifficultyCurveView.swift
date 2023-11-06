@@ -37,7 +37,7 @@ struct DifficultyCurveView: View {
                 }
             }
             .chartYAxis {
-                AxisMarks(values: .automatic(desiredCount: 5))
+                AxisMarks(format: Decimal.FormatStyle.Percent.percent.scale(1), values: .automatic(desiredCount: 5))
             }
             .chartXAxis {
                 AxisMarks(values: .automatic(desiredCount: 11))
