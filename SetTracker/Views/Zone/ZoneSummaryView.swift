@@ -85,9 +85,6 @@ struct ZoneSummaryView: View {
         .onAppear {
             chartVM.setUp(zone.gym?.climbs ?? [], zone: zone.climbs)
         }
-        .onChange(of: zone.climbs) { _, newValue in
-            chartVM.setUp(zone.gym?.climbs ?? [], zone: newValue)
-        }
     }
     
     func addClimb() {

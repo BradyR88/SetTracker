@@ -89,6 +89,13 @@ struct ClimbEditSheet: View {
                 }
             }
         }
+        .onAppear {
+            if let zone = climb.zone {
+                if let gym = zone.gym {
+                    chartVM.setUp(gym.climbs, zone: zone.climbs)
+                }
+            }
+        }
         .onChange(of: climb.grade) { _, _ in
             if let zone = climb.zone {
                 if let gym = zone.gym {
