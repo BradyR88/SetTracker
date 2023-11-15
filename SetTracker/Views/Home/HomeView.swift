@@ -92,7 +92,7 @@ struct HomeView: View {
     }
 }
 
-#Preview {
-    HomeView()
-        .modelContainer(previewContainer)
-}
+//#Preview {
+//    HomeView()
+//        .modelContainer(previewContainer)
+//}

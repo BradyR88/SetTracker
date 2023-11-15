@@ -42,16 +42,16 @@ struct ClimbDescriptionView: View {
     }
 }
 
-#Preview {
-    let climb = PreviewExamples.exampleClimb
-    
-    return Button {
-        if climb.state == .down {
-            climb.state = .up
-        } else {
-            climb.state = .down
-        }
-    } label: {
-        ClimbDescriptionView(climb: climb)
-    }
-}
+//#Preview {
+//    let climb = PreviewExamples.exampleClimb
+//    
+//    return Button {
+//        if climb.state == .down {
+//            climb.state = .up
+//        } else {
+//            climb.state = .down
+//        }
+//    } label: {
+//        ClimbDescriptionView(climb: climb)
+//    }
+//}
