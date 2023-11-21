@@ -61,6 +61,16 @@ import SwiftUI
         zoneClimbs?.grouping() ?? []
     }
     
+    var hasZoneData: Bool {
+        guard let zoneClimbs else { return false}
+        
+        if zoneClimbs.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     //MARK: Style computed variables
     var styleGroupings: [BarEntry] {
         allStyle?.grouping() ?? []

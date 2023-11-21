@@ -44,7 +44,7 @@ struct HomeView: View {
                     }
                 }
             }
-            .alert("Delete gym", isPresented: $showingAlert, actions: {
+            .alert("Delete Gym", isPresented: $showingAlert, actions: {
                 Button("Delete", role: .destructive) {
                     withAnimation {
                         let toBeDeleted = selectedGym
@@ -53,7 +53,7 @@ struct HomeView: View {
                     }
                 }
             }, message: {
-                Text("This will permunuty delete this gym, as well as all corresponding zones and climbs!")
+                Text("This will permanently delete this gym, and all it's corresponding zones and climbs!")
             })
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

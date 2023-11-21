@@ -43,16 +43,12 @@ struct ZoneSummaryView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
-                    Button("Reset", role: .destructive) {
-                        showingAlert = true
-                    }
-                    
-                    Button("Last Set") {
+                    Button("All Climb's Complete") {
                         showingSheet = true
                     }
                     
-                    Button("Done Seting") {
-                        zone.setComplete()
+                    Button("Strip Zone", role: .destructive) {
+                        showingAlert = true
                     }
                 } label: {
                     Image(systemName: "ellipsis")

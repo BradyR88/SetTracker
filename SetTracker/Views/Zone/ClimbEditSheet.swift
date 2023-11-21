@@ -41,7 +41,7 @@ struct ClimbEditSheet: View {
                 //                        Text(color.rawValue).tag(color as HoldColors?)
                 //                    }
                 //                }
-                MultiPicker(text: "Add climb style", selectedItems: $climb.style)
+                MultiPicker(text: "Climb Attribute(s)", selectedItems: $climb.style)
                 
                 Section(isExpanded: $expandedForm) {
                     DatePicker("Date Set", selection: $climb.safeDateUp, displayedComponents: .date)

@@ -48,6 +48,30 @@ struct GradeChartView: View {
                 .zIndex(0)
             }
         }
+        .chartForegroundStyleScale(["Revenue": Color.green, "Visits": Color.purple])
+        .chartLegend(.visible)
+        .chartLegend(position: .bottom) {
+            HStack(spacing: 3) {
+                BasicChartSymbolShape.circle.foregroundStyle(Color.blue).frame(width: 8, height: 8)
+                Text("Gym")
+                    .foregroundStyle(.gray)
+                    .font(.caption)
+                    .padding(.trailing, 3)
+                if vm.hasZoneData {
+                    BasicChartSymbolShape.circle.foregroundStyle(Color.green).frame(width: 8, height: 8)
+                    Text("Zone")
+                        .foregroundStyle(.gray)
+                        .font(.caption)
+                        .padding(.trailing, 3)
+                }
+                BasicChartSymbolShape.circle.foregroundStyle(Color.red).frame(width: 8, height: 8)
+                Text("Target")
+                    .foregroundStyle(.gray)
+                    .font(.caption)
+                    .padding(.trailing, 3)
+            }
+            .padding()
+        }
         .padding(.horizontal , 20)
         .padding(.vertical)
     }
