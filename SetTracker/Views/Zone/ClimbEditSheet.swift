@@ -13,8 +13,6 @@ struct ClimbEditSheet: View {
     @Environment(\.dismiss) var dismiss
     @Bindable var climb: Climb
     
-    @State var expandedForm = false
-    
     var body: some View {
         NavigationStack {
             Form {
@@ -43,31 +41,20 @@ struct ClimbEditSheet: View {
                 //                }
                 MultiPicker(text: "Climb Attribute(s)", selectedItems: $climb.style)
                 
-                Section(isExpanded: $expandedForm) {
+                Section {
                     DatePicker("Date Set", selection: $climb.safeDateUp, displayedComponents: .date)
-                } header: {
-                    HStack{
-                        Text("Other")
-                        Spacer()
-                        Button {
-                            expandedForm.toggle()
-                        } label: {
-                            Image(systemName: expandedForm ? "chevron.down" : "chevron.right")
-                        }
-                        
-                    }
                 }
                 
                 Section {
                     if climb.state == .inProgress {
-                        Button("Done Setting") {
+                        Button("Climb Complete") {
                             dismiss()
                             climb.state = .up
                         }
                         .frame(maxWidth: .infinity)
                         .tint(.green)
                     } else if climb.state == .up {
-                        Button("Setting") {
+                        Button("Set in Progress") {
                             withAnimation {
                                 climb.state = .inProgress
                             }

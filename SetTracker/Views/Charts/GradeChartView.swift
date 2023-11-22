@@ -70,10 +70,10 @@ struct GradeChartView: View {
                     .font(.caption)
                     .padding(.trailing, 3)
             }
-            .padding()
+            .padding(.top, 3)
         }
         .padding(.horizontal , 20)
-        .padding(.vertical)
+        .padding(.vertical, 3)
     }
 }
 

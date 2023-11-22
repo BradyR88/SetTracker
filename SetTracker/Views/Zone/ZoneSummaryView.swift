@@ -43,7 +43,7 @@ struct ZoneSummaryView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
-                    Button("All Climb's Complete") {
+                    Button("All Climbs Complete") {
                         showingSheet = true
                     }
                     
