@@ -1,0 +1,115 @@
+//
+//  AddClimbsView.swift
+//  SetTracker
+//
+//  Created by Brady Robshaw on 5/15/24.
+//
+
+import SwiftUI
+
+struct AddClimbsView: View {
+    @Bindable var viewModel = AddClimbsView.ViewModel()
+    
+    var body: some View {
+        VStack {
+            self.gradeList
+            self.userInput
+        }
+    }
+    
+    //MARK: Sub-Views Grade List
+    
+    @ViewBuilder
+    private var gradeList: some View {
+        if viewModel.showContentUnavailableView {
+            ContentUnavailableView("No Climbs", systemImage: "figure.climbing", description: nil)
+        } else {
+            List {
+                ForEach(viewModel.grades, id: \.self) { grade in
+                    Button {
+                        viewModel.editGrade()
+                    } label: {
+                        Text("V" + String(grade))
+                    }
+                }
+                .onDelete(perform: viewModel.deleteGrade)
+            }
+        }
+    }
+    
+    //MARK: Sub-Views User Input
+    
+    private var userInput: some View {
+        VStack {
+            self.zonePicker
+            if self.viewModel.showIntegrationMethod {
+                self.integrationPicker
+            }
+            self.gradePicker
+            self.buttonBar
+        }
+        .padding(.horizontal)
+    }
+    
+    private var zonePicker: some View {
+        Picker("Zone", selection:
+                Binding(get: {viewModel.zoneSelection}, set: { viewModel.updateZoneSelection(to: $0)})
+        ) {
+            ForEach(viewModel.zones, id: \.self) { zone in
+                Text(String(zone))
+                    .tag(zone)
+            }
+            Text("No Zone")
+                .tag("NoZone")
+            Text("New Zone")
+                .tag("NewZone")
+        }
+        .pickerStyle(.menu)
+    }
+    
+    private var integrationPicker: some View {
+        Picker("Replace or Add", selection: $viewModel.integrationMethod) {
+            ForEach(AddClimbsView.ViewModel.IntegrationMethod.allCases, id: \.self) { method in
+                Text(method.rawValue.capitalized)
+                    .tag(method)
+            }
+        }
+        .pickerStyle(.segmented)
+    }
+    
+    @ViewBuilder
+    private var gradePicker: some View {
+        Picker("Grade", selection:
+                Binding(get: {viewModel.gradePickerState}, set: { viewModel.gradePickerState = $0})
+        ) {
+            ForEach(viewModel.gradeOptions, id: \.self) { grade in
+                Text("V" + String(grade))
+                    .tag(grade)
+            }
+            
+        }
+        .pickerStyle(WheelPickerStyle())
+    }
+    
+    private var buttonBar: some View {
+        VStack {
+            HStack {
+                Button("auto") {
+                    viewModel.autoPopulate()
+                }
+                Button("submit") {
+                    viewModel.submit()
+                }
+            }
+            
+            Button("Add Grade", systemImage: "plus.circle") {
+                viewModel.add()
+            }
+        }
+        .buttonStyle(.bordered)
+    }
+}
+
+#Preview {
+    AddClimbsView()
+}

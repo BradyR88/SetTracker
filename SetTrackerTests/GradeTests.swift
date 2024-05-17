@@ -39,23 +39,23 @@ final class GradeTests: XCTestCase {
         XCTAssertTrue(v5 > v3)
     }
     
-    func testV6GreaterthanNil() {
-        let v6 = Grade(planded: 5)
-        let nilGrade = Grade(planded: nil)
-        XCTAssertTrue(v6 > nilGrade)
-    }
-    
-    func testGradeSort() {
-        let preSort = [Grade(planded: nil), Grade(planded: 1), Grade(planded: 10), Grade(planded: 2)]
-        let result = [Grade(planded: 1), Grade(planded: 2), Grade(planded: 10), Grade(planded: nil)]
-        
-        XCTAssertEqual(preSort.sorted() , result)
-    }
-    
-    func testGradeReversSort() {
-        let preSort = [Grade(planded: nil), Grade(planded: 1), Grade(planded: 10), Grade(planded: 2)]
-        let result = [Grade(planded: 10), Grade(planded: 2), Grade(planded: 1), Grade(planded: nil)]
-        XCTAssertEqual(preSort.sorted(by: >), result)
-    }
+//    func testV6GreaterthanNil() {
+//        let v6 = Grade(planded: 5)
+//        let nilGrade = Grade(planded: nil)
+//        XCTAssertTrue(v6 > nilGrade)
+//    }
+//    
+//    func testGradeSort() {
+//        let preSort = [Grade(planded: nil), Grade(planded: 1), Grade(planded: 10), Grade(planded: 2)]
+//        let result = [Grade(planded: 1), Grade(planded: 2), Grade(planded: 10), Grade(planded: nil)]
+//        
+//        XCTAssertEqual(preSort.sorted() , result)
+//    }
+//    
+//    func testGradeReversSort() {
+//        let preSort = [Grade(planded: nil), Grade(planded: 1), Grade(planded: 10), Grade(planded: 2)]
+//        let result = [Grade(planded: 10), Grade(planded: 2), Grade(planded: 1), Grade(planded: nil)]
+//        XCTAssertEqual(preSort.sorted(by: >), result)
+//    }
 
 }

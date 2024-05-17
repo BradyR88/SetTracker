@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */; };
+		732CCA212BF6A01D008AFF48 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CCA202BF6A01D008AFF48 /* SettingsView.swift */; };
 		734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734216512A43527200D248A2 /* ClimbEditSheet.swift */; };
 		734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */; };
 		73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553BF32A33B375005974C8 /* SetTrackerApp.swift */; };
@@ -24,6 +25,10 @@
 		735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB492A3527900098C791 /* AddGymView.swift */; };
 		735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB4B2A3634410098C791 /* GymSummaryView.swift */; };
 		736DEB3B2ACC703200576D5A /* ZoneBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736DEB3A2ACC703200576D5A /* ZoneBarView.swift */; };
+		737B22EA2BF525BA0003A9AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B22E92BF525BA0003A9AF /* ContentView.swift */; };
+		737B22ED2BF528D40003A9AF /* AddClimbsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B22EC2BF528D40003A9AF /* AddClimbsView.swift */; };
+		737B22EF2BF5405C0003A9AF /* AddClimbsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B22EE2BF5405C0003A9AF /* AddClimbsViewModel.swift */; };
+		737B22F12BF571440003A9AF /* AddClimbInputStateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B22F02BF571440003A9AF /* AddClimbInputStateEnum.swift */; };
 		737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */; };
 		7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FCAC2A8E705300B8C83D /* HoldColors.swift */; };
 		7381FCAF2A8E708800B8C83D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FCAE2A8E708800B8C83D /* Style.swift */; };
@@ -40,6 +45,9 @@
 		73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */; };
 		73C35E842A857F27004B05D3 /* DifficultyCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C35E832A857F27004B05D3 /* DifficultyCurveView.swift */; };
 		73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D69DF22A62309900B68425 /* StyleChartView.swift */; };
+		73DE6BEE2BF7D53800006E8B /* ClimbsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE6BED2BF7D53700006E8B /* ClimbsListView.swift */; };
+		73DE6BF02BF7D69A00006E8B /* ClimbsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE6BEF2BF7D69A00006E8B /* ClimbsTabView.swift */; };
+		73DE6BF22BF7F82500006E8B /* ButtonOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DE6BF12BF7F82500006E8B /* ButtonOverlay.swift */; };
 		73E021962A97B7CE002CDF18 /* HelperMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E021952A97B7CE002CDF18 /* HelperMath.swift */; };
 		73E2BF392A8D9EC900843376 /* GlobalModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2BF382A8D9EC900843376 /* GlobalModelContext.swift */; };
 		73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */; };
@@ -67,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudView.swift; sourceTree = "<group>"; };
+		732CCA202BF6A01D008AFF48 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		734216512A43527200D248A2 /* ClimbEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbEditSheet.swift; sourceTree = "<group>"; };
 		734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGradeChart.swift; sourceTree = "<group>"; };
 		73553BF02A33B375005974C8 /* SetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +95,10 @@
 		735FFB492A3527900098C791 /* AddGymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGymView.swift; sourceTree = "<group>"; };
 		735FFB4B2A3634410098C791 /* GymSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSummaryView.swift; sourceTree = "<group>"; };
 		736DEB3A2ACC703200576D5A /* ZoneBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneBarView.swift; sourceTree = "<group>"; };
+		737B22E92BF525BA0003A9AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		737B22EC2BF528D40003A9AF /* AddClimbsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClimbsView.swift; sourceTree = "<group>"; };
+		737B22EE2BF5405C0003A9AF /* AddClimbsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClimbsViewModel.swift; sourceTree = "<group>"; };
+		737B22F02BF571440003A9AF /* AddClimbInputStateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClimbInputStateEnum.swift; sourceTree = "<group>"; };
 		737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPicker.swift; sourceTree = "<group>"; };
 		7381FCAC2A8E705300B8C83D /* HoldColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldColors.swift; sourceTree = "<group>"; };
 		7381FCAE2A8E708800B8C83D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -102,6 +115,9 @@
 		73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSummaryView.swift; sourceTree = "<group>"; };
 		73C35E832A857F27004B05D3 /* DifficultyCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCurveView.swift; sourceTree = "<group>"; };
 		73D69DF22A62309900B68425 /* StyleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleChartView.swift; sourceTree = "<group>"; };
+		73DE6BED2BF7D53700006E8B /* ClimbsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbsListView.swift; sourceTree = "<group>"; };
+		73DE6BEF2BF7D69A00006E8B /* ClimbsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbsTabView.swift; sourceTree = "<group>"; };
+		73DE6BF12BF7F82500006E8B /* ButtonOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOverlay.swift; sourceTree = "<group>"; };
 		73E021952A97B7CE002CDF18 /* HelperMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMath.swift; sourceTree = "<group>"; };
 		73E2BF382A8D9EC900843376 /* GlobalModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalModelContext.swift; sourceTree = "<group>"; };
 		73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
@@ -135,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		732CCA1F2BF6A003008AFF48 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				732CCA202BF6A01D008AFF48 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		73553BE72A33B375005974C8 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +235,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		737B22E82BF5259A0003A9AF /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				737B22E92BF525BA0003A9AF /* ContentView.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		737B22EB2BF528BB0003A9AF /* AddClimbsView */ = {
+			isa = PBXGroup;
+			children = (
+				737B22EC2BF528D40003A9AF /* AddClimbsView.swift */,
+				737B22EE2BF5405C0003A9AF /* AddClimbsViewModel.swift */,
+				737B22F02BF571440003A9AF /* AddClimbInputStateEnum.swift */,
+			);
+			path = AddClimbsView;
+			sourceTree = "<group>";
+		};
 		7381FCAB2A8E701500B8C83D /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +269,7 @@
 				7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */,
 				737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */,
 				73ACA5052A8AA8120098A507 /* ColorPicker.swift */,
+				73DE6BF12BF7F82500006E8B /* ButtonOverlay.swift */,
 			);
 			path = HelperView;
 			sourceTree = "<group>";
@@ -234,6 +277,10 @@
 		738FA2662A33EA4700CAB9CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				737B22E82BF5259A0003A9AF /* ContentView */,
+				737B22EB2BF528BB0003A9AF /* AddClimbsView */,
+				73DE6BEC2BF7D51100006E8B /* ClimbTabView */,
+				732CCA1F2BF6A003008AFF48 /* Settings */,
 				73F2389A2A5A31A3005EA147 /* Home */,
 				7392AD2F2A5F76430031E07A /* Zone */,
 				73B6F9A52A3A29E5005AF153 /* Charts */,
@@ -272,6 +319,15 @@
 				734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */,
 			);
 			path = Charts;
+			sourceTree = "<group>";
+		};
+		73DE6BEC2BF7D51100006E8B /* ClimbTabView */ = {
+			isa = PBXGroup;
+			children = (
+				73DE6BEF2BF7D69A00006E8B /* ClimbsTabView.swift */,
+				73DE6BED2BF7D53700006E8B /* ClimbsListView.swift */,
+			);
+			path = ClimbTabView;
 			sourceTree = "<group>";
 		};
 		73F2389A2A5A31A3005EA147 /* Home */ = {
@@ -427,19 +483,24 @@
 			files = (
 				739C34DF2A662376009CB3CF /* ChartDataModel.swift in Sources */,
 				73ACA5062A8AA8120098A507 /* ColorPicker.swift in Sources */,
+				737B22ED2BF528D40003A9AF /* AddClimbsView.swift in Sources */,
 				735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */,
 				734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */,
 				73C35E842A857F27004B05D3 /* DifficultyCurveView.swift in Sources */,
+				732CCA212BF6A01D008AFF48 /* SettingsView.swift in Sources */,
 				73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */,
 				73553C292A33B3DA005974C8 /* Grade.swift in Sources */,
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
 				7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */,
 				73553C232A33B3C9005974C8 /* Gym.swift in Sources */,
 				73E2BF392A8D9EC900843376 /* GlobalModelContext.swift in Sources */,
+				737B22F12BF571440003A9AF /* AddClimbInputStateEnum.swift in Sources */,
 				73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */,
 				738F15BD2A60BFC40052131C /* MultiPicker.swift in Sources */,
 				73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */,
 				738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */,
+				73DE6BEE2BF7D53800006E8B /* ClimbsListView.swift in Sources */,
+				73DE6BF02BF7D69A00006E8B /* ClimbsTabView.swift in Sources */,
 				735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */,
 				7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */,
 				734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */,
@@ -448,6 +509,8 @@
 				73909EF52A87D7FF007A24DC /* TimeUpDating.swift in Sources */,
 				73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */,
 				73E021962A97B7CE002CDF18 /* HelperMath.swift in Sources */,
+				73DE6BF22BF7F82500006E8B /* ButtonOverlay.swift in Sources */,
+				737B22EA2BF525BA0003A9AF /* ContentView.swift in Sources */,
 				736DEB3B2ACC703200576D5A /* ZoneBarView.swift in Sources */,
 				73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */,
 				7381FCAF2A8E708800B8C83D /* Style.swift in Sources */,
@@ -457,6 +520,7 @@
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
+				737B22EF2BF5405C0003A9AF /* AddClimbsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
