@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ClimbsTabView: View {
     @State private var sortOrder = SortDescriptor(\Climb.grade)
+    let showSheet: () -> Void
     
     var body: some View {
         VStack {
@@ -22,7 +23,7 @@ struct ClimbsTabView: View {
             ClimbsListView(sort: sortOrder)
         }
         .buttonOverlay {
-            // add climbs
+            showSheet()
         } label: {
             Label("Add Climbs", systemImage: "plus.app")
         }
@@ -36,7 +37,7 @@ struct ClimbsTabView: View {
         let container = try ModelContainer(for: Climb.self, configurations: config)
         
         let example = Climb(grade: 1)
-        return ClimbsTabView()
+        return ClimbsTabView(showSheet: {})
             .modelContainer(container)
             .onAppear {
                 container.mainContext.insert(example)

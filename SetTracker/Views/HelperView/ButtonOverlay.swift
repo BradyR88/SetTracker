@@ -31,6 +31,7 @@ struct ButtonOverlay<Label : View>: ViewModifier {
                 } label: {
                     label()
                 }
+                .padding()
             }
         }
     }

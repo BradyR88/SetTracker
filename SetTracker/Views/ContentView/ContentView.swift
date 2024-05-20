@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingSheet = false
+    @Bindable var viewModel = ContentView.ViewModel()
     
     var body: some View {
         TabView {
@@ -18,19 +18,17 @@ struct ContentView: View {
                     Label("Charts", systemImage: "chart.line.uptrend.xyaxis")
                 }
             
-            ClimbsTabView()
+            ClimbsTabView(showSheet: viewModel.showSheet)
                 .tabItem {
                     Label("Climbs", systemImage: "list.bullet.circle")
                 }
             
-            SettingsView(showSheet: {
-                showingSheet = true
-            })
+            SettingsView(showSheet: viewModel.showSheet)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
         }
-        .sheet(isPresented: $showingSheet, content: {
+        .sheet(isPresented: $viewModel.showingSheet, content: {
             AddClimbsView()
         })
     }
