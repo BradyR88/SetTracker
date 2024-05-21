@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            Text("Charts")
+            ChartTabView(showSheet: viewModel.showSheet)
                 .tabItem {
                     Label("Charts", systemImage: "chart.line.uptrend.xyaxis")
                 }

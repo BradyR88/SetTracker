@@ -24,6 +24,9 @@
 		73553C2B2A33B61C005974C8 /* GradeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C2A2A33B61C005974C8 /* GradeTests.swift */; };
 		735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB492A3527900098C791 /* AddGymView.swift */; };
 		735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FFB4B2A3634410098C791 /* GymSummaryView.swift */; };
+		736D11E82BFD1724006A2EC1 /* ChartTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736D11E72BFD1724006A2EC1 /* ChartTabView.swift */; };
+		736D11EA2BFD1748006A2EC1 /* BigGradeBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736D11E92BFD1748006A2EC1 /* BigGradeBarChart.swift */; };
+		736D11EC2BFD1775006A2EC1 /* BigGradeBarChart+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736D11EB2BFD1775006A2EC1 /* BigGradeBarChart+ViewModel.swift */; };
 		736DEB3B2ACC703200576D5A /* ZoneBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736DEB3A2ACC703200576D5A /* ZoneBarView.swift */; };
 		737B22EA2BF525BA0003A9AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B22E92BF525BA0003A9AF /* ContentView.swift */; };
 		737B22ED2BF528D40003A9AF /* AddClimbsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B22EC2BF528D40003A9AF /* AddClimbsView.swift */; };
@@ -95,6 +98,9 @@
 		73553C2A2A33B61C005974C8 /* GradeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTests.swift; sourceTree = "<group>"; };
 		735FFB492A3527900098C791 /* AddGymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGymView.swift; sourceTree = "<group>"; };
 		735FFB4B2A3634410098C791 /* GymSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSummaryView.swift; sourceTree = "<group>"; };
+		736D11E72BFD1724006A2EC1 /* ChartTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTabView.swift; sourceTree = "<group>"; };
+		736D11E92BFD1748006A2EC1 /* BigGradeBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigGradeBarChart.swift; sourceTree = "<group>"; };
+		736D11EB2BFD1775006A2EC1 /* BigGradeBarChart+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BigGradeBarChart+ViewModel.swift"; sourceTree = "<group>"; };
 		736DEB3A2ACC703200576D5A /* ZoneBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneBarView.swift; sourceTree = "<group>"; };
 		737B22E92BF525BA0003A9AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737B22EC2BF528D40003A9AF /* AddClimbsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClimbsView.swift; sourceTree = "<group>"; };
@@ -237,6 +243,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		736D11E62BFD170A006A2EC1 /* ChartTabView */ = {
+			isa = PBXGroup;
+			children = (
+				736D11E72BFD1724006A2EC1 /* ChartTabView.swift */,
+				736D11E92BFD1748006A2EC1 /* BigGradeBarChart.swift */,
+				736D11EB2BFD1775006A2EC1 /* BigGradeBarChart+ViewModel.swift */,
+			);
+			path = ChartTabView;
+			sourceTree = "<group>";
+		};
 		737B22E82BF5259A0003A9AF /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +299,7 @@
 				737B22E82BF5259A0003A9AF /* ContentView */,
 				737B22EB2BF528BB0003A9AF /* AddClimbsView */,
 				73DE6BEC2BF7D51100006E8B /* ClimbTabView */,
+				736D11E62BFD170A006A2EC1 /* ChartTabView */,
 				732CCA1F2BF6A003008AFF48 /* Settings */,
 				73F2389A2A5A31A3005EA147 /* Home */,
 				7392AD2F2A5F76430031E07A /* Zone */,
@@ -496,6 +513,7 @@
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
 				7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */,
 				73553C232A33B3C9005974C8 /* Gym.swift in Sources */,
+				736D11EC2BFD1775006A2EC1 /* BigGradeBarChart+ViewModel.swift in Sources */,
 				73E2BF392A8D9EC900843376 /* GlobalModelContext.swift in Sources */,
 				737B22F12BF571440003A9AF /* AddClimbInputStateEnum.swift in Sources */,
 				73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */,
@@ -517,6 +535,7 @@
 				736DEB3B2ACC703200576D5A /* ZoneBarView.swift in Sources */,
 				73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */,
 				7381FCAF2A8E708800B8C83D /* Style.swift in Sources */,
+				736D11E82BFD1724006A2EC1 /* ChartTabView.swift in Sources */,
 				7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */,
 				73F5D0A72A797A470050149B /* ZoneListView.swift in Sources */,
 				73F5D0A92A7987560050149B /* DateEditSheet.swift in Sources */,
@@ -524,6 +543,7 @@
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */,
 				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
+				736D11EA2BFD1748006A2EC1 /* BigGradeBarChart.swift in Sources */,
 				737B22EF2BF5405C0003A9AF /* AddClimbsView+ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

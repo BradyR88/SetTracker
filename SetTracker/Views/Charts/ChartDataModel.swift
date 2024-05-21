@@ -43,14 +43,6 @@ import SwiftUI
         .sorted(using: KeyPathComparator(\.name))
     }
     
-    struct BarEntry: Identifiable {
-        var name: String
-        var number: Double
-        var id: String {
-            name
-        }
-    }
-    
     //MARK: All Climbs computed variables
     var allGroupings: [BarEntry] {
         allClimbs?.grouping() ?? []
@@ -80,7 +72,7 @@ import SwiftUI
     var miniChart: [BarEntry] {
         guard let allClimbs = allClimbs else { return [] }
         let dicGroop = Dictionary(grouping: allClimbs, by: {$0.name})
-        var groupings: [ChartsViewModel.BarEntry] = []
+        var groupings: [BarEntry] = []
         for grade in 1...11 {
             let ttl = dicGroop[String(grade)]?.reduce(0) { $0 + $1.number } ?? 0
             groupings.append(BarEntry(name: String(grade), number: ttl))
@@ -90,15 +82,23 @@ import SwiftUI
 }
 
 
-extension Array where Element == ChartsViewModel.BarEntry {
-    func grouping() -> [ChartsViewModel.BarEntry] {
+extension Array where Element == BarEntry {
+    func grouping() -> [BarEntry] {
         let dicGroop = Dictionary(grouping: self, by: {$0.name})
-        var groupings: [ChartsViewModel.BarEntry] = []
+        var groupings: [BarEntry] = []
         for (name, entries) in dicGroop {
             let ttl = entries.reduce(0) { $0 + $1.number }
-            groupings.append(ChartsViewModel.BarEntry(name: name, number: ttl))
+            groupings.append(BarEntry(name: name, number: ttl))
         }
         return groupings.filter { $0.number > 0 }
             .sorted(using: KeyPathComparator(\.name))
+    }
+}
+
+struct BarEntry: Identifiable {
+    var name: String
+    var number: Double
+    var id: String {
+        name
     }
 }
