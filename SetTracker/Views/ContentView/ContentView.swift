@@ -9,6 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.modelContext) private var modelContext
     @Bindable var viewModel = ContentView.ViewModel()
     
     var body: some View {
@@ -28,8 +29,12 @@ struct ContentView: View {
                     Label("Settings", systemImage: "gear")
                 }
         }
-        .sheet(isPresented: $viewModel.showingSheet, content: {
-            AddClimbsView()
+        .sheet(isPresented: $viewModel.showingSheet,
+               content: {
+            AddClimbsView(
+                modelContext: modelContext,
+                showingSheet: $viewModel.showingSheet
+            )
         })
     }
 }

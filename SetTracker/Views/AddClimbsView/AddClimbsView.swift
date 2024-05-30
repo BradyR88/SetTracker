@@ -5,10 +5,15 @@
 //  Created by Brady Robshaw on 5/15/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct AddClimbsView: View {
-    @Bindable var viewModel = AddClimbsView.ViewModel()
+    @Bindable var viewModel: ViewModel
+    
+    init(modelContext: ModelContext, showingSheet: Binding<Bool>) {
+        viewModel = ViewModel(modelContext: modelContext, showingSheet: showingSheet)
+    }
     
     var body: some View {
         VStack {
@@ -111,5 +116,14 @@ struct AddClimbsView: View {
 }
 
 #Preview {
-    AddClimbsView()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Climb.self, configurations: config)
+        let modelContext = container.mainContext
+        
+        let example = Climb(grade: 1)
+        return AddClimbsView(modelContext: modelContext, showingSheet: .constant(true))
+    } catch {
+        fatalError("Failed to create model container.")
+    }
 }
