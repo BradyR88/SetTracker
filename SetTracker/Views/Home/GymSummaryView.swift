@@ -33,12 +33,12 @@ struct GymSummaryView: View {
 //        .navigationDestination(for: Zone.self) { zone in
 //            ZoneSummaryView(zone: zone)
 //        }
-        .onAppear {
-            chartVM.setUp(gym.climbs)
-        }
-        .onChange(of: gym.climbs) { _, newValue in
-            chartVM.setUp(newValue)
-        }
+//        .onAppear {
+//            chartVM.setUp(gym.climbs)
+//        }
+//        .onChange(of: gym.climbs) { _, newValue in
+//            chartVM.setUp(newValue)
+//        }
     }
 }
 

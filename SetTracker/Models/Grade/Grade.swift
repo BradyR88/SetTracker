@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Grade {
+@Model
+class Grade {
     let gradeType: GradeTypes
     let grade: String
     let vEquivalent: Double
@@ -19,7 +21,6 @@ struct Grade {
     }
 }
 
-extension Grade: Codable {}
 extension Grade: Comparable {
     static func < (lhs: Grade, rhs: Grade) -> Bool {
         lhs.vEquivalent < rhs.vEquivalent

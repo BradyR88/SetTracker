@@ -34,8 +34,8 @@ final class GradeTests: XCTestCase {
     }
     
     func testV5GreaterthanV3() {
-        let v5 = Grade(planded: 5)
-        let v3 = Grade(planded: 3)
+        let v5 = Grade(vGrade: 5)
+        let v3 = Grade(vGrade: 5)
         XCTAssertTrue(v5 > v3)
     }
     
