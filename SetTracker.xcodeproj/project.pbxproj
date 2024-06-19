@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */; };
 		732CCA212BF6A01D008AFF48 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CCA202BF6A01D008AFF48 /* SettingsView.swift */; };
-		734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734216512A43527200D248A2 /* ClimbEditSheet.swift */; };
+		733D0BF62C23239500F1AF9D /* GradeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D0BF52C23239500F1AF9D /* GradeTypes.swift */; };
 		734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */; };
 		73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553BF32A33B375005974C8 /* SetTrackerApp.swift */; };
 		73553BF82A33B377005974C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BF72A33B377005974C8 /* Assets.xcassets */; };
@@ -18,7 +18,6 @@
 		73553C112A33B377005974C8 /* SetTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C102A33B377005974C8 /* SetTrackerUITests.swift */; };
 		73553C132A33B377005974C8 /* SetTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C122A33B377005974C8 /* SetTrackerUITestsLaunchTests.swift */; };
 		73553C232A33B3C9005974C8 /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C222A33B3C9005974C8 /* Gym.swift */; };
-		73553C252A33B3CF005974C8 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C242A33B3CF005974C8 /* Zone.swift */; };
 		73553C272A33B3D5005974C8 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C262A33B3D5005974C8 /* Climb.swift */; };
 		73553C292A33B3DA005974C8 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C282A33B3DA005974C8 /* Grade.swift */; };
 		73553C2B2A33B61C005974C8 /* GradeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553C2A2A33B61C005974C8 /* GradeTests.swift */; };
@@ -45,7 +44,6 @@
 		73ACA5062A8AA8120098A507 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ACA5052A8AA8120098A507 /* ColorPicker.swift */; };
 		73B6F9A42A3A2004005AF153 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */; };
 		73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */; };
-		73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */; };
 		73C0BFC02BFBE3CF00804620 /* ContentView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0BFBF2BFBE3CF00804620 /* ContentView+ViewModel.swift */; };
 		73C35E842A857F27004B05D3 /* DifficultyCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C35E832A857F27004B05D3 /* DifficultyCurveView.swift */; };
 		73D69DF32A62309A00B68425 /* StyleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D69DF22A62309900B68425 /* StyleChartView.swift */; };
@@ -55,8 +53,6 @@
 		73E021962A97B7CE002CDF18 /* HelperMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E021952A97B7CE002CDF18 /* HelperMath.swift */; };
 		73E2BF392A8D9EC900843376 /* GlobalModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2BF382A8D9EC900843376 /* GlobalModelContext.swift */; };
 		73F2389F2A5A3D0E005EA147 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */; };
-		73F5D0A72A797A470050149B /* ZoneListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5D0A62A797A470050149B /* ZoneListView.swift */; };
-		73F5D0A92A7987560050149B /* DateEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F5D0A82A7987560050149B /* DateEditSheet.swift */; };
 		73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +76,7 @@
 /* Begin PBXFileReference section */
 		7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudView.swift; sourceTree = "<group>"; };
 		732CCA202BF6A01D008AFF48 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		734216512A43527200D248A2 /* ClimbEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbEditSheet.swift; sourceTree = "<group>"; };
+		733D0BF52C23239500F1AF9D /* GradeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTypes.swift; sourceTree = "<group>"; };
 		734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGradeChart.swift; sourceTree = "<group>"; };
 		73553BF02A33B375005974C8 /* SetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73553BF32A33B375005974C8 /* SetTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackerApp.swift; sourceTree = "<group>"; };
@@ -92,7 +88,6 @@
 		73553C102A33B377005974C8 /* SetTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackerUITests.swift; sourceTree = "<group>"; };
 		73553C122A33B377005974C8 /* SetTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		73553C222A33B3C9005974C8 /* Gym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
-		73553C242A33B3CF005974C8 /* Zone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		73553C262A33B3D5005974C8 /* Climb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Climb.swift; sourceTree = "<group>"; };
 		73553C282A33B3DA005974C8 /* Grade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
 		73553C2A2A33B61C005974C8 /* GradeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTests.swift; sourceTree = "<group>"; };
@@ -119,7 +114,6 @@
 		73ACA5052A8AA8120098A507 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		73B6F9A32A3A2004005AF153 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		73B6F9A62A3A2A1B005AF153 /* GradeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeChartView.swift; sourceTree = "<group>"; };
-		73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneSummaryView.swift; sourceTree = "<group>"; };
 		73C0BFBF2BFBE3CF00804620 /* ContentView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView+ViewModel.swift"; sourceTree = "<group>"; };
 		73C35E832A857F27004B05D3 /* DifficultyCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCurveView.swift; sourceTree = "<group>"; };
 		73D69DF22A62309900B68425 /* StyleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleChartView.swift; sourceTree = "<group>"; };
@@ -129,8 +123,6 @@
 		73E021952A97B7CE002CDF18 /* HelperMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMath.swift; sourceTree = "<group>"; };
 		73E2BF382A8D9EC900843376 /* GlobalModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalModelContext.swift; sourceTree = "<group>"; };
 		73F2389E2A5A3D0E005EA147 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
-		73F5D0A62A797A470050149B /* ZoneListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneListView.swift; sourceTree = "<group>"; };
-		73F5D0A82A7987560050149B /* DateEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEditSheet.swift; sourceTree = "<group>"; };
 		73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyCurve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,9 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				73553C222A33B3C9005974C8 /* Gym.swift */,
-				73553C242A33B3CF005974C8 /* Zone.swift */,
 				73553C262A33B3D5005974C8 /* Climb.swift */,
-				73553C282A33B3DA005974C8 /* Grade.swift */,
+				73B6F08F2C0918CD00EDCE08 /* Grade */,
 				73F7DCC62A6F16620068C7E4 /* DifficultyCurve.swift */,
 				7381FCAB2A8E701500B8C83D /* Enums */,
 				73909EF32A87D76F007A24DC /* Protocols */,
@@ -320,13 +311,18 @@
 		7392AD2F2A5F76430031E07A /* Zone */ = {
 			isa = PBXGroup;
 			children = (
-				73B6F9AA2A3A95FA005AF153 /* ZoneSummaryView.swift */,
-				73F5D0A62A797A470050149B /* ZoneListView.swift */,
 				7392AD302A5F76990031E07A /* ClimbDescriptionView.swift */,
-				734216512A43527200D248A2 /* ClimbEditSheet.swift */,
-				73F5D0A82A7987560050149B /* DateEditSheet.swift */,
 			);
 			path = Zone;
+			sourceTree = "<group>";
+		};
+		73B6F08F2C0918CD00EDCE08 /* Grade */ = {
+			isa = PBXGroup;
+			children = (
+				73553C282A33B3DA005974C8 /* Grade.swift */,
+				733D0BF52C23239500F1AF9D /* GradeTypes.swift */,
+			);
+			path = Grade;
 			sourceTree = "<group>";
 		};
 		73B6F9A52A3A29E5005AF153 /* Charts */ = {
@@ -505,10 +501,8 @@
 				73ACA5062A8AA8120098A507 /* ColorPicker.swift in Sources */,
 				737B22ED2BF528D40003A9AF /* AddClimbsView.swift in Sources */,
 				735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */,
-				734216522A43527200D248A2 /* ClimbEditSheet.swift in Sources */,
 				73C35E842A857F27004B05D3 /* DifficultyCurveView.swift in Sources */,
 				732CCA212BF6A01D008AFF48 /* SettingsView.swift in Sources */,
-				73B6F9AB2A3A95FA005AF153 /* ZoneSummaryView.swift in Sources */,
 				73553C292A33B3DA005974C8 /* Grade.swift in Sources */,
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
 				7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */,
@@ -536,13 +530,11 @@
 				73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */,
 				7381FCAF2A8E708800B8C83D /* Style.swift in Sources */,
 				736D11E82BFD1724006A2EC1 /* ChartTabView.swift in Sources */,
+				733D0BF62C23239500F1AF9D /* GradeTypes.swift in Sources */,
 				7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */,
-				73F5D0A72A797A470050149B /* ZoneListView.swift in Sources */,
-				73F5D0A92A7987560050149B /* DateEditSheet.swift in Sources */,
 				73C0BFC02BFBE3CF00804620 /* ContentView+ViewModel.swift in Sources */,
 				73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */,
 				737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */,
-				73553C252A33B3CF005974C8 /* Zone.swift in Sources */,
 				736D11EA2BFD1748006A2EC1 /* BigGradeBarChart.swift in Sources */,
 				737B22EF2BF5405C0003A9AF /* AddClimbsView+ViewModel.swift in Sources */,
 			);

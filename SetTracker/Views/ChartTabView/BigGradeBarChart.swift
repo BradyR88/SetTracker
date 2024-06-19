@@ -50,5 +50,5 @@ struct BigGradeBarChart: View {
 }
 
 #Preview {
-    BigGradeBarChart(climbs: [Climb(grade: 1)])
+    BigGradeBarChart(climbs: [Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"))])
 }

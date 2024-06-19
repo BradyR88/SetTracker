@@ -14,7 +14,7 @@ struct AddGymView: View {
     @AppStorage("gymId") var gymId: UUID?
     
     @State private var gymName: String = ""
-    @State private var zones: [Zone] = [Zone(name: "Zone 1")]
+    //@State private var zones: [Zone] = [Zone(name: "Zone 1")]
     @State private var difficultyCurve = DifficultyCurve()
     
     @State private var showingAlert = false
@@ -27,10 +27,10 @@ struct AddGymView: View {
                 }
                 
                 Section {
-                    ForEach($zones) { $zone in
-                        TextField("Zone Name", text: $zone.name)
-                    }
-                    .onDelete(perform: deleteZone)
+//                    ForEach($zones) { $zone in
+//                        TextField("Zone Name", text: $zone.name)
+//                    }
+//                    .onDelete(perform: deleteZone)
                     
                     Button("Add Zone") {
                         addZone()
@@ -38,9 +38,9 @@ struct AddGymView: View {
                 } header: {
                     Text("Zones")
                 } footer: {
-                    if zones.isEmpty {
-                        Text("Gym must have at least one zone.")
-                    }
+//                    if zones.isEmpty {
+//                        Text("Gym must have at least one zone.")
+//                    }
                 }
                 
                 Section {
@@ -79,23 +79,23 @@ struct AddGymView: View {
     }
     
     private func addZone() {
-        zones.append(Zone(name: "Zone \(zones.count + 1)"))
+//        zones.append(Zone(name: "Zone \(zones.count + 1)"))
     }
     
     private func save() {
-        if zones.isEmpty {
-            showingAlert.toggle()
-        } else {
-            let newGym = Gym(name: gymName, zones: [])
-            modelContext.insert(newGym)
-            newGym.addZones(zones)
-            gymId = newGym.id
-            presentationMode.wrappedValue.dismiss()
-        }
+//        if zones.isEmpty {
+//            showingAlert.toggle()
+//        } else {
+//            let newGym = Gym(name: gymName, zones: [])
+//            modelContext.insert(newGym)
+//            newGym.addZones(zones)
+//            gymId = newGym.id
+//            presentationMode.wrappedValue.dismiss()
+//        }
     }
     
     private func deleteZone(at offsets: IndexSet) {
-        zones.remove(atOffsets: offsets)
+//        zones.remove(atOffsets: offsets)
     }
 }
 

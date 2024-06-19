@@ -54,10 +54,10 @@ extension AddClimbsView {
         }
         
         func submit() {
-            for grade in grades {
-                let newClimb = Climb(grade: grade)
-                modelContext.insert(newClimb)
-            }
+//            for grade in grades {
+//                let newClimb = Climb(grade: grade)
+//                modelContext.insert(newClimb)
+//            }
             showingSheet.wrappedValue = false
         }
         

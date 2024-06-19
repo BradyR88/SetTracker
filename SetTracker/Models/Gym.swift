@@ -12,23 +12,13 @@ import SwiftData
 final class Gym {
     let id: UUID
     var name: String
-    @Relationship(deleteRule: .cascade, inverse: \Zone.gym)  var zones: [Zone]
+    @Relationship(deleteRule: .cascade, inverse: \Climb.gym) var climbs: [Climb]
     var difficultyCurve: DifficultyCurve
     
-    var climbs: [Climb] {
-        get {
-            zones.flatMap { $0.climbs }
-        }
-    }
-    
-    func addZones(_ zones: [Zone]) {
-        self.zones.insert(contentsOf: zones, at: 0)
-    }
-    
-    init(name: String, zones: [Zone], difficultyCurve: DifficultyCurve = DifficultyCurve()) {
+    init(name: String, difficultyCurve: DifficultyCurve = DifficultyCurve()) {
         self.id = UUID()
         self.name = name
-        self.zones = zones
+        self.climbs = []
         self.difficultyCurve = difficultyCurve
     }
 }

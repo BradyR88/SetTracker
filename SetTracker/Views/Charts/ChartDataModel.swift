@@ -19,20 +19,22 @@ import SwiftUI
             self.allClimbs = climbData(climbs: climbs)
             self.allStyle = styleData(climbs: climbs)
             self.zoneClimbs = climbData(climbs: zone ?? [])
-            self.difficultyCurve = setDifficultyCurve(curve: climbs.first?.zone?.gym?.difficultyCurve, climbCount: climbs.count)
+//            self.difficultyCurve = setDifficultyCurve(curve: climbs.first?.zone?.gym?.difficultyCurve, climbCount: climbs.count)
         }
     }
     
     private func climbData(climbs: [Climb]) -> [BarEntry] {
-        return climbs.map {BarEntry(name: String($0.grade), number: 1)}
+//        return climbs.map {BarEntry(name: String($0.grade), number: 1)}
+        []
     }
     
     private func styleData(climbs: [Climb]) -> [BarEntry] {
-        climbs.flatMap { climb in
-            climb.style.compactMap { style in
-                BarEntry(name: style.rawValue, number: 1)
-            }
-        }
+//        climbs.flatMap { climb in
+//            climb.style.compactMap { style in
+//                BarEntry(name: style.rawValue, number: 1)
+//            }
+//        }
+        []
     }
     
     private func setDifficultyCurve(curve: DifficultyCurve?, climbCount: Int) -> [BarEntry] {

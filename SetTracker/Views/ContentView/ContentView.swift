@@ -44,7 +44,7 @@ struct ContentView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Climb.self, configurations: config)
         
-        let example = Climb(grade: 1)
+        let example = Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"))
         return ContentView()
             .modelContainer(container)
             .onAppear {

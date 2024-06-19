@@ -22,7 +22,7 @@ struct ClimbsListView: View {
     
     init(sort: SortDescriptor<Climb>) {
         _climbs = Query(filter: #Predicate {
-            $0.grade > 0 // TODO: Placeholder showing how to do a filterd serch
+            $0.grade.vEquivalent > 0 // TODO: Placeholder showing how to do a filterd serch
         },sort: [sort])
     }
 }

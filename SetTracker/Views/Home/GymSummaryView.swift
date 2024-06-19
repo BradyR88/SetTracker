@@ -16,23 +16,23 @@ struct GymSummaryView: View {
         VStack {
             AllChartsView()
             
-            List(gym.zones.sorted()) { zone in
-                NavigationLink(value: zone) {
-                    ZoneBarView(zone: zone)
-                }
-                .swipeActions {
-                    Button {
-                        zone.reset()
-                    } label: {
-                        Label("Reset", systemImage: "arrow.down.app")
-                    }
-                    .tint(.purple)
-                }
-            }
+//            List(gym.zones.sorted()) { zone in
+//                NavigationLink(value: zone) {
+//                    //ZoneBarView(zone: zone)
+//                }
+//                .swipeActions {
+//                    Button {
+////                        zone.reset()
+//                    } label: {
+//                        Label("Reset", systemImage: "arrow.down.app")
+//                    }
+//                    .tint(.purple)
+//                }
+//            }
         }
-        .navigationDestination(for: Zone.self) { zone in
-            ZoneSummaryView(zone: zone)
-        }
+//        .navigationDestination(for: Zone.self) { zone in
+//            ZoneSummaryView(zone: zone)
+//        }
         .onAppear {
             chartVM.setUp(gym.climbs)
         }
