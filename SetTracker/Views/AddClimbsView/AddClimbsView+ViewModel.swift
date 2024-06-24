@@ -15,8 +15,9 @@ extension AddClimbsView {
         
         //MARK: State
         
-        private let modelContext: ModelContext
+        private let dataController: DataController
         private var showingSheet: Binding<Bool>
+        private let gym: Gym
         
         let gradeOptions = 1...14
         let zones = ["Zone 1", "Zone 2", "Zone 3"]
@@ -34,8 +35,25 @@ extension AddClimbsView {
         //MARK: Initializer
         
         init(modelContext: ModelContext, showingSheet: Binding<Bool>) {
-            self.modelContext = modelContext
+            self.dataController = DataControllerLive(modelContext: modelContext)
             self.showingSheet = showingSheet
+            
+            let gymID: String = UserDefaults.standard.object(forKey: "gymId") as? String ?? ""
+            let gymUUID = UUID(uuidString: gymID)
+            let fetchDescriptor = FetchDescriptor<Gym>(predicate: #Predicate { gym in
+                if let gymUUID {
+                    gym.id == gymUUID
+                } else {
+                    false
+                }
+            })
+            do {
+                let fetchedGyms = try modelContext.fetch(fetchDescriptor)
+                self.gym = fetchedGyms.first ?? Gym(name: "New Gym")
+            } catch {
+                fatalError("Failed to load Gym model in AddClimbsView ViewModel")
+                //self.gym = Gym(name: "New Gym")
+            }
         }
         
         //MARK: Actions
@@ -54,10 +72,14 @@ extension AddClimbsView {
         }
         
         func submit() {
-//            for grade in grades {
-//                let newClimb = Climb(grade: grade)
-//                modelContext.insert(newClimb)
-//            }
+            let newClimbs = grades.map {
+                Climb(
+                    grade: Grade(vGrade: $0),
+                    gym: gym,
+                    zone: zoneSelection
+                )
+            }
+            dataController.add(climbs: newClimbs, zoneBehavior: .replace(zones: [zoneSelection]))
             showingSheet.wrappedValue = false
         }
         

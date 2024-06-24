@@ -10,6 +10,8 @@
 		7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */; };
 		732CCA212BF6A01D008AFF48 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CCA202BF6A01D008AFF48 /* SettingsView.swift */; };
 		733D0BF62C23239500F1AF9D /* GradeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D0BF52C23239500F1AF9D /* GradeTypes.swift */; };
+		733D0BFA2C23587900F1AF9D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D0BF92C23587900F1AF9D /* DataController.swift */; };
+		733D0BFC2C235A6700F1AF9D /* DataControllerLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D0BFB2C235A6700F1AF9D /* DataControllerLive.swift */; };
 		734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */; };
 		73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553BF32A33B375005974C8 /* SetTrackerApp.swift */; };
 		73553BF82A33B377005974C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BF72A33B377005974C8 /* Assets.xcassets */; };
@@ -77,6 +79,8 @@
 		7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudView.swift; sourceTree = "<group>"; };
 		732CCA202BF6A01D008AFF48 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		733D0BF52C23239500F1AF9D /* GradeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTypes.swift; sourceTree = "<group>"; };
+		733D0BF92C23587900F1AF9D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		733D0BFB2C235A6700F1AF9D /* DataControllerLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataControllerLive.swift; sourceTree = "<group>"; };
 		734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGradeChart.swift; sourceTree = "<group>"; };
 		73553BF02A33B375005974C8 /* SetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73553BF32A33B375005974C8 /* SetTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackerApp.swift; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		733D0BF82C23583600F1AF9D /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				733D0BF92C23587900F1AF9D /* DataController.swift */,
+				733D0BFB2C235A6700F1AF9D /* DataControllerLive.swift */,
+			);
+			path = DataController;
+			sourceTree = "<group>";
+		};
 		73553BE72A33B375005974C8 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +197,7 @@
 			children = (
 				73553BF32A33B375005974C8 /* SetTrackerApp.swift */,
 				738FA2662A33EA4700CAB9CA /* Views */,
+				733D0BF82C23583600F1AF9D /* DataController */,
 				73553C1F2A33B38A005974C8 /* Models */,
 				73F2389D2A5A3CDC005EA147 /* Helper */,
 				73553BF92A33B377005974C8 /* Preview Content */,
@@ -515,6 +529,8 @@
 				73B6F9A72A3A2A1B005AF153 /* GradeChartView.swift in Sources */,
 				738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */,
 				73DE6BEE2BF7D53800006E8B /* ClimbsListView.swift in Sources */,
+				733D0BFA2C23587900F1AF9D /* DataController.swift in Sources */,
+				733D0BFC2C235A6700F1AF9D /* DataControllerLive.swift in Sources */,
 				73DE6BF02BF7D69A00006E8B /* ClimbsTabView.swift in Sources */,
 				735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */,
 				7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */,

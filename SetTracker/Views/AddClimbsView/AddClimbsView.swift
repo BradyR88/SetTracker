@@ -121,7 +121,7 @@ struct AddClimbsView: View {
         let container = try ModelContainer(for: Climb.self, configurations: config)
         let modelContext = container.mainContext
         
-        let example = Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"))
+        //let example = Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"))
         return AddClimbsView(modelContext: modelContext, showingSheet: .constant(true))
     } catch {
         fatalError("Failed to create model container.")
