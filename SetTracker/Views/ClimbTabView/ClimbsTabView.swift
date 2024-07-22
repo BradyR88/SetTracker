@@ -9,6 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ClimbsTabView: View {
+    //@Query private var climbs: [Gym]
     @State private var sortOrder = SortDescriptor(\Climb.grade)
     let showSheet: () -> Void
     

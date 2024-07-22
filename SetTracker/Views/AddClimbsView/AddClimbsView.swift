@@ -12,7 +12,7 @@ struct AddClimbsView: View {
     @Bindable var viewModel: ViewModel
     
     init(modelContext: ModelContext, showingSheet: Binding<Bool>) {
-        viewModel = ViewModel(modelContext: modelContext, showingSheet: showingSheet)
+        self.viewModel = ViewModel(modelContext: modelContext, showingSheet: showingSheet)
     }
     
     var body: some View {

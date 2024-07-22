@@ -39,13 +39,10 @@ extension AddClimbsView {
             self.showingSheet = showingSheet
             
             let gymID: String = UserDefaults.standard.object(forKey: "gymId") as? String ?? ""
-            let gymUUID = UUID(uuidString: gymID)
+            let gymUUID = UUID(uuidString: gymID) ?? UUID()
             let fetchDescriptor = FetchDescriptor<Gym>(predicate: #Predicate { gym in
-                if let gymUUID {
-                    gym.id == gymUUID
-                } else {
-                    false
-                }
+                 gym.id == gymUUID
+                
             })
             do {
                 let fetchedGyms = try modelContext.fetch(fetchDescriptor)

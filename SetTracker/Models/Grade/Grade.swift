@@ -21,6 +21,12 @@ class Grade {
     }
 }
 
+extension Grade: CustomStringConvertible {
+    var description: String {
+        grade
+    }
+}
+
 extension Grade: Comparable {
     static func < (lhs: Grade, rhs: Grade) -> Bool {
         lhs.vEquivalent < rhs.vEquivalent
