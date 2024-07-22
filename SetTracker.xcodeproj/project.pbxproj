@@ -172,6 +172,15 @@
 			path = DataController;
 			sourceTree = "<group>";
 		};
+		734646212C4EAAB200B75F6D /* OldViews */ = {
+			isa = PBXGroup;
+			children = (
+				7392AD2F2A5F76430031E07A /* Zone */,
+				73F2389A2A5A31A3005EA147 /* Home */,
+			);
+			path = OldViews;
+			sourceTree = "<group>";
+		};
 		73553BE72A33B375005974C8 = {
 			isa = PBXGroup;
 			children = (
@@ -306,10 +315,9 @@
 				73DE6BEC2BF7D51100006E8B /* ClimbTabView */,
 				736D11E62BFD170A006A2EC1 /* ChartTabView */,
 				732CCA1F2BF6A003008AFF48 /* Settings */,
-				73F2389A2A5A31A3005EA147 /* Home */,
-				7392AD2F2A5F76430031E07A /* Zone */,
 				73B6F9A52A3A29E5005AF153 /* Charts */,
 				738F15BB2A60BF630052131C /* HelperView */,
+				734646212C4EAAB200B75F6D /* OldViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
