@@ -38,19 +38,8 @@ extension AddClimbsView {
             self.dataController = DataControllerLive(modelContext: modelContext)
             self.showingSheet = showingSheet
             
-            let gymID: String = UserDefaults.standard.object(forKey: "gymId") as? String ?? ""
-            let gymUUID = UUID(uuidString: gymID) ?? UUID()
-            let fetchDescriptor = FetchDescriptor<Gym>(predicate: #Predicate { gym in
-                 gym.id == gymUUID
-                
-            })
-            do {
-                let fetchedGyms = try modelContext.fetch(fetchDescriptor)
-                self.gym = fetchedGyms.first ?? Gym(name: "New Gym")
-            } catch {
-                fatalError("Failed to load Gym model in AddClimbsView ViewModel")
-                //self.gym = Gym(name: "New Gym")
-            }
+            let dataFetcher = DataFetcherLive(modelContext: modelContext)
+            self.gym = dataFetcher.selectedGym()
         }
         
         //MARK: Actions

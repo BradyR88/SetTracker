@@ -13,6 +13,9 @@
 		733D0BFA2C23587900F1AF9D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D0BF92C23587900F1AF9D /* DataController.swift */; };
 		733D0BFC2C235A6700F1AF9D /* DataControllerLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D0BFB2C235A6700F1AF9D /* DataControllerLive.swift */; };
 		734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */; };
+		734646232C4EAB9E00B75F6D /* ClimbsListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734646222C4EAB9E00B75F6D /* ClimbsListView+ViewModel.swift */; };
+		734646262C4F033100B75F6D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734646252C4F033100B75F6D /* DataFetcher.swift */; };
+		734646282C4F042C00B75F6D /* DataFetcherLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734646272C4F042C00B75F6D /* DataFetcherLive.swift */; };
 		73553BF42A33B375005974C8 /* SetTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73553BF32A33B375005974C8 /* SetTrackerApp.swift */; };
 		73553BF82A33B377005974C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BF72A33B377005974C8 /* Assets.xcassets */; };
 		73553BFB2A33B377005974C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73553BFA2A33B377005974C8 /* Preview Assets.xcassets */; };
@@ -82,6 +85,9 @@
 		733D0BF92C23587900F1AF9D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		733D0BFB2C235A6700F1AF9D /* DataControllerLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataControllerLive.swift; sourceTree = "<group>"; };
 		734446132AEAF2AE00F5C418 /* MiniGradeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGradeChart.swift; sourceTree = "<group>"; };
+		734646222C4EAB9E00B75F6D /* ClimbsListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClimbsListView+ViewModel.swift"; sourceTree = "<group>"; };
+		734646252C4F033100B75F6D /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		734646272C4F042C00B75F6D /* DataFetcherLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherLive.swift; sourceTree = "<group>"; };
 		73553BF02A33B375005974C8 /* SetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73553BF32A33B375005974C8 /* SetTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTrackerApp.swift; sourceTree = "<group>"; };
 		73553BF72A33B377005974C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +187,15 @@
 			path = OldViews;
 			sourceTree = "<group>";
 		};
+		734646242C4F030C00B75F6D /* DataFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				734646252C4F033100B75F6D /* DataFetcher.swift */,
+				734646272C4F042C00B75F6D /* DataFetcherLive.swift */,
+			);
+			path = DataFetcher;
+			sourceTree = "<group>";
+		};
 		73553BE72A33B375005974C8 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +222,7 @@
 				73553BF32A33B375005974C8 /* SetTrackerApp.swift */,
 				738FA2662A33EA4700CAB9CA /* Views */,
 				733D0BF82C23583600F1AF9D /* DataController */,
+				734646242C4F030C00B75F6D /* DataFetcher */,
 				73553C1F2A33B38A005974C8 /* Models */,
 				73F2389D2A5A3CDC005EA147 /* Helper */,
 				73553BF92A33B377005974C8 /* Preview Content */,
@@ -364,6 +380,7 @@
 			children = (
 				73DE6BEF2BF7D69A00006E8B /* ClimbsTabView.swift */,
 				73DE6BED2BF7D53700006E8B /* ClimbsListView.swift */,
+				734646222C4EAB9E00B75F6D /* ClimbsListView+ViewModel.swift */,
 			);
 			path = ClimbTabView;
 			sourceTree = "<group>";
@@ -523,11 +540,13 @@
 				73ACA5062A8AA8120098A507 /* ColorPicker.swift in Sources */,
 				737B22ED2BF528D40003A9AF /* AddClimbsView.swift in Sources */,
 				735FFB4A2A3527900098C791 /* AddGymView.swift in Sources */,
+				734646282C4F042C00B75F6D /* DataFetcherLive.swift in Sources */,
 				73C35E842A857F27004B05D3 /* DifficultyCurveView.swift in Sources */,
 				732CCA212BF6A01D008AFF48 /* SettingsView.swift in Sources */,
 				73553C292A33B3DA005974C8 /* Grade.swift in Sources */,
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
 				7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */,
+				734646232C4EAB9E00B75F6D /* ClimbsListView+ViewModel.swift in Sources */,
 				73553C232A33B3C9005974C8 /* Gym.swift in Sources */,
 				736D11EC2BFD1775006A2EC1 /* BigGradeBarChart+ViewModel.swift in Sources */,
 				73E2BF392A8D9EC900843376 /* GlobalModelContext.swift in Sources */,
@@ -541,6 +560,7 @@
 				733D0BFC2C235A6700F1AF9D /* DataControllerLive.swift in Sources */,
 				73DE6BF02BF7D69A00006E8B /* ClimbsTabView.swift in Sources */,
 				735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */,
+				734646262C4F033100B75F6D /* DataFetcher.swift in Sources */,
 				7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */,
 				734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */,
 				73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */,

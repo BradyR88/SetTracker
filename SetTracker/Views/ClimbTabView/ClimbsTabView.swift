@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ClimbsTabView: View {
-    //@Query private var climbs: [Gym]
+    @Environment(\.modelContext) private var modelContext
     @State private var sortOrder = SortDescriptor(\Climb.grade)
     let showSheet: () -> Void
     
@@ -21,7 +21,7 @@ struct ClimbsTabView: View {
                 .overlay {
                     Text("some controls")
                 }
-            ClimbsListView(sort: sortOrder)
+            ClimbsListView(sort: sortOrder, modelContext: modelContext)
         }
         .buttonOverlay {
             showSheet()
