@@ -23,11 +23,12 @@ struct ClimbsTabView: View {
                 }
             ClimbsListView(sort: sortOrder, modelContext: modelContext)
         }
-        .buttonOverlay {
+        .buttonOverlay(overlaping: true, action: {
             showSheet()
-        } label: {
+        }, label: {
             Label("Add Climbs", systemImage: "plus.app")
-        }
+        })
+        .buttonStyle(.borderedProminent)
 
     }
 }

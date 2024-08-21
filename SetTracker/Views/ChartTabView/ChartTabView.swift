@@ -19,6 +19,7 @@ struct ChartTabView: View {
             } label: {
                 Label("Add Climbs", systemImage: "plus.app")
             }
+            .buttonStyle(.borderedProminent)
     }
 }
 
