@@ -26,9 +26,7 @@ struct ClimbsListView: View {
     init(sort: SortDescriptor<Climb>, modelContext: ModelContext) {
         self.viewModel = ClimbsListView.ViewModel(modelContext: modelContext)
         
-        _climbs = Query(filter: #Predicate {
-            $0.grade.vEquivalent > 0 // TODO: Placeholder showing how to do a filterd serch
-        },sort: [sort])
+        _climbs = Query(sort: [sort])
     }
 }
 
