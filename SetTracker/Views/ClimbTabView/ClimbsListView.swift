@@ -13,21 +13,57 @@ struct ClimbsListView: View {
     @Query private var climbs: [Climb]
     
     var body: some View {
-        List {
-            ForEach(climbs) { climb in
-                Text("\(climb.grade)")
+        Group {
+            switch self.viewModel.sort {
+            case .zone:
+                self.zoneList
+            default:
+                self.simpleList
             }
-            .onDelete(perform: { indexSet in
-                viewModel.delete(at: indexSet, from: climbs)
-            })
         }
         .toolbar {
             EditButton()
         }
+        .onAppear {
+            self.viewModel.processClimbs(self.climbs)
+        }
     }
     
+    private var simpleList: some View {
+        List {
+            ForEach(self.climbs) { climb in
+                Text("\(climb.grade)")
+            }
+            .onDelete(perform: { indexSet in
+                viewModel.delete(at: indexSet)
+            })
+        }
+    }
+    
+    private var zoneList: some View {
+        List {
+            ForEach(self.viewModel.climbsZoned.keys.sorted(), id: \.self) { zone in
+                Section {
+                    ForEach(self.viewModel.climbsZoned[zone]!) { climb in
+                        Text("\(climb.grade)")
+                    }
+                } header: {
+                    Text(zone)
+                }
+            }
+            .onDelete(perform: { indexSet in
+                viewModel.delete(at: indexSet)
+            })
+        }
+    }
+    
+    // MARK: Initializer
+    
     init(sort: SortOrder, modelContext: ModelContext) {
-        self.viewModel = ClimbsListView.ViewModel(modelContext: modelContext)
+        self.viewModel = ClimbsListView.ViewModel(
+            modelContext: modelContext,
+            sort: sort
+        )
         
         _climbs = Query(sort: sort.sortDescriptor)
     }
@@ -39,8 +75,14 @@ struct ClimbsListView: View {
         let container = try ModelContainer(for: Climb.self, configurations: config)
         let modelContext = container.mainContext
         
-        let example = Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"))
-        return ClimbsListView(sort: .date, modelContext: modelContext)
+        let example1 = Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"), zone: "1")
+        let example2 = Climb(grade: Grade(vGrade: 2), gym: Gym(name: "test"), zone: "2")
+        return ClimbsListView(sort: .zone, modelContext: modelContext)
+            .modelContainer(container)
+            .onAppear {
+                container.mainContext.insert(example1)
+                container.mainContext.insert(example2)
+            }
     } catch {
         fatalError("Failed to create model container.")
     }
