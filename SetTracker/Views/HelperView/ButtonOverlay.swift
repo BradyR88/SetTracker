@@ -40,6 +40,7 @@ struct ButtonOverlay<Label : View>: ViewModifier {
             label()
         }
         .padding()
+        .buttonStyle(.borderedProminent)
     }
     
     private func overlapingView(
@@ -62,6 +63,7 @@ struct ButtonOverlay<Label : View>: ViewModifier {
                 .frame(minHeight: 0, maxHeight: .infinity)
             self.button()
         }
+        
     }
 }
 
@@ -83,7 +85,6 @@ extension View {
             } label: {
                 Text("test")
             }
-            .buttonStyle(.borderedProminent)
         
         Divider()
         
@@ -93,6 +94,5 @@ extension View {
             } label: {
                 Text("test")
             }
-            .buttonStyle(.borderedProminent)
     }
 }

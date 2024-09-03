@@ -39,6 +39,8 @@
 		737EDCF42A899FBA0084AA89 /* HorizontalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */; };
 		7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FCAC2A8E705300B8C83D /* HoldColors.swift */; };
 		7381FCAF2A8E708800B8C83D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FCAE2A8E708800B8C83D /* Style.swift */; };
+		73850D672C7E3F5500F11892 /* SortBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73850D662C7E3F5500F11892 /* SortBarView.swift */; };
+		73850D6A2C7E3FBB00F11892 /* SortEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73850D692C7E3FBB00F11892 /* SortEnum.swift */; };
 		738F15BD2A60BFC40052131C /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F15BC2A60BFC40052131C /* MultiPicker.swift */; };
 		738FA2652A33D94100CAB9CA /* ClimbTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2642A33D94100CAB9CA /* ClimbTest.swift */; };
 		738FA2682A33EA6500CAB9CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FA2672A33EA6500CAB9CA /* HomeView.swift */; };
@@ -114,6 +116,8 @@
 		737EDCF32A899FBA0084AA89 /* HorizontalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPicker.swift; sourceTree = "<group>"; };
 		7381FCAC2A8E705300B8C83D /* HoldColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldColors.swift; sourceTree = "<group>"; };
 		7381FCAE2A8E708800B8C83D /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		73850D662C7E3F5500F11892 /* SortBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortBarView.swift; sourceTree = "<group>"; };
+		73850D692C7E3FBB00F11892 /* SortEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortEnum.swift; sourceTree = "<group>"; };
 		738F15BC2A60BFC40052131C /* MultiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPicker.swift; sourceTree = "<group>"; };
 		738FA2642A33D94100CAB9CA /* ClimbTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbTest.swift; sourceTree = "<group>"; };
 		738FA2672A33EA6500CAB9CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -311,6 +315,15 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		73850D682C7E3F9A00F11892 /* SortBar */ = {
+			isa = PBXGroup;
+			children = (
+				73850D662C7E3F5500F11892 /* SortBarView.swift */,
+				73850D692C7E3FBB00F11892 /* SortEnum.swift */,
+			);
+			path = SortBar;
+			sourceTree = "<group>";
+		};
 		738F15BB2A60BF630052131C /* HelperView */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +394,7 @@
 				73DE6BEF2BF7D69A00006E8B /* ClimbsTabView.swift */,
 				73DE6BED2BF7D53700006E8B /* ClimbsListView.swift */,
 				734646222C4EAB9E00B75F6D /* ClimbsListView+ViewModel.swift */,
+				73850D682C7E3F9A00F11892 /* SortBar */,
 			);
 			path = ClimbTabView;
 			sourceTree = "<group>";
@@ -544,6 +558,7 @@
 				73C35E842A857F27004B05D3 /* DifficultyCurveView.swift in Sources */,
 				732CCA212BF6A01D008AFF48 /* SettingsView.swift in Sources */,
 				73553C292A33B3DA005974C8 /* Grade.swift in Sources */,
+				73850D6A2C7E3FBB00F11892 /* SortEnum.swift in Sources */,
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
 				7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */,
 				734646232C4EAB9E00B75F6D /* ClimbsListView+ViewModel.swift in Sources */,
@@ -570,6 +585,7 @@
 				73E021962A97B7CE002CDF18 /* HelperMath.swift in Sources */,
 				73DE6BF22BF7F82500006E8B /* ButtonOverlay.swift in Sources */,
 				737B22EA2BF525BA0003A9AF /* ContentView.swift in Sources */,
+				73850D672C7E3F5500F11892 /* SortBarView.swift in Sources */,
 				736DEB3B2ACC703200576D5A /* ZoneBarView.swift in Sources */,
 				73F7DCC72A6F16620068C7E4 /* DifficultyCurve.swift in Sources */,
 				7381FCAF2A8E708800B8C83D /* Style.swift in Sources */,

@@ -10,26 +10,19 @@ import SwiftUI
 
 struct ClimbsTabView: View {
     @Environment(\.modelContext) private var modelContext
-    @State private var sortOrder = SortDescriptor(\Climb.grade.vEquivalent)
+    @State private var sortOrder: SortOrder = .grade
     let showSheet: () -> Void
     
     var body: some View {
         VStack {
-            Rectangle()
-                .foregroundColor(.gray)
-                .frame(height: 68)
-                .overlay {
-                    Text("some controls")
-                }
-            ClimbsListView(sort: sortOrder, modelContext: modelContext)
+            SortBarView(sortOrder: self.$sortOrder)
+            ClimbsListView(sort: self.sortOrder, modelContext: self.modelContext)
         }
         .buttonOverlay(overlaping: true, action: {
-            showSheet()
+            self.showSheet()
         }, label: {
             Label("Add Climbs", systemImage: "plus.app")
         })
-        .buttonStyle(.borderedProminent)
-
     }
 }
 

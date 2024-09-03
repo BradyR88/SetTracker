@@ -21,12 +21,15 @@ struct ClimbsListView: View {
                 viewModel.delete(at: indexSet, from: climbs)
             })
         }
+        .toolbar {
+            EditButton()
+        }
     }
     
-    init(sort: SortDescriptor<Climb>, modelContext: ModelContext) {
+    init(sort: SortOrder, modelContext: ModelContext) {
         self.viewModel = ClimbsListView.ViewModel(modelContext: modelContext)
         
-        _climbs = Query(sort: [sort])
+        _climbs = Query(sort: sort.sortDescriptor)
     }
 }
 
@@ -36,8 +39,8 @@ struct ClimbsListView: View {
         let container = try ModelContainer(for: Climb.self, configurations: config)
         let modelContext = container.mainContext
         
-        //let example = Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"))
-        return ClimbsListView(sort: SortDescriptor(\Climb.grade), modelContext: modelContext)
+        let example = Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"))
+        return ClimbsListView(sort: .date, modelContext: modelContext)
     } catch {
         fatalError("Failed to create model container.")
     }

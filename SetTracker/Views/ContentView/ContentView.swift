@@ -13,29 +13,31 @@ struct ContentView: View {
     @Bindable var viewModel = ContentView.ViewModel()
     
     var body: some View {
-        TabView {
-            ChartTabView(showSheet: viewModel.showSheet)
-                .tabItem {
-                    Label("Charts", systemImage: "chart.line.uptrend.xyaxis")
-                }
-            
-            ClimbsTabView(showSheet: viewModel.showSheet)
-                .tabItem {
-                    Label("Climbs", systemImage: "list.bullet.circle")
-                }
-            
-            SettingsView(showSheet: viewModel.showSheet)
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
+        NavigationStack {
+            TabView {
+                ChartTabView(showSheet: viewModel.showSheet)
+                    .tabItem {
+                        Label("Charts", systemImage: "chart.line.uptrend.xyaxis")
+                    }
+                
+                ClimbsTabView(showSheet: viewModel.showSheet)
+                    .tabItem {
+                        Label("Climbs", systemImage: "list.bullet.circle")
+                    }
+                
+                SettingsView(showSheet: viewModel.showSheet)
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
+            }
+            .sheet(isPresented: $viewModel.showingSheet,
+                   content: {
+                AddClimbsView(
+                    modelContext: modelContext,
+                    showingSheet: $viewModel.showingSheet
+                )
+            })
         }
-        .sheet(isPresented: $viewModel.showingSheet,
-               content: {
-            AddClimbsView(
-                modelContext: modelContext,
-                showingSheet: $viewModel.showingSheet
-            )
-        })
     }
 }
 
