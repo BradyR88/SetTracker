@@ -46,7 +46,13 @@ extension ClimbsListView {
         
         func delete(at offsets: IndexSet) {
             let toBeDelete = offsets.map { self.climbs[$0] }
-            dataController.delete(climbs: toBeDelete)
+            self.dataController.delete(climbs: toBeDelete)
+        }
+        
+        func delete(at offsets: IndexSet, from zone: String) {
+            let zoneClimbs = self.climbsZoned[zone] ?? []
+            let toBeDelete = offsets.map { zoneClimbs[$0] }
+            self.dataController.delete(climbs: toBeDelete)
         }
         
         // givs the viewModel a coppy of the climbs so that it can set up the zone sort order and sections

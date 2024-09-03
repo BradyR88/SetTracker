@@ -24,9 +24,9 @@ struct ClimbsListView: View {
         .toolbar {
             EditButton()
         }
-        .onAppear {
+        .onChange(of: self.climbs, {
             self.viewModel.processClimbs(self.climbs)
-        }
+        })
     }
     
     private var simpleList: some View {
@@ -47,13 +47,13 @@ struct ClimbsListView: View {
                     ForEach(self.viewModel.climbsZoned[zone]!) { climb in
                         Text("\(climb.grade)")
                     }
+                    .onDelete(perform: { indexSet in
+                        self.viewModel.delete(at: indexSet, from: zone)
+                    })
                 } header: {
                     Text(zone)
                 }
             }
-            .onDelete(perform: { indexSet in
-                viewModel.delete(at: indexSet)
-            })
         }
     }
     
@@ -77,7 +77,7 @@ struct ClimbsListView: View {
         
         let example1 = Climb(grade: Grade(vGrade: 1), gym: Gym(name: "test"), zone: "1")
         let example2 = Climb(grade: Grade(vGrade: 2), gym: Gym(name: "test"), zone: "2")
-        return ClimbsListView(sort: .zone, modelContext: modelContext)
+        return ClimbsListView(sort: .date, modelContext: modelContext)
             .modelContainer(container)
             .onAppear {
                 container.mainContext.insert(example1)

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ClimbsTabView: View {
     @Environment(\.modelContext) private var modelContext
-    @State private var sortOrder: SortOrder = .grade
+    @State private var sortOrder: SortOrder = .zone
     let showSheet: () -> Void
     
     var body: some View {

@@ -10,8 +10,9 @@ import Foundation
 
 enum SortOrder: String, CaseIterable, Identifiable {
     case date = "Date"
-    case grade = "Grade"
     case zone = "Zone"
+    case grade = "Grade"
+    
     
     var id: String { return self.rawValue }
     
