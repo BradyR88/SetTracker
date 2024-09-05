@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7303CBC42A6EF9BF0073C51A /* TagCloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */; };
+		7317DA5D2C8A4D02008756AF /* SettingsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7317DA5C2C8A4D02008756AF /* SettingsView+ViewModel.swift */; };
+		7317DA5F2C8A5D76008756AF /* SettingsView+TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7317DA5E2C8A5D76008756AF /* SettingsView+TagView.swift */; };
 		732CCA212BF6A01D008AFF48 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CCA202BF6A01D008AFF48 /* SettingsView.swift */; };
 		733D0BF62C23239500F1AF9D /* GradeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D0BF52C23239500F1AF9D /* GradeTypes.swift */; };
 		733D0BFA2C23587900F1AF9D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D0BF92C23587900F1AF9D /* DataController.swift */; };
@@ -82,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		7303CBC32A6EF9BF0073C51A /* TagCloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudView.swift; sourceTree = "<group>"; };
+		7317DA5C2C8A4D02008756AF /* SettingsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView+ViewModel.swift"; sourceTree = "<group>"; };
+		7317DA5E2C8A5D76008756AF /* SettingsView+TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView+TagView.swift"; sourceTree = "<group>"; };
 		732CCA202BF6A01D008AFF48 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		733D0BF52C23239500F1AF9D /* GradeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTypes.swift; sourceTree = "<group>"; };
 		733D0BF92C23587900F1AF9D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				732CCA202BF6A01D008AFF48 /* SettingsView.swift */,
+				7317DA5C2C8A4D02008756AF /* SettingsView+ViewModel.swift */,
+				7317DA5E2C8A5D76008756AF /* SettingsView+TagView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -560,6 +566,7 @@
 				73553C292A33B3DA005974C8 /* Grade.swift in Sources */,
 				73850D6A2C7E3FBB00F11892 /* SortEnum.swift in Sources */,
 				73553C272A33B3D5005974C8 /* Climb.swift in Sources */,
+				7317DA5F2C8A5D76008756AF /* SettingsView+TagView.swift in Sources */,
 				7392AD312A5F76990031E07A /* ClimbDescriptionView.swift in Sources */,
 				734646232C4EAB9E00B75F6D /* ClimbsListView+ViewModel.swift in Sources */,
 				73553C232A33B3C9005974C8 /* Gym.swift in Sources */,
@@ -576,6 +583,7 @@
 				73DE6BF02BF7D69A00006E8B /* ClimbsTabView.swift in Sources */,
 				735FFB4C2A3634410098C791 /* GymSummaryView.swift in Sources */,
 				734646262C4F033100B75F6D /* DataFetcher.swift in Sources */,
+				7317DA5D2C8A4D02008756AF /* SettingsView+ViewModel.swift in Sources */,
 				7381FCAD2A8E705300B8C83D /* HoldColors.swift in Sources */,
 				734446142AEAF2AE00F5C418 /* MiniGradeChart.swift in Sources */,
 				73A5A0072A66F19400ED0B12 /* AllChartsView.swift in Sources */,

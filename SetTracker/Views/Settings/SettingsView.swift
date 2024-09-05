@@ -8,21 +8,35 @@
 import SwiftUI
 
 struct SettingsView: View {
-    var showSheet: () -> Void
+    @Bindable var viewModel: ViewModel = ViewModel()
     
     var body: some View {
-        VStack {
-            Text("SettingsView")
-            Button {
-                showSheet()
-            } label: {
-                Text("Show Sheet")
-            }
-
+        Form {
+            self.setterSection
+        }
+    }
+    
+    //MARK: Setter Section
+    @ViewBuilder
+    private var setterSection: some View {
+        SettingsView.TagView(
+            title: "Setters",
+            tags: viewModel.setters,
+            textFieldTitle: "New Setter",
+            newTag: $viewModel.newSetter,
+            onDelete: { viewModel.deleteSetter($0) },
+            onAdd: { viewModel.addSetter() }
+        )
+    }
+    
+    //MARK: Zones
+    private var zoneSection: some View {
+        Section("Zones") {
+            Text("Test")
         }
     }
 }
 
 #Preview {
-    SettingsView{}
+    SettingsView()
 }

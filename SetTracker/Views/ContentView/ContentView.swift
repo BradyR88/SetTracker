@@ -25,7 +25,7 @@ struct ContentView: View {
                         Label("Climbs", systemImage: "list.bullet.circle")
                     }
                 
-                SettingsView(showSheet: viewModel.showSheet)
+                SettingsView()
                     .tabItem {
                         Label("Settings", systemImage: "gear")
                     }
