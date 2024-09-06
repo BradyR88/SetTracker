@@ -13,6 +13,7 @@ struct SettingsView: View {
     var body: some View {
         Form {
             self.setterSection
+            self.zoneSection
         }
     }
     
@@ -31,9 +32,14 @@ struct SettingsView: View {
     
     //MARK: Zones
     private var zoneSection: some View {
-        Section("Zones") {
-            Text("Test")
-        }
+        SettingsView.TagView(
+            title: "Zones",
+            tags: viewModel.zones,
+            textFieldTitle: "New Zone",
+            newTag: $viewModel.newZone,
+            onDelete: { viewModel.deleteZone($0) },
+            onAdd: { viewModel.addZone() }
+        )
     }
 }
 
