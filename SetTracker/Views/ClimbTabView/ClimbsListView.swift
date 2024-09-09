@@ -24,6 +24,9 @@ struct ClimbsListView: View {
         .toolbar {
             EditButton()
         }
+        .onAppear {
+            self.viewModel.processClimbs(self.climbs)
+        }
         .onChange(of: self.climbs, {
             self.viewModel.processClimbs(self.climbs)
         })
