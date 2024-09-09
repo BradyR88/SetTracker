@@ -18,7 +18,6 @@ struct SettingsView: View {
     }
     
     //MARK: Setter Section
-    @ViewBuilder
     private var setterSection: some View {
         SettingsView.TagView(
             title: "Setters",
