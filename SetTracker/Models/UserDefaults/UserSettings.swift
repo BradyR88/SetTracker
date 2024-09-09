@@ -7,18 +7,19 @@
 
 import Foundation
 
-enum UserSettings {
-
-    static var zones: [String] {
-        get { return zonesInfo.get() }
-        set { zonesInfo.set(newValue) }
-    }
+struct UserSettings {
+    static let shared = UserSettings()
     
-    static var setters: [String] {
+    var setters: Array<String> {
         get { return settersInfo.get() }
         set { settersInfo.set(newValue) }
     }
 
-    private static var zonesInfo = UserDefaultInfo(key: "zonesInfo", defaultValue: Array<String>())
-    private static var settersInfo = UserDefaultInfo(key: "settersInfo", defaultValue: Array<String>())
+    var zones: [String] {
+        get { return zonesInfo.get() }
+        set { zonesInfo.set(newValue) }
+    }
+    
+    private var zonesInfo = UserDefaultInfo(key: "zonesInfo", defaultValue: Array<String>())
+    private var settersInfo = UserDefaultInfo(key: "settersInfo", defaultValue: Array<String>())
 }

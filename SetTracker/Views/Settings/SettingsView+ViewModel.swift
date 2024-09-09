@@ -13,35 +13,37 @@ extension SettingsView {
         
         //MARK: State
         
+        private var userSettings: UserSettings = UserSettings.shared
+        
         var newSetter: String = ""
         var newZone: String = ""
         
         var setters: [String] {
-            UserSettings.setters
+            userSettings.setters
         }
         var zones: [String] {
-            UserSettings.zones
+            userSettings.zones
         }
         
         //MARK: Actions
         
         func deleteSetter(_ name: String) {
-            UserSettings.setters.removeAll { $0 == name }
+            userSettings.setters.removeAll { $0 == name }
         }
         
         func addSetter() {
             guard !newSetter.isEmpty else { return }
-            UserSettings.setters.append(newSetter)
+            userSettings.setters.append(newSetter)
             newSetter = ""
         }
         
         func deleteZone(_ name: String) {
-            UserSettings.zones.removeAll { $0 == name }
+            userSettings.zones.removeAll { $0 == name }
         }
         
         func addZone() {
             guard !newZone.isEmpty else { return }
-            UserSettings.zones.append(newZone)
+            userSettings.zones.append(newZone)
             newZone = ""
         }
     }
