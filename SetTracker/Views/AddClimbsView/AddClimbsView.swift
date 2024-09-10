@@ -60,12 +60,12 @@ struct AddClimbsView: View {
         Picker("Zone", selection:
                 Binding(get: {viewModel.zoneSelection}, set: { viewModel.updateZoneSelection(to: $0)})
         ) {
+            Text("No Zone")
+                .tag("NoZone")
             ForEach(viewModel.zones, id: \.self) { zone in
                 Text(String(zone))
                     .tag(zone)
             }
-            Text("No Zone")
-                .tag("NoZone")
             Text("New Zone")
                 .tag("NewZone")
         }

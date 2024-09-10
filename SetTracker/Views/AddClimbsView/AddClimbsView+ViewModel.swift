@@ -14,19 +14,22 @@ extension AddClimbsView {
     final class ViewModel {
         
         //MARK: State
-        
+        private var userSettings: UserSettings = UserSettings.shared
         private let dataController: DataController
         private var showingSheet: Binding<Bool>
         private let gym: Gym
         
         let gradeOptions = 1...14
-        let zones = ["Zone 1", "Zone 2", "Zone 3"]
         
         var gradePickerState: Int = 1
         private(set) var grades: [Int] = []
         var zoneSelection: String = "NoZone"
         var integrationMethod: IntegrationMethod = .add
         var showIntegrationMethod = false
+        
+        var zones: [String] {
+            userSettings.zones
+        }
         
         var showContentUnavailableView: Bool {
             grades.isEmpty
