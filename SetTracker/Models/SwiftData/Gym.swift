@@ -12,7 +12,7 @@ import SwiftData
 final class Gym {
     let id: UUID
     var name: String
-    @Relationship(deleteRule: .cascade, inverse: \Climb.gym) var climbs: [Climb]
+    @Relationship(deleteRule: .cascade, inverse: \Climb.gym) var climbs: [Climb]?
     var difficultyCurve: DifficultyCurve
     
     init(name: String, difficultyCurve: DifficultyCurve = DifficultyCurve()) {

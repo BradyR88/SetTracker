@@ -68,7 +68,7 @@ extension AddClimbsView {
                     zone: zoneSelection
                 )
             }
-            dataController.add(climbs: newClimbs, zoneBehavior: .replace(zones: [zoneSelection]))
+            dataController.add(climbs: newClimbs, integrationMethod: integrationMethod, zones: [zoneSelection])
             showingSheet.wrappedValue = false
         }
         

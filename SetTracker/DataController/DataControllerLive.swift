@@ -17,11 +17,11 @@ struct DataControllerLive: DataController {
     
     //MARK: functions relevant to climb object
     
-    func add(climbs: [Climb], zoneBehavior: ZoneBehavior = .combine) {
-        switch zoneBehavior {
-        case .combine:
-            return
-        case .replace(let zones):
+    func add(climbs: [Climb], integrationMethod: IntegrationMethod = .add, zones: Array<String> = []) {
+        switch integrationMethod {
+        case .add:
+            break
+        case .replace:
             try? modelContext.delete(
                 model: Climb.self,
                 where: #Predicate { climb in zones.contains(climb.zone) }

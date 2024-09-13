@@ -74,7 +74,7 @@ struct AddClimbsView: View {
     
     private var integrationPicker: some View {
         Picker("Replace or Add", selection: $viewModel.integrationMethod) {
-            ForEach(AddClimbsView.ViewModel.IntegrationMethod.allCases, id: \.self) { method in
+            ForEach(IntegrationMethod.allCases, id: \.self) { method in
                 Text(method.rawValue.capitalized)
                     .tag(method)
             }

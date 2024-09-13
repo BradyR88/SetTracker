@@ -48,7 +48,7 @@ extension SettingsView {
                 Button {
                     onAdd()
                 } label: {
-                    Text("Add Setter")
+                    Text("Add")
                 }
                 .buttonStyle(.bordered)
             }

@@ -7,9 +7,7 @@
 
 import Foundation
 
-extension AddClimbsView.ViewModel {
-    enum IntegrationMethod: String, CaseIterable {
-        case add
-        case replace
-    }
+enum IntegrationMethod: String, CaseIterable {
+    case add
+    case replace
 }

@@ -17,15 +17,15 @@ struct ClimbsListView: View {
             switch self.viewModel.sort {
             case .zone:
                 self.zoneList
+                    .onAppear {
+                        self.viewModel.processClimbs(self.climbs)
+                    }
             default:
                 self.simpleList
             }
         }
         .toolbar {
             EditButton()
-        }
-        .onAppear {
-            self.viewModel.processClimbs(self.climbs)
         }
         .onChange(of: self.climbs, {
             self.viewModel.processClimbs(self.climbs)
