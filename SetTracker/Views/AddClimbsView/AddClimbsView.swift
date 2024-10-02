@@ -46,6 +46,7 @@ struct AddClimbsView: View {
     
     private var userInput: some View {
         VStack {
+            self.submitButton
             self.zonePicker
             if self.viewModel.showIntegrationMethod {
                 self.integrationPicker
@@ -54,6 +55,18 @@ struct AddClimbsView: View {
             self.buttonBar
         }
         .padding(.horizontal)
+    }
+    
+    private var submitButton: some View {
+        Button {
+            viewModel.submit()
+        } label: {
+            Text("Submit")
+                .frame(maxWidth: .infinity)
+                
+        }
+        .tint(.green)
+        .buttonStyle(.borderedProminent)
     }
     
     private var zonePicker: some View {
@@ -97,16 +110,10 @@ struct AddClimbsView: View {
     }
     
     private var buttonBar: some View {
-        VStack {
-            HStack {
-                Button("auto") {
-                    viewModel.autoPopulate()
-                }
-                Button("submit") {
-                    viewModel.submit()
-                }
+        HStack {
+            Button("auto") {
+                viewModel.autoPopulate()
             }
-            
             Button("Add Grade", systemImage: "plus.circle") {
                 viewModel.add()
             }
