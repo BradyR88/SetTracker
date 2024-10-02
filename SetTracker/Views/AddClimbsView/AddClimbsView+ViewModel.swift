@@ -23,7 +23,7 @@ extension AddClimbsView {
         
         var gradePickerState: Int = 1
         private(set) var grades: [Int] = []
-        var zoneSelection: String = "NoZone"
+        var zoneSelection: String = "No Zone"
         var integrationMethod: IntegrationMethod = .add
         var showIntegrationMethod = false
         
@@ -90,7 +90,7 @@ extension AddClimbsView {
         func updateZoneSelection(to newValue: String) {
             zoneSelection = newValue
             
-            if zoneSelection != "NoZone" && zoneSelection != "NewZone" {
+            if zoneSelection != "No Zone" && zoneSelection != "NewZone" {
                 withAnimation {
                     showIntegrationMethod = true
                 }
