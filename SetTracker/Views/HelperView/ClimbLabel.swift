@@ -23,6 +23,10 @@ struct ClimbLabel: View {
     var body: some View {
         HStack {
             Text(primaryText)
+            Spacer()
+            if let date = date {
+                Text(date.formatted(date: .abbreviated, time: .omitted))
+            }
         }
     }
 }

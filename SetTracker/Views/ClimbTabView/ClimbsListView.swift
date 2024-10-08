@@ -35,7 +35,7 @@ struct ClimbsListView: View {
     private var simpleList: some View {
         List {
             ForEach(self.climbs) { climb in
-                Text("\(climb.grade)")
+                ClimbLabel(grade: climb.grade.grade, setter: climb.setter, date: climb.date)
             }
             .onDelete(perform: { indexSet in
                 viewModel.delete(at: indexSet)
@@ -48,7 +48,7 @@ struct ClimbsListView: View {
             ForEach(self.viewModel.climbsZoned.keys.sorted(), id: \.self) { zone in
                 Section {
                     ForEach(self.viewModel.climbsZoned[zone]!) { climb in
-                        Text("\(climb.grade)")
+                        ClimbLabel(grade: climb.grade.grade, setter: climb.setter, date: climb.date)
                     }
                     .onDelete(perform: { indexSet in
                         self.viewModel.delete(at: indexSet, from: zone)
