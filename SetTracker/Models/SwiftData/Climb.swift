@@ -11,17 +11,19 @@ import SwiftUI
 
 @Model
 final class Climb {
-    let id: UUID
+    var id: UUID
     var date: Date
     var grade: Grade
     var gym: Gym
     var zone: String
+    var setter: String?
     
-    init(date: Date = Date(), grade: Grade, gym: Gym, zone: String = "") {
+    init(date: Date = Date(), grade: Grade, gym: Gym, zone: String = "", setter: String? = nil) {
         self.id = UUID()
         self.date = date
         self.grade = grade
         self.gym = gym
         self.zone = zone
+        self.setter = setter
     }
 }

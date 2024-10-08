@@ -30,11 +30,11 @@ struct AddClimbsView: View {
             ContentUnavailableView("No Climbs", systemImage: "figure.climbing", description: nil)
         } else {
             List {
-                ForEach(viewModel.grades, id: \.self) { grade in
+                ForEach(viewModel.newClimbs, id: \.self) { newClimb in
                     Button {
                         viewModel.editGrade()
                     } label: {
-                        Text("V" + String(grade))
+                        ClimbLabel(vGrade: newClimb.grade, setter: newClimb.setter)
                     }
                 }
                 .onDelete(perform: viewModel.deleteGrade)
@@ -51,7 +51,11 @@ struct AddClimbsView: View {
             if self.viewModel.showIntegrationMethod {
                 self.integrationPicker
             }
-            self.gradePicker
+            Divider()
+            HStack {
+                self.gradePicker
+                self.setterPicker
+            }
             self.buttonBar
         }
         .padding(.horizontal)
@@ -96,6 +100,22 @@ struct AddClimbsView: View {
     }
     
     @ViewBuilder
+    private var setterPicker: some View {
+        if viewModel.showSetterPicker {
+            Picker("Setter", selection:
+                    Binding(projectedValue: $viewModel.setterSelection)
+            ) {
+                Text("No Setter")
+                    .tag("No Setter")
+                ForEach(viewModel.setters, id: \.self) { setter in
+                    Text(String(setter))
+                        .tag(setter)
+                }
+            }
+            .pickerStyle(.wheel)
+        }
+    }
+    
     private var gradePicker: some View {
         Picker("Grade", selection:
                 Binding(get: {viewModel.gradePickerState}, set: { viewModel.gradePickerState = $0})
@@ -106,7 +126,7 @@ struct AddClimbsView: View {
             }
             
         }
-        .pickerStyle(WheelPickerStyle())
+        .pickerStyle(.wheel)
     }
     
     private var buttonBar: some View {

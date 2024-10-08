@@ -22,8 +22,9 @@ extension AddClimbsView {
         let gradeOptions = 1...14
         
         var gradePickerState: Int = 1
-        private(set) var grades: [Int] = []
+        private(set) var newClimbs: [NewClimbsModel] = []
         var zoneSelection: String = "No Zone"
+        var setterSelection: String = "No Setter"
         var integrationMethod: IntegrationMethod = .add
         var showIntegrationMethod = false
         
@@ -31,8 +32,16 @@ extension AddClimbsView {
             userSettings.zones
         }
         
+        var setters: [String] {
+            userSettings.setters
+        }
+        
         var showContentUnavailableView: Bool {
-            grades.isEmpty
+            newClimbs.isEmpty
+        }
+        
+        var showSetterPicker: Bool {
+            !setters.isEmpty
         }
         
         //MARK: Initializer
@@ -61,27 +70,27 @@ extension AddClimbsView {
         }
         
         func submit() {
-            let newClimbs = grades.map {
-                Climb(
-                    grade: Grade(vGrade: $0),
-                    gym: gym,
-                    zone: zoneSelection
-                )
-            }
-            dataController.add(climbs: newClimbs, integrationMethod: integrationMethod, zones: [zoneSelection])
+            let climbs = newClimbs.mapClimbs(gym: self.gym, zone: self.zoneSelection)
+            dataController.add(climbs: climbs, integrationMethod: integrationMethod, zones: [zoneSelection])
             showingSheet.wrappedValue = false
         }
         
         func deleteGrade(at offsets: IndexSet) {
-            grades.remove(atOffsets: offsets)
+            newClimbs.remove(atOffsets: offsets)
         }
         
         //MARK: Private Functions
         
         private func add(grade: Int) {
+            let nullableSetterName: String?
+            if setterSelection == "No Setter" {
+                nullableSetterName = nil
+            } else {
+                nullableSetterName = setterSelection
+            }
             withAnimation {
-                grades.append(grade)
-                grades.sort()
+                newClimbs.append(NewClimbsModel(grade: grade, setter: nullableSetterName) )
+                newClimbs.sort()
             }
         }
         
